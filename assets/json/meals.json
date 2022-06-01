@@ -1,0 +1,62 @@
+{
+  "starters": [
+    {
+      "name": "tatare de saumon",
+      "image": "assets/images/salmon.jpg",
+      "is_vegan": false,
+      "description" : "Ingrédients:\n..."
+    },
+    {
+      "name": "foie gras",
+      "image": "assets/images/foie_gras.jpg",
+      "is_vegan": false,
+      "description" : "Ingrédients:\n..."
+    },
+    {
+      "name": "salade tomate mozzarella",
+      "image": "assets/images/salad.jpg",
+      "is_vegan": true,
+      "description" : "Ingrédients:\n..."
+    }
+  ],
+  "main": [
+    {
+      "name": "homard",
+      "image": "assets/images/lobster.jpg",
+      "is_vegan": false,
+      "description" : "Ingrédients:\n..."
+    },
+    {
+      "name": "onglet de veau",
+      "image": "assets/images/veal.jpg",
+      "is_vegan": false,
+      "description" : "Ingrédients:\n..."
+    },
+    {
+      "name": "chili végétarien",
+      "image": "assets/images/chili.jpg",
+      "is_vegan": true,
+      "description" : "Ingrédients:\n..."
+    }
+  ],
+  "desserts": [
+    {
+      "name": "salade de fruits",
+      "image": "assets/images/fruits.jpg",
+      "is_vegan": true,
+      "description" : "Ingrédients:\n..."
+    },
+    {
+      "name": "tiramisu",
+      "image": "assets/images/tiramisu.jpg",
+      "is_vegan": true,
+      "description" : "Ingrédients:\n..."
+    },
+    {
+      "name": "plateau de fromages",
+      "image": "assets/images/cheese.jpg",
+      "is_vegan": false,
+      "description" : "Ingrédients:\n..."
+    }
+  ]
+}

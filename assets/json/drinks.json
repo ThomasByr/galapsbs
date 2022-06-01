@@ -1,0 +1,39 @@
+{
+  "drinks": [
+    {
+      "name": "Strawberry Daiquiri",
+      "sub_name": "Slushy, with a sour kick",
+      "price": "2.50",
+      "degree": "14°",
+      "image": "assets/images/strawberry.png"
+    },
+    {
+      "name": "Mojito",
+      "sub_name": "Tastes like summer",
+      "price": "2.50",
+      "degree": "12°",
+      "image": "assets/images/mojito.png"
+    },
+    {
+      "name": "Corda da Amarelo",
+      "sub_name": "A sweet and sour cocktail",
+      "price": "2.50",
+      "degree": "11°",
+      "image": "assets/images/colada.png"
+    },
+    {
+      "name": "Kivi Pina Colada",
+      "sub_name": "Nothing like a good Kiwi Pina Colada",
+      "price": "2.50",
+      "degree": "13°",
+      "image": "assets/images/kiwi.png"
+    },
+    {
+      "name": "Long Island Iced Tea",
+      "sub_name": "A refreshing drink",
+      "price": "2.50",
+      "degree": "22°",
+      "image": "assets/images/long.png"
+    }
+  ]
+}

@@ -17,8 +17,7 @@ class _MealPageState extends State<MealPage> {
   List _starters = [], _main = [], _desserts = [];
 
   Future<void> readJson() async {
-    final String response =
-        await rootBundle.loadString('assets/json/meals.json');
+    final String response = await rootBundle.loadString('assets/json/meals.json');
     final data = await json.decode(response);
 
     setState(() {

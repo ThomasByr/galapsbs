@@ -19,8 +19,7 @@ class _DrinkPageState extends State<DrinkPage> {
   List _drinks = [];
 
   Future<void> readJson() async {
-    final String response =
-        await rootBundle.loadString('assets/json/drinks.json');
+    final String response = await rootBundle.loadString('assets/json/drinks.json');
     final data = await json.decode(response);
 
     setState(() {
@@ -55,18 +54,13 @@ class _DrinkPageState extends State<DrinkPage> {
                 duration: 1000,
                 controller: SwiperController(),
                 itemCount: _drinks.length,
-                viewportFraction:
-                    window.physicalSize.width <= window.physicalSize.height
-                        ? 0.6
-                        : 0.4,
+                viewportFraction: window.physicalSize.width <= window.physicalSize.height ? 0.6 : 0.4,
                 scale: 0.7,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                    padding:
-                        const EdgeInsets.only(right: 20, left: 20, top: 30),
+                    padding: const EdgeInsets.only(right: 20, left: 20, top: 30),
                     decoration: const BoxDecoration(
-                        color: Palette.scaffold,
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                        color: Palette.scaffold, borderRadius: BorderRadius.all(Radius.circular(10))),
                     child: Column(
                       children: [
                         Text(

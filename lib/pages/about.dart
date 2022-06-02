@@ -14,9 +14,7 @@ class AboutPage extends StatefulWidget {
 class _AboutPageState extends State<AboutPage> {
   final Uri url1 = Uri.parse('https://github.com/ThomasByr');
   final Uri url2 = Uri.parse('https://github.com/LosKeeper');
-  final Uri url3 = Uri.parse(
-    'https://github.com/ThomasByr/galapsbs/blob/master/LICENSE',
-  );
+  final Uri url3 = Uri.parse('https://github.com/ThomasByr/galapsbs/blob/master/LICENSE');
 
   @override
   Widget build(BuildContext context) {

@@ -30,12 +30,10 @@ class _TeamPageState extends State<TeamPage> {
   final List<SwipeItem> _swipeItems = <SwipeItem>[];
   MatchEngine? _matchEngine;
 
-  final GlobalKey<ScaffoldMessengerState> _scaffoldKey =
-      GlobalKey<ScaffoldMessengerState>();
+  final GlobalKey<ScaffoldMessengerState> _scaffoldKey = GlobalKey<ScaffoldMessengerState>();
 
   Future<void> readJson() async {
-    final String response =
-        await rootBundle.loadString('assets/json/profiles.json');
+    final String response = await rootBundle.loadString('assets/json/profiles.json');
     final data = await json.decode(response);
 
     setState(
@@ -134,21 +132,18 @@ class _TeamPageState extends State<TeamPage> {
                                       shadowColor: Palette.purple,
                                       elevation: 12.0,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(24.0),
+                                        borderRadius: BorderRadius.circular(24.0),
                                       ),
                                       color: Palette.scaffold,
                                     ),
                                     Container(
                                       margin: const EdgeInsets.all(24.0),
                                       decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(24.0)),
+                                        borderRadius: BorderRadius.all(Radius.circular(24.0)),
                                         color: Palette.black,
                                       ),
                                       child: ClipRRect(
-                                        borderRadius: const BorderRadius.all(
-                                            Radius.circular(24.0)),
+                                        borderRadius: const BorderRadius.all(Radius.circular(24.0)),
                                         child: Image.asset(
                                           usersData[index]['image'],
                                           fit: BoxFit.cover,
@@ -166,60 +161,41 @@ class _TeamPageState extends State<TeamPage> {
                                             bottomLeft: Radius.circular(24.0),
                                             bottomRight: Radius.circular(24.0),
                                           ),
-                                          color:
-                                              Color.fromARGB(150, 51, 51, 51),
+                                          color: Color.fromARGB(150, 51, 51, 51),
                                         ),
-                                        margin: const EdgeInsets.fromLTRB(
-                                            24.0, 40.0, 24.0, 24.0),
+                                        margin: const EdgeInsets.fromLTRB(24.0, 40.0, 24.0, 24.0),
                                         child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
                                           children: <Widget>[
                                             Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.start,
                                               children: <Widget>[
-                                                Flexible(
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            4.0),
-                                                    child: Text(
-                                                      usersData[index]['name']
-                                                          .toString(),
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                      maxLines: 1,
-                                                      softWrap: false,
-                                                      style: const TextStyle(
-                                                        color: Palette.scaffold,
-                                                        fontSize: 26,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
+                                                Padding(
+                                                  padding: const EdgeInsets.all(8.0),
+                                                  child: Text(
+                                                    usersData[index]['name'].toString(),
+                                                    overflow: TextOverflow.ellipsis,
+                                                    maxLines: 1,
+                                                    softWrap: false,
+                                                    style: const TextStyle(
+                                                      color: Palette.scaffold,
+                                                      fontSize: 26,
+                                                      fontWeight: FontWeight.bold,
                                                     ),
                                                   ),
                                                 ),
-                                                Flexible(
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            4.0),
-                                                    child: Text(
-                                                      usersData[index]
-                                                              ['description']
-                                                          .toString(),
-                                                      maxLines: 3,
-                                                      softWrap: true,
-                                                      textAlign: TextAlign.left,
-                                                      style: const TextStyle(
-                                                        color: Palette.scaffold,
-                                                        fontSize: 18.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
+                                                Padding(
+                                                  padding: const EdgeInsets.only(left: 8.0),
+                                                  child: Text(
+                                                    usersData[index]['description'].toString(),
+                                                    maxLines: 3,
+                                                    softWrap: true,
+                                                    textAlign: TextAlign.left,
+                                                    style: const TextStyle(
+                                                      color: Palette.scaffold,
+                                                      fontSize: 18.0,
+                                                      fontWeight: FontWeight.normal,
                                                     ),
                                                   ),
                                                 )
@@ -233,8 +209,7 @@ class _TeamPageState extends State<TeamPage> {
                                 );
                               },
                               onStackFinished: () {
-                                _scaffoldKey.currentState!
-                                    .showSnackBar(const SnackBar(
+                                _scaffoldKey.currentState!.showSnackBar(const SnackBar(
                                   content: Text('Stack Finished'),
                                   duration: Duration(milliseconds: 500),
                                 ));
@@ -242,8 +217,7 @@ class _TeamPageState extends State<TeamPage> {
                                 // initState();
                               },
                               itemChanged: (SwipeItem item, int index) {
-                                print(
-                                    'item: ${item.content.text}, index: $index');
+                                print('item: ${item.content.text}, index: $index');
                               },
                               upSwipeAllowed: true,
                               fillSpace: true,

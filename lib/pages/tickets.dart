@@ -28,12 +28,9 @@ class _TicketPageState extends State<TicketPage> {
           child: Center(
             child: IconButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ErrorPage(),
-                  ),
-                );
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const ErrorPage(),
+                ));
               },
               icon: const Icon(Icons.attach_money),
               iconSize: 64,

@@ -32,7 +32,7 @@ class _ErrorPageState extends State<ErrorPage> {
               ),
               const SizedBox(height: 48),
               const Text(
-                'Oups !',
+                '🙊 Oups !',
                 style: TextStyle(
                   fontSize: 48,
                   fontWeight: FontWeight.bold,

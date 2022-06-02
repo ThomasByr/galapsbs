@@ -8,4 +8,4 @@ These documents can NOT be shared in any shape or form other than the present we
 Following documents are un-licensed :
 
 - .png icons in "assets/icons"
-- .jpg images in "assets/images" OTHER than "avatar.jpg"
+- .json files in "assets/json" OTHER than "profiles.json"

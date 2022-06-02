@@ -135,7 +135,7 @@ class _AboutPageState extends State<AboutPage> {
                       const SizedBox(height: 16),
                       const Text(
                         'La totalité des ressources, textes, icônes et images de cette application sont la propriété des auteurs, des développeurs, des graphistes et des personnes concernées par leur utilisation.'
-                        'Toute reproduction, représentation, modification, adaptation, traduction, publication, adaptation de tout ou partie des documents iconographiques est interdite sans l\'autorisation préalable du développeur.\n\n'
+                        'Toute reproduction, représentation, modification, adaptation, traduction, publication, adaptation de tout ou partie des documents précédents est interdite sans l\'autorisation préalable du développeur.\n\n'
                         'Cette application est distribuée sous la license GNU GPL v3.\n',
                       ),
                       const SizedBox(height: 16),

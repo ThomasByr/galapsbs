@@ -161,9 +161,9 @@ class _TeamPageState extends State<TeamPage> {
                                             bottomLeft: Radius.circular(24.0),
                                             bottomRight: Radius.circular(24.0),
                                           ),
-                                          color: Color.fromARGB(150, 51, 51, 51),
+                                          color: Color.fromARGB(155, 51, 51, 51),
                                         ),
-                                        margin: const EdgeInsets.fromLTRB(24.0, 40.0, 24.0, 24.0),
+                                        margin: const EdgeInsets.all(24.0),
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment: CrossAxisAlignment.center,

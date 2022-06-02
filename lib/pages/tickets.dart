@@ -35,7 +35,7 @@ class _TicketPageState extends State<TicketPage> {
               icon: const Icon(Icons.attach_money),
               iconSize: 64,
               color: Palette.scaffold,
-              hoverColor: Palette.greyLight,
+              hoverColor: Palette.greyDark,
               highlightColor: Palette.greyDark,
             ),
           ),

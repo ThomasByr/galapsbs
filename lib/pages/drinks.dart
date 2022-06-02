@@ -138,27 +138,51 @@ class _DrinkPageState extends State<DrinkPage> {
             ),
             const SizedBox(height: 48),
             Column(
-              children: const <Widget>[
-                Text(
+              children: <Widget>[
+                const Text(
                   '🍿 Snacks disponibles aux bars\n',
                   softWrap: true,
-                  textAlign: TextAlign.left,
                   style: TextStyle(
                     color: Palette.scaffold,
                     fontSize: 24.0,
                     fontWeight: FontWeight.normal,
                   ),
                 ),
-                SizedBox(height: 12),
-                Text(
-                  'Petits fours : 0€\n'
-                  'Quiche : 0€\n',
-                  softWrap: true,
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    color: Palette.scaffold,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.normal,
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: 250,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: const <Widget>[
+                      Text(
+                        'Petits fours\n'
+                        'Quiche\n'
+                        'Gâteaux salés\n'
+                        'Gâteaux sucrés\n',
+                        softWrap: true,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          color: Palette.scaffold,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                      SizedBox(width: 20),
+                      Text(
+                        '0 €\n'
+                        '0 €\n'
+                        '0 €\n'
+                        '0 €\n',
+                        softWrap: true,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                          color: Palette.scaffold,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                    ],
                   ),
                 )
               ],

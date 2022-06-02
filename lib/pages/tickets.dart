@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '404.dart';
 import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
 
@@ -22,8 +23,25 @@ class _TicketPageState extends State<TicketPage> {
       appBar: MyAppBar('🎟️ Billets'),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: const SizedBox(
+        child: SizedBox(
           height: 600,
+          child: Center(
+            child: IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ErrorPage(),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.attach_money),
+              iconSize: 64,
+              color: Palette.scaffold,
+              hoverColor: Palette.greyLight,
+              highlightColor: Palette.greyDark,
+            ),
+          ),
         ),
       ),
     );

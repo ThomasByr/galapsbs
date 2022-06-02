@@ -62,7 +62,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
             onClicked: () => selectedItem(context, 0),
           ),
           buildMenuItem(
-            text: 'Évènements',
+            text: 'Événements',
             icon: Icons.event,
             onClicked: () => selectedItem(context, 1),
           ),
@@ -77,7 +77,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
             onClicked: () => selectedItem(context, 3),
           ),
           buildMenuItem(
-            text: 'Tickets',
+            text: 'Billets',
             icon: Icons.local_atm,
             onClicked: () => selectedItem(context, 4),
           ),

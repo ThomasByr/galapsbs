@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 48),
               SizedBox(
                 height: 600,
+                width: 400,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Image.asset(

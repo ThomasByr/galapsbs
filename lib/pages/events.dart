@@ -22,8 +22,11 @@ class _EventPageState extends State<EventPage> {
       appBar: MyAppBar('🗓️ Événements'),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: const SizedBox(
-          height: 600,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const SizedBox(height: 48),
+          ],
         ),
       ),
     );

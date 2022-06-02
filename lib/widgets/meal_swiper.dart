@@ -15,17 +15,13 @@ class CustomMealSwiper extends Swiper {
           duration: 1000,
           controller: SwiperController(),
           itemCount: items.length,
-          viewportFraction:
-              window.physicalSize.width <= window.physicalSize.height
-                  ? 0.6
-                  : 0.4,
+          viewportFraction: window.physicalSize.width <= window.physicalSize.height ? 0.8 : 0.4,
           scale: 0.7,
           itemBuilder: (BuildContext context, int index) {
             return Container(
               padding: const EdgeInsets.only(right: 20, left: 20, top: 30),
               decoration: const BoxDecoration(
-                  color: Palette.scaffold,
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
+                  color: Palette.scaffold, borderRadius: BorderRadius.all(Radius.circular(10))),
               child: Column(
                 children: <Widget>[
                   Text(
@@ -43,11 +39,10 @@ class CustomMealSwiper extends Swiper {
                         height: 100,
                         child: CircleAvatar(
                           radius: 50,
-                          backgroundImage:
-                              Image.asset(items[index]['image']).image,
+                          backgroundImage: Image.asset(items[index]['image']).image,
                         ),
                       ),
-                      const SizedBox(width: 20),
+                      const SizedBox(width: 48),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -56,18 +51,13 @@ class CustomMealSwiper extends Swiper {
                               ImageIcon(
                                 items[index]['is_vegan']
                                     ? const AssetImage('assets/icons/vegan.png')
-                                    : const AssetImage(
-                                        'assets/icons/non_vegan.png'),
+                                    : const AssetImage('assets/icons/non_vegan.png'),
                                 size: 20,
-                                color: items[index]['is_vegan']
-                                    ? Palette.green
-                                    : Palette.red,
+                                color: items[index]['is_vegan'] ? Palette.green : Palette.red,
                               ),
                               const SizedBox(width: 10),
                               Text(
-                                items[index]['is_vegan']
-                                    ? 'végétarien'
-                                    : 'non végé',
+                                items[index]['is_vegan'] ? 'végétarien' : 'non végé',
                                 style: const TextStyle(
                                   fontSize: 14,
                                   color: Palette.black,

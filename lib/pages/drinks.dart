@@ -54,7 +54,7 @@ class _DrinkPageState extends State<DrinkPage> {
                 duration: 1000,
                 controller: SwiperController(),
                 itemCount: _drinks.length,
-                viewportFraction: window.physicalSize.width <= window.physicalSize.height ? 0.6 : 0.4,
+                viewportFraction: window.physicalSize.width <= window.physicalSize.height ? 0.8 : 0.4,
                 scale: 0.7,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(

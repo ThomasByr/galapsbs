@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -121,6 +122,7 @@ class _TeamPageState extends State<TeamPage> {
                         Center(
                           child: SizedBox(
                             height: MediaQuery.of(context).size.height * .6,
+                            width: min(1080, MediaQuery.of(context).size.width),
                             child: SwipeCards(
                               matchEngine: _matchEngine!,
                               itemBuilder: (BuildContext context, int index) {

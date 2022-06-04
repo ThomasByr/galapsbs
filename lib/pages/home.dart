@@ -26,8 +26,8 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               const SizedBox(height: 48),
               SizedBox(
-                height: 600,
-                width: 400,
+                height: MediaQuery.of(context).size.height * 0.7,
+                width: MediaQuery.of(context).size.width * 0.8,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Image.asset(

@@ -21,7 +21,7 @@ class _AboutPageState extends State<AboutPage> {
     return Scaffold(
       backgroundColor: Palette.bg,
       drawer: const NavigationDrawerWidget(),
-      appBar: MyAppBar('ℹ A propos'),
+      appBar: MyAppBar('ℹ À propos'),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Center(
@@ -111,7 +111,7 @@ class _AboutPageState extends State<AboutPage> {
               ),
               const SizedBox(height: 48),
               Container(
-                height: 900,
+                height: 1000,
                 width: MediaQuery.of(context).size.width * .9,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),

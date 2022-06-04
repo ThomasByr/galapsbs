@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,6 +15,33 @@ class EventPage extends StatefulWidget {
 }
 
 class _EventPageState extends State<EventPage> {
+  List _loc = [], _events = [];
+
+  Future<void> readJson() async {
+    final String response = await rootBundle.loadString('assets/json/meals.json');
+    final data = await json.decode(response);
+
+    setState(() {
+      _loc = data['loc'];
+      _events = data[_loc[0]];
+    });
+  }
+
+  Future<void> _onRefresh(String loc) async {
+    final String response = await rootBundle.loadString('assets/json/meals.json');
+    final data = await json.decode(response);
+
+    setState(() {
+      _events = data[loc];
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readJson();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +54,77 @@ class _EventPageState extends State<EventPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const SizedBox(height: 48),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const SizedBox(width: 16),
+                  createSelectWidget(
+                    title: '📅 Lundi',
+                    ico: Icons.calendar_today,
+                  ),
+                  const SizedBox(width: 16),
+                  createSelectWidget(
+                    title: '📅 Mardi',
+                    ico: Icons.calendar_today,
+                  ),
+                  const SizedBox(width: 16),
+                  createSelectWidget(
+                    title: '📅 Mercredi',
+                    ico: Icons.calendar_today,
+                  ),
+                  const SizedBox(width: 16),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget createSelectWidget({required String title, required IconData ico}) {
+    return InkWell(
+      onTap: () {
+        _onRefresh(title);
+      },
+      child: Container(
+        width: 200,
+        height: 35,
+        decoration: BoxDecoration(
+          color: Palette.greyDark,
+          backgroundBlendMode: BlendMode.softLight,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Palette.black.withOpacity(0.5),
+              blurRadius: 8,
+              offset: const Offset(0, 4),
+            ),
+          ],
+          border: Border.all(
+            color: Palette.scaffold.withOpacity(0.5),
+            width: 1,
+          ),
+        ),
+        alignment: Alignment.center,
+        padding: const EdgeInsets.symmetric(horizontal: 32),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Palette.scaffold,
+              ),
+            ),
+            Icon(
+              ico,
+              color: Palette.scaffold,
+            ),
           ],
         ),
       ),

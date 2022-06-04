@@ -96,7 +96,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
             onClicked: () => selectedItem(context, 6),
           ),
           buildMenuItem(
-            text: 'à propos',
+            text: 'À propos',
             icon: Icons.info,
             onClicked: () => selectedItem(context, 7),
           ),
@@ -127,14 +127,12 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
                 children: [
                   Text(
                     name,
-                    style:
-                        const TextStyle(fontSize: 18, color: Palette.scaffold),
+                    style: const TextStyle(fontSize: 18, color: Palette.scaffold),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     email,
-                    style:
-                        const TextStyle(fontSize: 14, color: Palette.scaffold),
+                    style: const TextStyle(fontSize: 14, color: Palette.scaffold),
                   ),
                 ],
               ),
@@ -149,8 +147,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
     return TextField(
       style: const TextStyle(color: color),
       decoration: InputDecoration(
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         hintText: 'Search',
         hintStyle: const TextStyle(color: color),
         prefixIcon: const Icon(Icons.search, color: color),

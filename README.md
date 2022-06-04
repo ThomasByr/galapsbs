@@ -38,7 +38,7 @@ Please make sure you have installed the required dependencies with :
 flutter pub get
 ```
 
-Run a production version with the emulator of your choice with :
+Run a production version with the device of your choice with :
 
 ```ps1
 flutter run -d <device> --release
@@ -53,7 +53,7 @@ flutter run -d <device> --release
 You can find all the infos you want on the official [Flutter](https://flutter.dev/) website. To release your app, take a look at the [specific](https://docs.flutter.dev/deployment/web) documentation.
 
 <details>
-<summary>The app won't publish/show up ?</summary>
+<summary>The app won't publish / show up ?</summary>
 
 Well if you ever published your _own_ app on [Github Pages](https://pages.github.com/), there is a weird thing with absolute / relative paths. Basically what you want to do is look for (or create) the tag
 

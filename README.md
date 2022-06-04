@@ -10,7 +10,8 @@
 [![Maintenance](https://img.shields.io/badge/maintained%3F-yes-green.svg)](https://GitHub.com/ThomasByr/galapsbs/graphs/commit-activity)
 
 [![GitHub version](https://badge.fury.io/gh/ThomasByr%2Fgalapsbs.svg)](https://github.com/ThomasByr/galapsbs)
-[![Author](https://img.shields.io/badge/author-@ThomasByr-blue)](https://github.com/ThomasByr)
+[![Author](https://img.shields.io/badge/author&dev-@ThomasByr-blue)](https://github.com/ThomasByr)
+[![Author](https://img.shields.io/badge/author&artist-@ThomasD-blue)](https://github.com/LosKeeper)
 
 1. [✏️ In short](#️-in-short)
 2. [👩‍🏫 Usage](#-usage)

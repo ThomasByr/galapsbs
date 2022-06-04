@@ -104,7 +104,7 @@ class _TeamPageState extends State<TeamPage> {
             const Text(
               '👋🏻 Venez découvrir notre équipe dévouée !',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 16,
                 color: Palette.scaffold,
               ),
             ),
@@ -194,7 +194,7 @@ class _TeamPageState extends State<TeamPage> {
                                                     textAlign: TextAlign.left,
                                                     style: const TextStyle(
                                                       color: Palette.scaffold,
-                                                      fontSize: 18.0,
+                                                      fontSize: 14.0,
                                                       fontWeight: FontWeight.normal,
                                                     ),
                                                   ),

@@ -60,10 +60,6 @@ class _AboutPageState extends State<AboutPage> {
                       Text(
                         'Cette application vous permet d\'avoir un accès direct aux informations importantes du Gala 2023.'
                         'Vous y trouverez notamment une billetterie en ligne, le menu du soir, ainsi qu\'un sous ensemble d\'événements prévus pendant la soirée.',
-                        style: TextStyle(
-                          color: Palette.black,
-                          fontSize: 18,
-                        ),
                       ),
                     ],
                   ),
@@ -197,7 +193,7 @@ class _AboutPageState extends State<AboutPage> {
   }) {
     const color = Palette.black;
     const hoverColor = Palette.greyDark;
-    const textSize = 18.0;
+    const textSize = 14.0;
 
     return ListTile(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

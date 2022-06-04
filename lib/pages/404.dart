@@ -43,7 +43,7 @@ class _ErrorPageState extends State<ErrorPage> {
               const Text(
                 'La page que vous recherchez n\'existe pas.',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 16,
                   color: Palette.scaffold,
                 ),
               ),

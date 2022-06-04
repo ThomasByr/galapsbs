@@ -48,6 +48,9 @@ class MyApp extends StatelessWidget {
       title: 'Gala TPS ESBS',
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(fontSize: 14.0),
+        ),
       ),
       home: const HomePage(),
     );

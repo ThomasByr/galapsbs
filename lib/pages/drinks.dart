@@ -46,7 +46,7 @@ class _DrinkPageState extends State<DrinkPage> {
           children: [
             const SizedBox(height: 64),
             SizedBox(
-              height: 600,
+              height: 400,
               child: Swiper(
                 autoplay: true,
                 autoplayDelay: 5000,
@@ -83,7 +83,7 @@ class _DrinkPageState extends State<DrinkPage> {
                           ),
                         ),
                         SizedBox(
-                          height: 400,
+                          height: 200,
                           child: Image.asset(_drinks[index]['image']),
                         ),
                         const SizedBox(
@@ -98,7 +98,7 @@ class _DrinkPageState extends State<DrinkPage> {
                             Text(
                               _drinks[index]['price'],
                               style: const TextStyle(
-                                fontSize: 15,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                                 color: Palette.black,
                               ),
@@ -117,7 +117,7 @@ class _DrinkPageState extends State<DrinkPage> {
                             Text(
                               _drinks[index]['degree'],
                               style: const TextStyle(
-                                fontSize: 15,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                                 color: Palette.black,
                               ),
@@ -138,7 +138,7 @@ class _DrinkPageState extends State<DrinkPage> {
                   softWrap: true,
                   style: TextStyle(
                     color: Palette.scaffold,
-                    fontSize: 24.0,
+                    fontSize: 20.0,
                     fontWeight: FontWeight.normal,
                   ),
                 ),
@@ -158,7 +158,7 @@ class _DrinkPageState extends State<DrinkPage> {
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           color: Palette.scaffold,
-                          fontSize: 18.0,
+                          fontSize: 16.0,
                           fontWeight: FontWeight.normal,
                         ),
                       ),
@@ -172,7 +172,7 @@ class _DrinkPageState extends State<DrinkPage> {
                         textAlign: TextAlign.right,
                         style: TextStyle(
                           color: Palette.scaffold,
-                          fontSize: 18.0,
+                          fontSize: 16.0,
                           fontWeight: FontWeight.normal,
                         ),
                       ),

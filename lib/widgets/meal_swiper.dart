@@ -42,7 +42,7 @@ class CustomMealSwiper extends Swiper {
                           backgroundImage: Image.asset(items[index]['image']).image,
                         ),
                       ),
-                      const SizedBox(width: 48),
+                      const SizedBox(width: 20),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[

@@ -107,7 +107,7 @@ class _AboutPageState extends State<AboutPage> {
               ),
               const SizedBox(height: 48),
               Container(
-                height: 1250,
+                height: 850,
                 width: MediaQuery.of(context).size.width * .9,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),

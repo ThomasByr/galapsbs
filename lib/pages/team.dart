@@ -23,7 +23,6 @@ class TeamPage extends StatefulWidget {
 }
 
 class _TeamPageState extends State<TeamPage> {
-  List _team = [];
   bool isLoading = true;
 
   late List usersData;
@@ -38,11 +37,15 @@ class _TeamPageState extends State<TeamPage> {
 
     setState(
       () {
-        _team = data['profile'];
+        usersData = data['profile'];
 
-        usersData = _team;
         if (usersData.isNotEmpty) {
           for (int i = 0; i < usersData.length; i++) {
+            precacheImage(
+              Image.asset(usersData[i]['image']).image,
+              context,
+            );
+
             _swipeItems.add(
               SwipeItem(
                 content: Content(text: usersData[i]['name']),
@@ -110,9 +113,15 @@ class _TeamPageState extends State<TeamPage> {
             ),
             Center(
               child: isLoading
-                  ? const CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation(Palette.scaffold),
-                      color: Palette.scaffold,
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: const <Widget>[
+                        SizedBox(height: 100),
+                        CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation(Palette.scaffold),
+                          color: Palette.scaffold,
+                        ),
+                      ],
                     )
                   : Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,

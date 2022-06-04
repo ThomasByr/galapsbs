@@ -55,7 +55,7 @@ You can find all the infos you want on the official [Flutter](https://flutter.de
 <details>
 <summary>The app won't publish/show up ?</summary>
 
-Well if you ever published your _own_ app on [Github Pages](https://pages.github.com/), there is a weird this withabsolute / relative paths. Basically what you want to do is look for (or create) the tag
+Well if you ever published your _own_ app on [Github Pages](https://pages.github.com/), there is a weird thing with absolute / relative paths. Basically what you want to do is look for (or create) the tag
 
 ```html
 <base href="$PATH" />

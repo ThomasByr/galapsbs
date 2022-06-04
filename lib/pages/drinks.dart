@@ -53,6 +53,7 @@ class _DrinkPageState extends State<DrinkPage> {
                 autoplayDisableOnInteraction: true,
                 duration: 1000,
                 controller: SwiperController(),
+                physics: const ClampingScrollPhysics(),
                 itemCount: _drinks.length,
                 viewportFraction: window.physicalSize.width <= window.physicalSize.height ? 0.8 : 0.4,
                 scale: 0.7,

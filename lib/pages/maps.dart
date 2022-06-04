@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -49,53 +51,58 @@ class _MapPageState extends State<MapPage> {
       appBar: MyAppBar('🗺️ Venir'),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Column(
-          children: <Widget>[
-            Container(
-              alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.7,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: GoogleMap(
-                  onMapCreated: _onMapCreated,
-                  initialCameraPosition: CameraPosition(
-                    target: _center,
-                    zoom: 16.0,
-                  ),
-                  markers: _markers.values.toSet(),
-                ),
-              ),
-            ),
-            ListView(
-              padding: const EdgeInsets.all(16),
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
+        child: Center(
+          child: SizedBox(
+            width: min(600, MediaQuery.of(context).size.width),
+            child: Column(
               children: <Widget>[
-                buildMenuItem(
-                  text: 'Recentrer la carte',
-                  icon: Icons.refresh,
-                  onClicked: () => mapController.animateCamera(
-                    CameraUpdate.newCameraPosition(
-                      CameraPosition(
+                Container(
+                  alignment: Alignment.center,
+                  height: MediaQuery.of(context).size.height * 0.7,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: GoogleMap(
+                      onMapCreated: _onMapCreated,
+                      initialCameraPosition: CameraPosition(
                         target: _center,
                         zoom: 16.0,
                       ),
+                      markers: _markers.values.toSet(),
                     ),
                   ),
                 ),
-                buildMenuItem(
-                  text: 'Venir en tram',
-                  icon: Icons.directions_bus,
-                  onClicked: () => launchUrlString(url1.toString()),
-                ),
-                buildMenuItem(
-                  text: 'Venir en voiture',
-                  icon: Icons.directions_car,
-                  onClicked: () => launchUrlString(url2.toString()),
+                ListView(
+                  padding: const EdgeInsets.all(16),
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: <Widget>[
+                    buildMenuItem(
+                      text: 'Recentrer la carte',
+                      icon: Icons.refresh,
+                      onClicked: () => mapController.animateCamera(
+                        CameraUpdate.newCameraPosition(
+                          CameraPosition(
+                            target: _center,
+                            zoom: 16.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                    buildMenuItem(
+                      text: 'Venir en tram',
+                      icon: Icons.directions_bus,
+                      onClicked: () => launchUrlString(url1.toString()),
+                    ),
+                    buildMenuItem(
+                      text: 'Venir en voiture',
+                      icon: Icons.directions_car,
+                      onClicked: () => launchUrlString(url2.toString()),
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );

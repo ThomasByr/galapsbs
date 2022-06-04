@@ -314,6 +314,7 @@ class _TeamPageState extends State<TeamPage> {
                             )
                           ],
                         ),
+                        const SizedBox(height: 24.0),
                       ],
                     ),
             ),

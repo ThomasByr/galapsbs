@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -38,7 +40,7 @@ class _AboutPageState extends State<AboutPage> {
               const SizedBox(height: 48),
               Container(
                 height: 200,
-                width: MediaQuery.of(context).size.width * .9,
+                width: min(600, MediaQuery.of(context).size.width * .9),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Palette.greyLight,
@@ -68,7 +70,7 @@ class _AboutPageState extends State<AboutPage> {
               const SizedBox(height: 48),
               Container(
                 height: 250,
-                width: MediaQuery.of(context).size.width * .9,
+                width: min(600, MediaQuery.of(context).size.width * .9),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Palette.greyLight,
@@ -108,7 +110,7 @@ class _AboutPageState extends State<AboutPage> {
               const SizedBox(height: 48),
               Container(
                 height: 850,
-                width: MediaQuery.of(context).size.width * .9,
+                width: min(600, MediaQuery.of(context).size.width * .9),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Palette.greyLight,

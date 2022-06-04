@@ -16,18 +16,31 @@ class EventPage extends StatefulWidget {
 
 class _EventPageState extends State<EventPage> {
   List _loc = [], _events = [];
+  final List _children = <Widget>[];
 
   Future<void> readJson() async {
+    _children.clear();
     final String response = await rootBundle.loadString('assets/json/meals.json');
     final data = await json.decode(response);
 
     setState(() {
       _loc = data['loc'];
       _events = data[_loc[0]];
+
+      // for (var i = 0; i < _loc.length; i++) {
+      //   Widget _child = createSelectWidget(
+      //     title: _loc[i],
+      //     ico: Icons.location_on,
+      //   );
+      //   _children.add(const SizedBox(width: 16));
+      //   _children.add(_child);
+      // }
+      // _children.add(const SizedBox(width: 16));
     });
   }
 
   Future<void> _onRefresh(String loc) async {
+    _children.clear();
     final String response = await rootBundle.loadString('assets/json/meals.json');
     final data = await json.decode(response);
 
@@ -61,17 +74,17 @@ class _EventPageState extends State<EventPage> {
                 children: <Widget>[
                   const SizedBox(width: 16),
                   createSelectWidget(
-                    title: '📅 Lundi',
+                    title: 'Hall',
                     ico: Icons.calendar_today,
                   ),
                   const SizedBox(width: 16),
                   createSelectWidget(
-                    title: '📅 Mardi',
+                    title: 'Poly',
                     ico: Icons.calendar_today,
                   ),
                   const SizedBox(width: 16),
                   createSelectWidget(
-                    title: '📅 Mercredi',
+                    title: '1er étage',
                     ico: Icons.calendar_today,
                   ),
                   const SizedBox(width: 16),

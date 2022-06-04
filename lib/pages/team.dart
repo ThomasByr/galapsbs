@@ -97,15 +97,9 @@ class _TeamPageState extends State<TeamPage> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: <Widget>[
-            SizedBox(
-              height: 200,
-              child: Image.asset(
-                'assets/images/avatar.png',
-                fit: BoxFit.cover,
-              ),
-            ),
+            const SizedBox(height: 48),
             const Text(
-              '👋🏻 Venez découvrir notre équipe dévouée !',
+              '👋 Venez découvrir notre équipe dévouée !',
               style: TextStyle(
                 fontSize: 16,
                 color: Palette.scaffold,

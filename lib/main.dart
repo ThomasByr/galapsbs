@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
         textTheme: const TextTheme(
-          bodyMedium: TextStyle(fontSize: 14.0),
+          bodyMedium: TextStyle(fontSize: 12.0),
         ),
       ),
       home: const HomePage(),

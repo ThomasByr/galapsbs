@@ -37,14 +37,14 @@ class _AboutPageState extends State<AboutPage> {
               ),
               const SizedBox(height: 48),
               Container(
-                height: 250,
+                height: 200,
                 width: MediaQuery.of(context).size.width * .9,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Palette.greyLight,
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(32),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const <Widget>[
@@ -74,7 +74,7 @@ class _AboutPageState extends State<AboutPage> {
                   color: Palette.greyLight,
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(32),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -107,14 +107,14 @@ class _AboutPageState extends State<AboutPage> {
               ),
               const SizedBox(height: 48),
               Container(
-                height: 1000,
+                height: 1250,
                 width: MediaQuery.of(context).size.width * .9,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Palette.greyLight,
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(32),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[

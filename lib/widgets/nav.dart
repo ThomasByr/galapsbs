@@ -114,7 +114,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
       InkWell(
         onTap: onClicked,
         child: Container(
-          padding: padding.add(const EdgeInsets.symmetric(vertical: 48)),
+          padding: padding.add(const EdgeInsets.symmetric(vertical: 20)),
           child: Row(
             children: [
               CircleAvatar(

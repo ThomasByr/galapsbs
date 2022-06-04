@@ -1,0 +1,15 @@
+{
+  "loc": ["Hall", "Poly", "1er étage"],
+
+  "Hall": [
+    {
+      "name": "arrivée",
+      "date0": "19h30",
+      "date1": "20h30",
+      "description": "",
+      "details": ""
+    }
+  ],
+  "Poly": [],
+  "1er étage": []
+}

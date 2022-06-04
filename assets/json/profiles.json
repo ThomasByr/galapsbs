@@ -2,7 +2,7 @@
   "profile": [
     {
       "name": "Judith",
-      "description": "Présidente - C’est moi le boss, du coup je ne fais rien\net je délègue tout mais ça, ça reste entre nous 🤫\n(Indice : c’est faux)",
+      "description": "Présidente - C’est moi le boss, du coup je ne fais\nrien et je délègue tout mais ça, ça reste entre nous\n🤫 (Indice : c’est faux)",
       "image": "assets/pictures/Judith.jpg"
     },
     {
@@ -27,12 +27,12 @@
     },
     {
       "name": "Thomas B",
-      "description": "WebMaster - protégez vos données bande de fous 🔐\ntant pis... faut bien gagner sa vie hein ! 😋",
+      "description": "WebMaster - protégez vos données 🔐\ntant pis... faut bien gagner sa vie hein ! 😋",
       "image": "assets/pictures/ThomasB.jpg"
     },
     {
       "name": "Célestin",
-      "description": "Sponsor - Qu'est-ce qui est jaune et qu'on attend ?\nDe l'argent",
+      "description": "Sponsor - Qu'est-ce qui est jaune\net qu'on attend ?\nDe l'argent",
       "image": "assets/pictures/Celestin.jpg"
     },
     {
@@ -52,7 +52,7 @@
     },
     {
       "name": "Yohann",
-      "description": "Boissons - Bonjour",
+      "description": "Boissons - Bonjour 🤗",
       "image": "assets/pictures/Yohann.jpg"
     },
     {
@@ -82,7 +82,7 @@
     },
     {
       "name": "Elliot",
-      "description": "Animations - on va vous exploser le cerveau\navec des animations qui vont vous tractopelo-culbuter",
+      "description": "Animations - on va vous exploser le cerveau\navec des animations qui vont vous\ntractopelo-culbuter",
       "image": "assets/pictures/Elliot.jpg"
     }
   ]

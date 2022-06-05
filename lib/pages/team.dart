@@ -49,24 +49,24 @@ class _TeamPageState extends State<TeamPage> {
             _swipeItems.add(
               SwipeItem(
                 content: Content(text: usersData[i]['name']),
-                // likeAction: () {
-                //   _scaffoldKey.currentState?.showSnackBar(const SnackBar(
-                //     content: Text('Liked '),
-                //     duration: Duration(milliseconds: 500),
-                //   ));
-                // },
-                // nopeAction: () {
-                //   _scaffoldKey.currentState?.showSnackBar(SnackBar(
-                //     content: Text('Nope ${usersData[i]['name']}'),
-                //     duration: const Duration(milliseconds: 500),
-                //   ));
-                // },
-                // superlikeAction: () {
-                //   _scaffoldKey.currentState?.showSnackBar(SnackBar(
-                //     content: Text('Superliked ${usersData[i]['name']}'),
-                //     duration: const Duration(milliseconds: 500),
-                //   ));
-                // },
+                likeAction: () {
+                  _scaffoldKey.currentState?.showSnackBar(const SnackBar(
+                    content: Text('Liked '),
+                    duration: Duration(milliseconds: 500),
+                  ));
+                },
+                nopeAction: () {
+                  _scaffoldKey.currentState?.showSnackBar(SnackBar(
+                    content: Text('Nope ${usersData[i]['name']}'),
+                    duration: const Duration(milliseconds: 500),
+                  ));
+                },
+                superlikeAction: () {
+                  _scaffoldKey.currentState?.showSnackBar(SnackBar(
+                    content: Text('Superliked ${usersData[i]['name']}'),
+                    duration: const Duration(milliseconds: 500),
+                  ));
+                },
                 onSlideUpdate: (SlideRegion? region) async {
                   print('Region $region');
                 },
@@ -101,7 +101,7 @@ class _TeamPageState extends State<TeamPage> {
         child: Center(
           child: Column(
             children: <Widget>[
-              const SizedBox(height: 48),
+              const SizedBox(height: 24),
               const Text(
                 '👋 Venez découvrir notre équipe dévouée !',
                 style: TextStyle(
@@ -136,6 +136,7 @@ class _TeamPageState extends State<TeamPage> {
                                       fontSize: 18,
                                       color: Palette.scaffold,
                                     ),
+                                    textAlign: TextAlign.center,
                                   ),
                                 )
                               : SwipeCards(

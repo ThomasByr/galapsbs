@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
@@ -17,6 +18,34 @@ class _AboutPageState extends State<AboutPage> {
   final Uri url1 = Uri.parse('https://github.com/ThomasByr');
   final Uri url2 = Uri.parse('https://github.com/LosKeeper');
   final Uri url3 = Uri.parse('https://github.com/ThomasByr/galapsbs/blob/master/LICENSE');
+
+  bool isLoading = true;
+
+  late PackageInfo packageInfo;
+
+  late String appName;
+  late String version;
+  late String buildNumber;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadPackageInfo();
+  }
+
+  _loadPackageInfo() async {
+    packageInfo = await PackageInfo.fromPlatform();
+    setState(() {
+      appName = packageInfo.appName;
+      version = packageInfo.version;
+      buildNumber = packageInfo.buildNumber;
+      Future.delayed(const Duration(seconds: 2), () {
+        setState(() {
+          isLoading = false;
+        });
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +66,30 @@ class _AboutPageState extends State<AboutPage> {
                   fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(height: 48),
+              SizedBox(
+                height: 48,
+                child: isLoading
+                    ? Center(
+                        child: SizedBox(
+                          width: min(600, MediaQuery.of(context).size.width * 0.9),
+                          child: const LinearProgressIndicator(
+                            backgroundColor: Palette.bg,
+                            color: Palette.scaffold,
+                            valueColor: AlwaysStoppedAnimation<Color>(Palette.scaffold),
+                          ),
+                        ),
+                      )
+                    : Center(
+                        child: Text(
+                          '$appName - v$version ($buildNumber)',
+                          style: const TextStyle(
+                            color: Palette.scaffold,
+                          ),
+                        ),
+                      ),
+              ),
               Container(
-                height: 200,
+                // height: 200,
                 width: min(600, MediaQuery.of(context).size.width * .9),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -69,7 +119,7 @@ class _AboutPageState extends State<AboutPage> {
               ),
               const SizedBox(height: 48),
               Container(
-                height: 250,
+                // height: 250,
                 width: min(600, MediaQuery.of(context).size.width * .9),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -109,7 +159,7 @@ class _AboutPageState extends State<AboutPage> {
               ),
               const SizedBox(height: 48),
               Container(
-                height: 850,
+                // height: 850,
                 width: min(600, MediaQuery.of(context).size.width * .9),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),

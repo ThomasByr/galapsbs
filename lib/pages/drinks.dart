@@ -136,7 +136,7 @@ class _DrinkPageState extends State<DrinkPage> {
               children: <Widget>[
                 const Text(
                   '🍿 Snacks disponibles aux bars\n',
-                  softWrap: true,
+                  softWrap: false,
                   style: TextStyle(
                     color: Palette.scaffold,
                     fontSize: 20.0,
@@ -155,7 +155,7 @@ class _DrinkPageState extends State<DrinkPage> {
                         'Quiche\n'
                         'Gâteaux salés\n'
                         'Gâteaux sucrés\n',
-                        softWrap: true,
+                        softWrap: false,
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           color: Palette.scaffold,
@@ -169,7 +169,7 @@ class _DrinkPageState extends State<DrinkPage> {
                         '0 €\n'
                         '0 €\n'
                         '0 €\n',
-                        softWrap: true,
+                        softWrap: false,
                         textAlign: TextAlign.right,
                         style: TextStyle(
                           color: Palette.scaffold,

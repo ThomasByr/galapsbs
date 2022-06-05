@@ -69,7 +69,7 @@ class CustomMealSwiper extends Swiper {
                           const SizedBox(height: 20),
                           Text(
                             items[index]['description'],
-                            softWrap: true,
+                            softWrap: false,
                             style: const TextStyle(
                               fontSize: 14,
                               color: Palette.black,

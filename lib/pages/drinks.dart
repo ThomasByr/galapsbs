@@ -16,7 +16,9 @@ class DrinkPage extends StatefulWidget {
 }
 
 class _DrinkPageState extends State<DrinkPage> {
-  List _drinks = [];
+  bool isLoading = true;
+  List _drinks = [], _snacks = [];
+  List<Widget> _children = [];
 
   Future<void> readJson() async {
     final String response = await rootBundle.loadString('assets/json/drinks.json');
@@ -24,13 +26,38 @@ class _DrinkPageState extends State<DrinkPage> {
 
     setState(() {
       _drinks = data['drinks'];
+      _snacks = data['snacks'];
+
+      for (var i = 0; i < _snacks.length; i++) {
+        print('${_snacks[i]['name']}');
+        _children.add(Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              '${_snacks[i]['name']}',
+              style: const TextStyle(
+                fontSize: 16,
+                color: Palette.scaffold,
+              ),
+            ),
+            Text(
+              '${_snacks[i]['price']}€',
+              style: const TextStyle(
+                fontSize: 16,
+                color: Palette.scaffold,
+              ),
+            ),
+          ],
+        ));
+      }
     });
   }
 
   @override
   void initState() {
     super.initState();
-    readJson();
+    readJson().then((_) => setState(() => isLoading = false));
   }
 
   @override
@@ -145,38 +172,23 @@ class _DrinkPageState extends State<DrinkPage> {
                 ),
                 const SizedBox(height: 12),
                 SizedBox(
-                  width: 250,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const <Widget>[
-                      Text(
-                        'Petits fours\n'
-                        'Quiche\n'
-                        'Gâteaux salés\n'
-                        'Gâteaux sucrés\n',
-                        softWrap: false,
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: Palette.scaffold,
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
-                      SizedBox(width: 20),
-                      Text(
-                        '0 €\n'
-                        '0 €\n'
-                        '0 €\n'
-                        '0 €\n',
-                        softWrap: false,
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                          color: Palette.scaffold,
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
+                  width: 200,
+                  child: Column(
+                    children: [
+                      isLoading
+                          ? const Center(
+                              child: SizedBox(
+                                height: 48,
+                                width: 48,
+                                child: CircularProgressIndicator(
+                                  color: Palette.scaffold,
+                                ),
+                              ),
+                            )
+                          : Column(
+                              children: _children,
+                            ),
+                      const SizedBox(height: 24),
                     ],
                   ),
                 )

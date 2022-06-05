@@ -25,7 +25,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
     'Best Regards,\n[please add your contact info here]\n',
   );
 
-  static const hints = {
+  static const Map<String, int> hints = {
     'home': 0,
     'address': 0,
     'drinks': 0,
@@ -34,7 +34,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
     'accueil': 0,
     'adresse': 0,
     'boisson': 0,
-    'equipe': 0,
+    'équipe': 0,
   };
 
   @override
@@ -83,7 +83,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
           ),
           const Divider(
             color: Palette.scaffold,
-            thickness: 3,
+            thickness: 2,
           ),
           buildMenuItem(
             text: 'Venir',

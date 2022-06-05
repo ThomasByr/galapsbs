@@ -131,7 +131,7 @@ class _TeamPageState extends State<TeamPage> {
                           : isDone
                               ? const Center(
                                   child: Text(
-                                    '🙈 Vous avez déjà matché\ntoutes les personnes ! ❤️',
+                                    '🙈 Vous avez déjà matché\ntous les membres de l\'équipe !\nMerci ❤️',
                                     style: TextStyle(
                                       fontSize: 18,
                                       color: Palette.scaffold,

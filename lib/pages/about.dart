@@ -30,10 +30,10 @@ class _AboutPageState extends State<AboutPage> {
   @override
   void initState() {
     super.initState();
-    _loadPackageInfo();
+    loadPackageInfo();
   }
 
-  _loadPackageInfo() async {
+  Future<void> loadPackageInfo() async {
     packageInfo = await PackageInfo.fromPlatform();
     setState(() {
       appName = packageInfo.appName;
@@ -76,6 +76,7 @@ class _AboutPageState extends State<AboutPage> {
                             backgroundColor: Palette.bg,
                             color: Palette.scaffold,
                             valueColor: AlwaysStoppedAnimation<Color>(Palette.scaffold),
+                            minHeight: 2,
                           ),
                         ),
                       )
@@ -93,7 +94,7 @@ class _AboutPageState extends State<AboutPage> {
                 width: min(600, MediaQuery.of(context).size.width * .9),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Palette.greyLight,
+                  color: Palette.scaffold,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(16),
@@ -123,7 +124,7 @@ class _AboutPageState extends State<AboutPage> {
                 width: min(600, MediaQuery.of(context).size.width * .9),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Palette.greyLight,
+                  color: Palette.scaffold,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(16),
@@ -163,7 +164,7 @@ class _AboutPageState extends State<AboutPage> {
                 width: min(600, MediaQuery.of(context).size.width * .9),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Palette.greyLight,
+                  color: Palette.scaffold,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(16),
@@ -198,16 +199,16 @@ class _AboutPageState extends State<AboutPage> {
                         '- Neither the name of this Web App authors nor the names of its'
                         '  contributors may be used to endorse or promote products derived from'
                         '  this software without specific prior written permission.\n\n'
-                        'THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"'
-                        'AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE'
-                        'IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE'
-                        'ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE'
-                        'LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR'
-                        'CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF'
-                        'SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS'
-                        'INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN'
-                        'CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)'
-                        'ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE'
+                        'THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" '
+                        'AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE '
+                        'IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE '
+                        'ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE '
+                        'LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR '
+                        'CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF '
+                        'SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS ; OR BUSINESS '
+                        'INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN '
+                        'CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) '
+                        'ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE '
                         'POSSIBILITY OF SUCH DAMAGE.',
                       ),
                       buildMenuItemIcon(
@@ -250,7 +251,7 @@ class _AboutPageState extends State<AboutPage> {
     return ListTile(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       leading: CircleAvatar(
-        backgroundColor: Palette.greyLight,
+        backgroundColor: Palette.scaffold,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10),
           child: Image.asset(imgPath),

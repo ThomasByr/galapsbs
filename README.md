@@ -101,13 +101,13 @@ gantt
     section source Code v1.0.0
     Android version : 2022-06-01, 3d
     iOS version     : 2022-06-02, 3d
-    Web App         : 2022-06-01, 4d
+    Web App         : 2022-06-01, 5d
     Testing         : 2022-06-05, 1d
 
     section Production release
-    Web App      : 2022-06-03, 2d
-    Github Pages : 1d
-    IONOS        : 2022-06-04, 1d
+    Web App      : 2022-06-03, 3d
+    Github Pages : 2022-06-05, 1d
+    IONOS        : 2022-06-04, 2d
 
 ```
 
@@ -119,7 +119,7 @@ gantt
 **TODO** - first implementation version
 
 - [x] redo the team page description widget (v1.1.1)
-- [ ] stable release for larger screens
+- [x] stable release for larger screens (v1.1.2)
 - [ ] proper pre-cache for large assets / image compression
 - [ ] events page
 - [ ] but tickets page

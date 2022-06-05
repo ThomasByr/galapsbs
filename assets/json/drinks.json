@@ -35,5 +35,27 @@
       "degree": "16°",
       "image": "assets/images/long.png"
     }
+  ],
+  "snacks": [
+    {
+      "name": "Chips",
+      "price": "0"
+    },
+    {
+      "name": "Petits fours",
+      "price": "0"
+    },
+    {
+      "name": "Quiche",
+      "price": "0"
+    },
+    {
+      "name": "Gâteaux salés",
+      "price": "0"
+    },
+    {
+      "name": "Gâteaux sucrés",
+      "price": "0"
+    }
   ]
 }

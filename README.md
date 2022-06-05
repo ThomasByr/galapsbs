@@ -105,8 +105,8 @@ gantt
     Testing         : 2022-06-05, 1d
 
     section Production release
-    Web App      : 2022-06-03, 3d
-    Github Pages : 2022-06-05, 1d
+    Web App      : 2022-06-03, 4d
+    Github Pages : 2022-06-05, 2d
     IONOS        : 2022-06-04, 2d
 
 ```

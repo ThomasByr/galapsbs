@@ -1,88 +1,105 @@
 {
   "profile": [
     {
-      "name": "Judith",
-      "description": "Présidente - C’est moi le boss, du coup je ne\nfais rien et je délègue tout mais ça,\nça reste entre nous 🤫 (Indice : c’est faux)",
+      "name": "Judith Mayer",
+      "short": "Présidente",
+      "description": "C’est moi le boss, du coup je ne fais rien\net je délègue tout mais ça,\nça reste entre nous 🤫 (Indice : c’est faux)",
       "image": "assets/pictures/Judith.jpg"
     },
     {
-      "name": "Charles",
-      "description": "Vice Président - j'aime les fraises 🍓",
+      "name": "Charles Parisi",
+      "short": "Président",
+      "description": "J'aime les fraises 🍓",
       "image": "assets/pictures/Charles.jpg"
     },
     {
-      "name": "Julie",
-      "description": "Secrétaire - Aussi précise dans mes plannings\nque dans mes lancers au beer-pong 🏓",
+      "name": "Julie Bonnail",
+      "short": "Secrétaire",
+      "description": "Aussi précise dans mes plannings\nque dans mes lancers au beer-pong 🏓",
       "image": "assets/pictures/Julie(1).jpg"
     },
     {
-      "name": "Camille",
-      "description": "Trésorière - promis,\nje pars pas en vacances avec votre argent ! 😏😇",
+      "name": "Camille Beziat",
+      "short": "Trésorière",
+      "description": "Promis, je pars pas en vacances\navec votre argent ! 😏😇",
       "image": "assets/pictures/Camille.jpg"
     },
     {
-      "name": "Célia",
-      "description": "Communications - ",
+      "name": "Célia Algros",
+      "short": "Communications",
+      "description": "?",
       "image": "assets/pictures/Celia.jpg"
     },
     {
-      "name": "Thomas B",
-      "description": "WebMaster - protégez vos données 🔐\ntant pis... faut bien gagner sa vie hein ! 😋",
+      "name": "Thomas Bouyer",
+      "short": "WebMaster",
+      "description": "Protégez mieux vos données 🔐\ntant pis... faut bien gagner sa vie hein ! 😋",
       "image": "assets/pictures/ThomasB.jpg"
     },
     {
-      "name": "Célestin",
-      "description": "Sponsor - Qu'est-ce qui est jaune\net qu'on attend ?\nDe l'argent",
+      "name": "Célestin Meyer",
+      "short": "Sponsor",
+      "description": "Qu'est-ce qui est jaune et qu'on attend ?\nDe l'argent ! 💰",
       "image": "assets/pictures/Celestin.jpg"
     },
     {
-      "name": "Nina",
-      "description": "Sponsors - Ma passion dans la vie ? Dormir",
+      "name": "Nina Mekaoui",
+      "short": "Sponsor",
+      "description": "Ma passion dans la vie ? Dormir 💤",
       "image": "assets/pictures/Nina.jpg"
     },
     {
-      "name": "Rachel",
-      "description": "Décoration - ",
+      "name": "Rachel Rakotondrabe",
+      "short": "Décoration",
+      "description": "?",
       "image": "assets/pictures/Rachel.jpg"
     },
     {
-      "name": "Élise",
-      "description": "Décoration - ",
+      "name": "Élise Jourdain",
+      "short": "Décoration",
+      "description": "?",
       "image": "assets/pictures/Elise.jpg"
     },
     {
-      "name": "Yohann",
-      "description": "Boissons - Bonjour 🤗",
+      "name": "Yohann Ramsi",
+      "short": "Boissons",
+      "description": "Bonjour 🤗",
       "image": "assets/pictures/Yohann.jpg"
     },
     {
-      "name": "Nicolas",
-      "description": "Boissons - Si vous me voyez avec un t-shirt\nc’est que la soirée n’est pas terminée 👕",
+      "name": "Nicolas Cipolla",
+      "short": "Boissons",
+      "description": "Si vous me voyez avec un t-shirt\nc’est que la soirée n’est pas terminée 👕",
       "image": "assets/pictures/Nicolas.jpg"
     },
     {
-      "name": "Fleur",
-      "description": "Repas - Adepte des pâtes en tout genre",
+      "name": "Fleur Clemenceau",
+      "short": "Repas",
+      "description": "Adepte des pâtes en tout genre 🍝",
       "image": "assets/pictures/Fleur.jpg"
     },
     {
-      "name": "Thomas D",
-      "description": "Repas - Mon repas préféré : TOUT !\n(même les croquettes pour chats) 😺",
+      "name": "Thomas Dumond",
+      "short": "Repas",
+      "description": "Mon repas préféré : TOUT !\n(même les croquettes pour chats) 😺",
       "image": "assets/pictures/ThomasD.jpg"
     },
     {
-      "name": "Noémie",
-      "description": "Sécurité - Cheffe des videurs",
+      "name": "Noémie Beaufils",
+      "short": "Sécurité",
+      "description": "Cheffe des videurs 🦺",
       "image": "assets/pictures/Noemie.jpg"
     },
     {
-      "name": "Léa",
-      "description": "Animations - ",
+      "name": "Léa Courtehoute",
+      "short": "Animations",
+      "description": "?",
       "image": "assets/pictures/Lea.jpg"
     },
     {
-      "name": "Elliot",
-      "description": "Animations - on va vous exploser le cerveau\navec des animations qui vont vous\ntractopelo-culbuter",
+      "name": "Elliot Holzinger",
+      "short": "Animations",
+      "description": "Léa et moi allons vous exploser le cerveau\navec des animations qui vont vous\ntractopelo-culbuter ! 🤯",
       "image": "assets/pictures/Elliot.jpg"
     }
   ]

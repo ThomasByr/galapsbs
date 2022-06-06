@@ -23,6 +23,7 @@ class TeamPage extends StatefulWidget {
 }
 
 class _TeamPageState extends State<TeamPage> {
+  int _nopeCount = 0, _likeCount = 0, _superCount = 0;
   bool isLoading = true, isDone = false;
 
   late List usersData;
@@ -50,18 +51,27 @@ class _TeamPageState extends State<TeamPage> {
               SwipeItem(
                 content: Content(text: usersData[i]['name']),
                 likeAction: () {
+                  setState(() {
+                    _likeCount++;
+                  });
                   _scaffoldKey.currentState?.showSnackBar(const SnackBar(
                     content: Text('Liked '),
                     duration: Duration(milliseconds: 500),
                   ));
                 },
                 nopeAction: () {
+                  setState(() {
+                    _nopeCount++;
+                  });
                   _scaffoldKey.currentState?.showSnackBar(SnackBar(
                     content: Text('Nope ${usersData[i]['name']}'),
                     duration: const Duration(milliseconds: 500),
                   ));
                 },
                 superlikeAction: () {
+                  setState(() {
+                    _superCount++;
+                  });
                   _scaffoldKey.currentState?.showSnackBar(SnackBar(
                     content: Text('Superliked ${usersData[i]['name']}'),
                     duration: const Duration(milliseconds: 500),
@@ -129,10 +139,10 @@ class _TeamPageState extends State<TeamPage> {
                               ),
                             )
                           : isDone
-                              ? const Center(
+                              ? Center(
                                   child: Text(
-                                    '🙈 Vous avez déjà matché\ntous les membres de l\'équipe !\nMerci ❤️',
-                                    style: TextStyle(
+                                    getEndString(),
+                                    style: const TextStyle(
                                       fontSize: 18,
                                       color: Palette.scaffold,
                                     ),
@@ -245,6 +255,7 @@ class _TeamPageState extends State<TeamPage> {
                                     setState(() {
                                       isDone = true;
                                     });
+                                    print('nopes: $_nopeCount | super: $_superCount | likes: $_likeCount');
                                     _scaffoldKey.currentState!.showSnackBar(const SnackBar(
                                       content: Text('Stack Finished'),
                                       duration: Duration(milliseconds: 500),
@@ -362,5 +373,45 @@ class _TeamPageState extends State<TeamPage> {
         )
       ],
     );
+  }
+
+  String getEndString() {
+    /*
+    super - like - nope
+    super - nope - like
+
+    like - super - nope
+    like - nope - super
+
+    nope - super - like
+    nope - like - super
+    */
+    if (usersData.isNotEmpty) {
+      if (_likeCount == usersData.length) {
+        return '🙈 Tu as matché tous\nles membres de l\'équipe !\nMerci ❤️';
+      } else if (_superCount == usersData.length) {
+        return '🙈 Que des super-like !\nOn en a de la chance !\nMerci ❤️';
+      } else if (_nopeCount == usersData.length) {
+        return '🙈 Et dire que tu n\'aimes\npersonne de l\'équipe... 🥲\nTon billet sera plus cher !';
+      } else if (_nopeCount == 1) {
+        return '🙊 Tu nous aimes tous !\nsauf un.e 😠\nBon promis je lui dit pas...';
+      } else if (_superCount == 1) {
+        return '🙉 On a un.e heureux.se élu.e !\nC\'est mignon 💖\nSoit tu lui dit soit je m\'en charge !';
+      } else if (_superCount > _likeCount && _likeCount >= _nopeCount) {
+        return '🙈 Un maximum de superlikes !\nC\'est la fête 🎉';
+      } else if (_superCount > _nopeCount && _nopeCount > _likeCount) {
+        return '🙈 Un maximum de superlikes !\nMais plus de nopes que de likes...\n C\'est mieux que rien 😜';
+      } else if (_likeCount > _superCount && _superCount >= _nopeCount) {
+        return '🙈 Un maximum de likes !\nEt de superlikes !\nMerci ❤️';
+      } else if (_likeCount > _nopeCount && _nopeCount > _superCount) {
+        return '🙈 Globalement c\'est bon !\nTu nous détestes pas trop !\nMerci ❤️';
+      } else if (_nopeCount > _superCount && _superCount >= _likeCount) {
+        return '🙊 Mais qu\'est-ce qu\'on a\nfait pour mériter ça ? 😭\n Soit ça passe\nsoit ça casse avec toi...';
+      } else if (_nopeCount > _likeCount && _likeCount > _superCount) {
+        return '🙊 Globalement... C\'est la catastrophe\nMais on est sauvés par quelques\nlikes quand même ! 😮‍💨';
+      }
+      return 'Error on empty queue';
+    }
+    return '';
   }
 }

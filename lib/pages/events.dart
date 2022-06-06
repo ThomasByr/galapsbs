@@ -17,10 +17,12 @@ class EventPage extends StatefulWidget {
 class _EventPageState extends State<EventPage> {
   bool isLoading = true;
   List _loc = [], _events = [];
-  final List<Widget> _children = [];
+  final List<Widget> _selectChildren = [];
+  final List<Widget> _coreChildren = [];
 
   Future<void> readJson() async {
-    _children.clear();
+    _selectChildren.clear();
+    _coreChildren.clear();
     final String response = await rootBundle.loadString('assets/json/events.json');
     final data = await json.decode(response);
 
@@ -33,10 +35,10 @@ class _EventPageState extends State<EventPage> {
           title: _loc[i],
           ico: Icons.location_on,
         );
-        _children.add(const SizedBox(width: 16));
-        _children.add(_child);
+        _selectChildren.add(const SizedBox(width: 16));
+        _selectChildren.add(_child);
       }
-      _children.add(const SizedBox(width: 16));
+      _selectChildren.add(const SizedBox(width: 16));
     });
   }
 
@@ -75,10 +77,23 @@ class _EventPageState extends State<EventPage> {
             const SizedBox(height: 48),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: _children,
-              ),
+              child: isLoading
+                  ? createLoadingWidget()
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: _selectChildren,
+                    ),
+            ),
+            const SizedBox(height: 48),
+            SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: isLoading
+                  ? createLoadingWidget()
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: _coreChildren,
+                    ),
             ),
           ],
         ),
@@ -128,6 +143,31 @@ class _EventPageState extends State<EventPage> {
               color: Palette.scaffold,
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget createCoreWidget({
+    required String name,
+    required String date,
+    required String time0,
+    required String time1,
+    required String description,
+    required String details,
+    required String image,
+  }) {
+    return const SizedBox();
+  }
+
+  Widget createLoadingWidget() {
+    return const Center(
+      child: SizedBox(
+        height: 48,
+        width: 48,
+        child: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation(Palette.scaffold),
+          color: Palette.scaffold,
         ),
       ),
     );

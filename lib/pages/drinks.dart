@@ -29,7 +29,6 @@ class _DrinkPageState extends State<DrinkPage> {
       _snacks = data['snacks'];
 
       for (var i = 0; i < _snacks.length; i++) {
-        print('${_snacks[i]['name']}');
         _children.add(Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -40,6 +39,7 @@ class _DrinkPageState extends State<DrinkPage> {
                 fontSize: 16,
                 color: Palette.scaffold,
               ),
+              textAlign: TextAlign.left,
             ),
             Text(
               '${_snacks[i]['price']}€',
@@ -47,6 +47,7 @@ class _DrinkPageState extends State<DrinkPage> {
                 fontSize: 16,
                 color: Palette.scaffold,
               ),
+              textAlign: TextAlign.right,
             ),
           ],
         ));

@@ -113,13 +113,13 @@ gantt
 
 **Bugs** - first fix patch version
 
-- events won't load
+- events won't load (v1.1.2)
 - ~~bad spacing in some widgets~~ (v1.1.1)
 
 **TODO** - first implementation version
 
 - [x] redo the team page description widget (v1.1.1)
 - [x] stable release for larger screens (v1.1.2)
-- [ ] proper pre-cache for large assets / image compression
+- [x] proper pre-cache for large assets / image compression (v1.1.2)
 - [ ] events page
 - [ ] but tickets page

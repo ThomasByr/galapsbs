@@ -17,7 +17,7 @@ class EventPage extends StatefulWidget {
 class _EventPageState extends State<EventPage> {
   bool isLoading = true;
   List _loc = [], _events = [];
-  List<Widget> _children = [];
+  final List<Widget> _children = [];
 
   Future<void> readJson() async {
     _children.clear();
@@ -41,7 +41,11 @@ class _EventPageState extends State<EventPage> {
   }
 
   Future<void> _onRefresh(String loc) async {
-    _children.clear();
+    setState(() {
+      _events = [];
+      isLoading = true;
+    });
+
     final String response = await rootBundle.loadString('assets/json/events.json');
     final data = await json.decode(response);
 
@@ -54,7 +58,7 @@ class _EventPageState extends State<EventPage> {
   @override
   void initState() {
     super.initState();
-    readJson();
+    readJson().then((_) => setState(() => isLoading = false));
   }
 
   @override

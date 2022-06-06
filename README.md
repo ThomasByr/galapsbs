@@ -113,7 +113,7 @@ gantt
 
 **Bugs** - first fix patch version
 
-- events won't load (v1.1.2)
+- ~~events won't load~~ (v1.1.2)
 - ~~bad spacing in some widgets~~ (v1.1.1)
 
 **TODO** - first implementation version

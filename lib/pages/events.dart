@@ -7,6 +7,54 @@ import 'package:flutter/services.dart';
 import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
 
+class LocData {
+  List<String> locs;
+
+  LocData({required this.locs});
+
+  factory LocData.fromJson(Map<String, dynamic> data) {
+    final List<String> locs = (data['locs'] as List<dynamic>).map((dynamic loc) => loc as String).toList();
+    return LocData(locs: locs);
+  }
+}
+
+class EventData {
+  List<Event> events;
+
+  EventData({required this.events});
+
+  factory EventData.fromJson(Map<String, dynamic> data, String? key) {
+    final List<Event> events =
+        (data[key!] as List<dynamic>).map((dynamic event) => Event.fromJson(event)).toList();
+    return EventData(events: events);
+  }
+}
+
+class Event {
+  final String name, date, time0, time1, description, details, image;
+
+  Event(
+      {required this.name,
+      required this.date,
+      required this.time0,
+      required this.time1,
+      required this.description,
+      required this.details,
+      required this.image});
+
+  factory Event.fromJson(Map<String, dynamic> data) {
+    return Event(
+      name: data['name'] as String,
+      date: data['date'] as String,
+      time0: data['time0'] as String,
+      time1: data['time1'] as String,
+      description: data['description'] as String,
+      details: data['details'] as String,
+      image: data['image'] as String,
+    );
+  }
+}
+
 class EventPage extends StatefulWidget {
   const EventPage({Key? key}) : super(key: key);
 
@@ -16,7 +64,8 @@ class EventPage extends StatefulWidget {
 
 class _EventPageState extends State<EventPage> {
   bool isLoading = true;
-  List _loc = [], _events = [];
+  List<String> _locs = [];
+  List<Event> _events = [];
   final List<Widget> _selectChildren = [];
   final List<Widget> _coreChildren = [];
 
@@ -27,33 +76,37 @@ class _EventPageState extends State<EventPage> {
     final data = await json.decode(response);
 
     setState(() {
-      _loc = data['loc'];
-      _events = data[_loc[0]];
+      _locs = LocData.fromJson(data).locs;
+      _events = EventData.fromJson(data, _locs[0]).events;
 
-      for (var i = 0; i < _loc.length; i++) {
+      for (var i = 0; i < _locs.length; i++) {
         Widget _child = createSelectWidget(
-          title: _loc[i],
+          title: _locs[i],
           ico: Icons.location_on,
         );
         _selectChildren.add(const SizedBox(width: 16));
         _selectChildren.add(_child);
       }
       _selectChildren.add(const SizedBox(width: 16));
+
+      // todo: add events
     });
   }
 
   Future<void> _onRefresh(String loc) async {
     setState(() {
-      _events = [];
       isLoading = true;
+      _events = [];
     });
 
     final String response = await rootBundle.loadString('assets/json/events.json');
     final data = await json.decode(response);
 
     setState(() {
-      _events = data[loc];
-      readJson().then((_) => setState(() => isLoading = false));
+      _events = EventData.fromJson(data, loc).events;
+      // todo: add events
+
+      isLoading = false;
     });
   }
 
@@ -148,15 +201,7 @@ class _EventPageState extends State<EventPage> {
     );
   }
 
-  Widget createCoreWidget({
-    required String name,
-    required String date,
-    required String time0,
-    required String time1,
-    required String description,
-    required String details,
-    required String image,
-  }) {
+  Widget createCoreWidget({required Event event}) {
     return const SizedBox();
   }
 

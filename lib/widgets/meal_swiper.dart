@@ -3,11 +3,13 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 
+import '../pages/pages.dart';
 import '../cfg/cfg.dart';
 
 class CustomMealSwiper extends Swiper {
-  CustomMealSwiper({Key? key, required List items})
+  CustomMealSwiper({Key? key, required List<Miam> items, required Wrapper<int> index})
       : super(
+          onIndexChanged: (int i) => index.value = i,
           key: key,
           autoplay: false,
           autoplayDelay: 5000,
@@ -26,7 +28,7 @@ class CustomMealSwiper extends Swiper {
               child: Column(
                 children: <Widget>[
                   Text(
-                    items[index]['name'],
+                    items[index].name,
                     style: const TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.bold,
@@ -40,7 +42,7 @@ class CustomMealSwiper extends Swiper {
                         height: 100,
                         child: CircleAvatar(
                           radius: 50,
-                          backgroundImage: Image.asset(items[index]['image']).image,
+                          backgroundImage: Image.asset(items[index].image).image,
                         ),
                       ),
                       const SizedBox(width: 20),
@@ -50,15 +52,15 @@ class CustomMealSwiper extends Swiper {
                           Row(
                             children: <Widget>[
                               ImageIcon(
-                                items[index]['is_vegan']
+                                items[index].is_vegan
                                     ? const AssetImage('assets/icons/vegan.png')
                                     : const AssetImage('assets/icons/non_vegan.png'),
                                 size: 20,
-                                color: items[index]['is_vegan'] ? Palette.green : Palette.red,
+                                color: items[index].is_vegan ? Palette.green : Palette.red,
                               ),
                               const SizedBox(width: 10),
                               Text(
-                                items[index]['is_vegan'] ? 'végétarien' : 'non végé',
+                                items[index].is_vegan ? 'végétarien' : 'non végé',
                                 style: const TextStyle(
                                   fontSize: 14,
                                   color: Palette.black,
@@ -68,7 +70,7 @@ class CustomMealSwiper extends Swiper {
                           ),
                           const SizedBox(height: 20),
                           Text(
-                            items[index]['description'],
+                            items[index].description,
                             softWrap: false,
                             style: const TextStyle(
                               fontSize: 14,

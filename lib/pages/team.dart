@@ -15,6 +15,33 @@ class Content {
   Content({this.text});
 }
 
+class Data {
+  final List<Member> members;
+
+  Data({required this.members});
+
+  factory Data.fromJson(Map<String, dynamic> data) {
+    final List<Member> members =
+        (data['profiles'] as List<dynamic>).map((dynamic item) => Member.fromJson(item)).toList();
+    return Data(members: members);
+  }
+}
+
+class Member {
+  final String name, short, description, image;
+
+  Member({required this.name, required this.short, required this.description, required this.image});
+
+  factory Member.fromJson(Map<String, dynamic> data) {
+    return Member(
+      name: data['name'] as String,
+      short: data['short'] as String,
+      description: data['description'] as String,
+      image: data['image'] as String,
+    );
+  }
+}
+
 class TeamPage extends StatefulWidget {
   const TeamPage({Key? key}) : super(key: key);
 
@@ -26,7 +53,7 @@ class _TeamPageState extends State<TeamPage> {
   int _nopeCount = 0, _likeCount = 0, _superCount = 0;
   bool isLoading = true, isDone = false;
 
-  late List usersData;
+  late List<Member> usersData;
   final List<SwipeItem> _swipeItems = <SwipeItem>[];
   MatchEngine? _matchEngine;
 
@@ -34,48 +61,36 @@ class _TeamPageState extends State<TeamPage> {
 
   Future<void> readJson() async {
     final String response = await rootBundle.loadString('assets/json/profiles.json');
-    final data = await json.decode(response);
+    final data = Data.fromJson(json.decode(response));
 
     setState(
       () {
-        usersData = data['profile'];
+        usersData = data.members;
 
         if (usersData.isNotEmpty) {
           for (int i = 0; i < usersData.length; i++) {
             precacheImage(
-              Image.asset(usersData[i]['image']).image,
+              Image.asset(usersData[i].image).image,
               context,
             );
 
             _swipeItems.add(
               SwipeItem(
-                content: Content(text: usersData[i]['name']),
+                content: Content(text: usersData[i].name),
                 likeAction: () {
                   setState(() {
                     _likeCount++;
                   });
-                  _scaffoldKey.currentState?.showSnackBar(const SnackBar(
-                    content: Text('Liked '),
-                    duration: Duration(milliseconds: 500),
-                  ));
                 },
                 nopeAction: () {
                   setState(() {
                     _nopeCount++;
                   });
-                  _scaffoldKey.currentState?.showSnackBar(SnackBar(
-                    content: Text('Nope ${usersData[i]['name']}'),
-                    duration: const Duration(milliseconds: 500),
-                  ));
                 },
                 superlikeAction: () {
                   setState(() {
                     _superCount++;
                   });
-                  _scaffoldKey.currentState?.showSnackBar(SnackBar(
-                    content: Text('Superliked ${usersData[i]['name']}'),
-                    duration: const Duration(milliseconds: 500),
-                  ));
                 },
                 onSlideUpdate: (SlideRegion? region) async {
                   print('Region $region');
@@ -94,8 +109,8 @@ class _TeamPageState extends State<TeamPage> {
     super.initState();
     readJson().then((_) {
       setState(() {
-        isLoading = false;
         // usersData.shuffle(); // uncomment to shuffle
+        isLoading = false;
       });
     });
   }
@@ -173,7 +188,7 @@ class _TeamPageState extends State<TeamPage> {
                                           child: ClipRRect(
                                             borderRadius: const BorderRadius.all(Radius.circular(24.0)),
                                             child: Image.asset(
-                                              usersData[index]['image'],
+                                              usersData[index].image,
                                               fit: BoxFit.cover,
                                               filterQuality: FilterQuality.high,
                                               isAntiAlias: true,
@@ -202,7 +217,7 @@ class _TeamPageState extends State<TeamPage> {
                                                     Padding(
                                                       padding: const EdgeInsets.all(8.0),
                                                       child: Text(
-                                                        usersData[index]['name'].toString(),
+                                                        usersData[index].name,
                                                         overflow: TextOverflow.ellipsis,
                                                         maxLines: 1,
                                                         softWrap: false,
@@ -216,7 +231,7 @@ class _TeamPageState extends State<TeamPage> {
                                                     Padding(
                                                       padding: const EdgeInsets.only(left: 8.0),
                                                       child: Text(
-                                                        usersData[index]['short'].toString(),
+                                                        usersData[index].short,
                                                         maxLines: 1,
                                                         softWrap: false,
                                                         textAlign: TextAlign.left,
@@ -231,7 +246,7 @@ class _TeamPageState extends State<TeamPage> {
                                                     Padding(
                                                       padding: const EdgeInsets.only(left: 8.0),
                                                       child: Text(
-                                                        usersData[index]['description'].toString(),
+                                                        usersData[index].description,
                                                         maxLines: 3,
                                                         softWrap: false,
                                                         textAlign: TextAlign.left,
@@ -256,10 +271,6 @@ class _TeamPageState extends State<TeamPage> {
                                       isDone = true;
                                     });
                                     print('nopes: $_nopeCount | super: $_superCount | likes: $_likeCount');
-                                    _scaffoldKey.currentState!.showSnackBar(const SnackBar(
-                                      content: Text('Stack Finished'),
-                                      duration: Duration(milliseconds: 500),
-                                    ));
                                     // isLoading = true;
                                     // initState();
                                   },
@@ -376,23 +387,13 @@ class _TeamPageState extends State<TeamPage> {
   }
 
   String getEndString() {
-    /*
-    super - like - nope
-    super - nope - like
-
-    like - super - nope
-    like - nope - super
-
-    nope - super - like
-    nope - like - super
-    */
     if (usersData.isNotEmpty) {
       if (_likeCount == usersData.length) {
         return '🙈 Tu as matché tous\nles membres de l\'équipe !\nMerci ❤️';
       } else if (_superCount == usersData.length) {
         return '🙈 Que des super-like !\nOn en a de la chance !\nMerci ❤️';
       } else if (_nopeCount == usersData.length) {
-        return '🙈 Et dire que tu n\'aimes\npersonne de l\'équipe... 🥲\nTon billet sera plus cher !';
+        return '🙈 Et dire que tu n\'aimes\npersonne dans l\'équipe... 🥲\nTon billet sera plus cher !';
       } else if (_nopeCount == 1) {
         return '🙊 Tu nous aimes tous !\nsauf un.e 😠\nBon promis je lui dit pas...';
       } else if (_superCount == 1) {
@@ -410,8 +411,8 @@ class _TeamPageState extends State<TeamPage> {
       } else if (_nopeCount > _likeCount && _likeCount > _superCount) {
         return '🙊 Globalement... C\'est la catastrophe\nMais on est sauvés par quelques\nlikes quand même ! 😮‍💨';
       }
-      return 'Error on empty queue';
+      return 'Error on emptied queue';
     }
-    return '';
+    return 'Error on empty queue';
   }
 }

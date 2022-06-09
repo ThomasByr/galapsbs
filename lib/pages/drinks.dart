@@ -8,6 +8,61 @@ import 'package:card_swiper/card_swiper.dart';
 import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
 
+class DrinkData {
+  List<Drink> drinks;
+
+  DrinkData({required this.drinks});
+
+  factory DrinkData.fromJson(Map<String, dynamic> data) {
+    final List<Drink> drinks =
+        (data['drinks'] as List<dynamic>).map((dynamic drink) => Drink.fromJson(drink)).toList();
+    return DrinkData(drinks: drinks);
+  }
+}
+
+class Drink {
+  final String name, sub_name, price, degree, image;
+
+  Drink(
+      {required this.name,
+      required this.sub_name,
+      required this.price,
+      required this.degree,
+      required this.image});
+
+  factory Drink.fromJson(Map<String, dynamic> data) {
+    return Drink(
+      name: data['name'] as String,
+      sub_name: data['sub_name'] as String,
+      price: data['price'] as String,
+      degree: data['degree'] as String,
+      image: data['image'] as String,
+    );
+  }
+}
+
+class SnackData {
+  List<Snack> snacks;
+
+  SnackData({required this.snacks});
+
+  factory SnackData.fromJson(Map<String, dynamic> data) {
+    final List<Snack> snacks =
+        (data['snacks'] as List<dynamic>).map((dynamic snack) => Snack.fromJson(snack)).toList();
+    return SnackData(snacks: snacks);
+  }
+}
+
+class Snack {
+  final String name, price;
+
+  Snack({required this.name, required this.price});
+
+  factory Snack.fromJson(Map<String, dynamic> data) {
+    return Snack(name: data['name'] as String, price: data['price'] as String);
+  }
+}
+
 class DrinkPage extends StatefulWidget {
   const DrinkPage({Key? key}) : super(key: key);
 
@@ -17,7 +72,8 @@ class DrinkPage extends StatefulWidget {
 
 class _DrinkPageState extends State<DrinkPage> {
   bool isLoading = true;
-  List _drinks = [], _snacks = [];
+  List<Drink> _drinks = [];
+  List<Snack> _snacks = [];
   List<Widget> _children = [];
 
   Future<void> readJson() async {
@@ -25,8 +81,8 @@ class _DrinkPageState extends State<DrinkPage> {
     final data = await json.decode(response);
 
     setState(() {
-      _drinks = data['drinks'];
-      _snacks = data['snacks'];
+      _drinks = DrinkData.fromJson(data).drinks;
+      _snacks = SnackData.fromJson(data).snacks;
 
       for (var i = 0; i < _snacks.length; i++) {
         _children.add(Row(
@@ -34,7 +90,7 @@ class _DrinkPageState extends State<DrinkPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              '${_snacks[i]['name']}',
+              _snacks[i].name,
               style: const TextStyle(
                 fontSize: 16,
                 color: Palette.scaffold,
@@ -42,7 +98,7 @@ class _DrinkPageState extends State<DrinkPage> {
               textAlign: TextAlign.left,
             ),
             Text(
-              '${_snacks[i]['price']}€',
+              '${_snacks[i].price}€',
               style: const TextStyle(
                 fontSize: 16,
                 color: Palette.scaffold,
@@ -93,7 +149,7 @@ class _DrinkPageState extends State<DrinkPage> {
                     child: Column(
                       children: [
                         Text(
-                          _drinks[index]['name'],
+                          _drinks[index].name,
                           style: const TextStyle(
                             fontSize: 26,
                             fontWeight: FontWeight.bold,
@@ -104,7 +160,7 @@ class _DrinkPageState extends State<DrinkPage> {
                           height: 10,
                         ),
                         Text(
-                          _drinks[index]['sub_name'],
+                          _drinks[index].sub_name,
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
@@ -113,7 +169,7 @@ class _DrinkPageState extends State<DrinkPage> {
                         ),
                         SizedBox(
                           height: 200,
-                          child: Image.asset(_drinks[index]['image']),
+                          child: Image.asset(_drinks[index].image),
                         ),
                         const SizedBox(
                           height: 12,
@@ -125,7 +181,7 @@ class _DrinkPageState extends State<DrinkPage> {
                               width: 20,
                             ),
                             Text(
-                              _drinks[index]['price'],
+                              _drinks[index].price,
                               style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
@@ -144,7 +200,7 @@ class _DrinkPageState extends State<DrinkPage> {
                               width: 20,
                             ),
                             Text(
-                              _drinks[index]['degree'],
+                              _drinks[index].degree,
                               style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,

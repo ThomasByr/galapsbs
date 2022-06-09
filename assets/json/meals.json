@@ -19,7 +19,7 @@
       "description": "Ingrédients:\n..."
     }
   ],
-  "main": [
+  "mains": [
     {
       "name": "homard",
       "image": "assets/images/lobster.jpg",

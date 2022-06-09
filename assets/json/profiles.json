@@ -1,9 +1,9 @@
 {
-  "profile": [
+  "profiles": [
     {
       "name": "Judith Mayer",
       "short": "Présidente",
-      "description": "C’est moi le boss, du coup je ne fais rien\net je délègue tout mais ça,\nça reste entre nous 🤫 (Indice : c’est faux)",
+      "description": "C’est moi la boss, du coup je ne fais rien\net je délègue tout, mais ça,\nça reste entre nous 🤫 (Indice : c’est faux)",
       "image": "assets/pictures/Judith.jpg"
     },
     {
@@ -27,7 +27,7 @@
     {
       "name": "Célia Algros",
       "short": "Communications",
-      "description": "?",
+      "description": "C’est moi qui vais tchatcher avec vous\net vous spammer pour vous donner les\nmeilleures infos sur le gala 😋",
       "image": "assets/pictures/Celia.jpg"
     },
     {
@@ -57,7 +57,7 @@
     {
       "name": "Élise Jourdain",
       "short": "Décoration",
-      "description": "?",
+      "description": "La Valérie Damidot en carton 📦",
       "image": "assets/pictures/Elise.jpg"
     },
     {
@@ -93,7 +93,7 @@
     {
       "name": "Léa Courtehoute",
       "short": "Animations",
-      "description": "?",
+      "description": "Vous préférez une arrivée\nen vaisseau spacial 🚀\nou en sous-marin 🚤 ?",
       "image": "assets/pictures/Lea.jpg"
     },
     {

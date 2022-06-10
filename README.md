@@ -42,8 +42,10 @@ flutter pub get
 Run a production version with the device of your choice with :
 
 ```ps1
-flutter run -d <device> --release
+flutter run -d <device> --release --web-renderer canvaskit
 ```
+
+> **note** since some animations can be pretty heavy for some devices, we will use canvaskit as the renderer ; please make sure you load the web app with a WASM enabled browser !
 
 ## 💁 Get Help
 

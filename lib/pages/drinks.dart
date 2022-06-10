@@ -121,14 +121,14 @@ class _DrinkPageState extends State<DrinkPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Palette.bg,
-      drawer: const NavigationDrawerWidget(),
+      drawer: NavigationDrawerWidget(),
       appBar: MyAppBar('🍹 Boissons'),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 64),
+            const SizedBox(height: 24),
             SizedBox(
               height: 400,
               child: Swiper(

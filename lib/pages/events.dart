@@ -1,11 +1,13 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
+import '../particle-clock/particle_clock.dart';
+import '../helper/customizer.dart';
+import '../helper/model.dart';
 
 class LocData {
   List<String> locs;
@@ -79,15 +81,7 @@ class _EventPageState extends State<EventPage> {
       _locs = LocData.fromJson(data).locs;
       _events = EventData.fromJson(data, _locs[0]).events;
 
-      for (var i = 0; i < _locs.length; i++) {
-        Widget _child = createSelectWidget(
-          title: _locs[i],
-          ico: Icons.location_on,
-        );
-        _selectChildren.add(const SizedBox(width: 16));
-        _selectChildren.add(_child);
-      }
-      _selectChildren.add(const SizedBox(width: 16));
+      // todo: add selectors for each location
 
       // todo: add events
     });
@@ -118,103 +112,15 @@ class _EventPageState extends State<EventPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Palette.bg,
-      drawer: const NavigationDrawerWidget(),
-      appBar: MyAppBar('🗓️ Événements'),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const SizedBox(height: 48),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: isLoading
-                  ? createLoadingWidget()
-                  : Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: _selectChildren,
-                    ),
-            ),
-            const SizedBox(height: 48),
-            SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: isLoading
-                  ? createLoadingWidget()
-                  : Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: _coreChildren,
-                    ),
-            ),
-          ],
+    return Stack(
+      children: <Widget>[
+        ClockCustomizer((ClockModel model) => ParticleClock(model)),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          drawer: NavigationDrawerWidget(bg: Colors.transparent),
+          appBar: MyAppBar('🗓️ Événements', bg: Colors.transparent),
         ),
-      ),
-    );
-  }
-
-  Widget createSelectWidget({required String title, required IconData ico}) {
-    return InkWell(
-      onTap: () {
-        _onRefresh(title);
-      },
-      child: Container(
-        width: 200,
-        height: 35,
-        decoration: BoxDecoration(
-          color: Palette.greyDark,
-          backgroundBlendMode: BlendMode.softLight,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: [
-            BoxShadow(
-              color: Palette.black.withOpacity(0.5),
-              blurRadius: 8,
-              offset: const Offset(0, 4),
-            ),
-          ],
-          border: Border.all(
-            color: Palette.scaffold.withOpacity(0.5),
-            width: 1,
-          ),
-        ),
-        alignment: Alignment.center,
-        padding: const EdgeInsets.symmetric(horizontal: 32),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: Palette.scaffold,
-              ),
-            ),
-            Icon(
-              ico,
-              color: Palette.scaffold,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget createCoreWidget({required Event event}) {
-    return const SizedBox();
-  }
-
-  Widget createLoadingWidget() {
-    return const Center(
-      child: SizedBox(
-        height: 48,
-        width: 48,
-        child: CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation(Palette.scaffold),
-          color: Palette.scaffold,
-        ),
-      ),
+      ],
     );
   }
 }

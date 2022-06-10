@@ -19,7 +19,7 @@ class _TicketPageState extends State<TicketPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Palette.bg,
-      drawer: const NavigationDrawerWidget(),
+      drawer: NavigationDrawerWidget(),
       appBar: MyAppBar('🎟️ Billets'),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,

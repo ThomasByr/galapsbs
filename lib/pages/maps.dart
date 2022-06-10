@@ -47,7 +47,7 @@ class _MapPageState extends State<MapPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Palette.bg,
-      drawer: const NavigationDrawerWidget(),
+      drawer: NavigationDrawerWidget(),
       appBar: MyAppBar('🗺️ Venir'),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,

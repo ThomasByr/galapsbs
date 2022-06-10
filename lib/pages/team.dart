@@ -93,7 +93,7 @@ class _TeamPageState extends State<TeamPage> {
                   });
                 },
                 onSlideUpdate: (SlideRegion? region) async {
-                  print('Region $region');
+                  debugPrint('Region $region');
                 },
               ),
             );
@@ -119,7 +119,7 @@ class _TeamPageState extends State<TeamPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Palette.bg,
-      drawer: const NavigationDrawerWidget(),
+      drawer: NavigationDrawerWidget(),
       appBar: MyAppBar('👥 L\'équipe'),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -270,12 +270,13 @@ class _TeamPageState extends State<TeamPage> {
                                     setState(() {
                                       isDone = true;
                                     });
-                                    print('nopes: $_nopeCount | super: $_superCount | likes: $_likeCount');
+                                    debugPrint(
+                                        'nopes: $_nopeCount | super: $_superCount | likes: $_likeCount');
                                     // isLoading = true;
                                     // initState();
                                   },
                                   itemChanged: (SwipeItem item, int index) {
-                                    print('item: ${item.content.text}, index: $index');
+                                    debugPrint('item: ${item.content.text}, index: $index');
                                   },
                                   upSwipeAllowed: true,
                                   fillSpace: true,

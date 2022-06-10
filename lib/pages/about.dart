@@ -51,7 +51,7 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Palette.bg,
-      drawer: const NavigationDrawerWidget(),
+      drawer: NavigationDrawerWidget(),
       appBar: MyAppBar('ℹ À propos'),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,

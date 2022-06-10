@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:string_similarity/string_similarity.dart';
 
 import '../cfg/cfg.dart';
 import '../pages/pages.dart';
 
 class NavigationDrawerWidget extends StatefulWidget {
-  const NavigationDrawerWidget({Key? key}) : super(key: key);
+  NavigationDrawerWidget({Key? key, Color? bg}) : super(key: key) {
+    _bg = bg ?? Palette.bg;
+  }
+
+  late Color _bg;
 
   @override
   NavigationDrawerState createState() => NavigationDrawerState();
@@ -26,21 +31,48 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
   );
 
   static const Map<String, int> hints = {
+    // en
     'home': 0,
-    'address': 0,
-    'drinks': 0,
-    'bar': 0,
-    'team': 0,
+    'food': 2,
+    'menu': 2,
+    'eat': 2,
+    'starter': 2,
+    'main': 2,
+    'dessert': 2,
+    'bar': 3,
+    'drink': 3,
+    'wine': 3,
+    'beer': 3,
+    'cocktail': 3,
+    'liquor': 3,
+    'buy': 4,
+    'buy now': 4,
+    'ticket': 4,
+    'address': 5,
+    'come': 5,
+    'team': 6,
+    // fr
     'accueil': 0,
-    'adresse': 0,
-    'boisson': 0,
-    'équipe': 0,
+    'nourriture': 2,
+    'manger': 2,
+    'entrée': 2,
+    'plat': 2,
+    'boisson': 3,
+    'boire': 3,
+    'vin': 3,
+    'bière': 3,
+    'liqueur': 3,
+    'adresse': 5,
+    'venir': 5,
+    'équipe': 6
   };
+
+  Color get bg => widget._bg;
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Palette.bg,
+      backgroundColor: bg,
       elevation: 4,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
@@ -168,9 +200,15 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
   }
 
   int searchFor(String text) {
-    int index = 0;
+    String closest = text
+        .bestMatch(
+          hints.entries.map((e) => e.key).toList(),
+        )
+        .bestMatch
+        .target!;
 
-    return index;
+    debugPrint('closest: $closest');
+    return hints[closest] ?? 0;
   }
 
   Widget buildMenuItem({

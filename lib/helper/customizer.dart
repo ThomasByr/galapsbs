@@ -172,7 +172,7 @@ class _ClockCustomizerState extends State<ClockCustomizer> {
     );
 
     return MaterialApp(
-      theme: ThemeData.light(),
+      theme: ThemeData.dark(),
       darkTheme: ThemeData.dark(),
       themeMode: _themeMode,
       debugShowCheckedModeBanner: false,

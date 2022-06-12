@@ -134,159 +134,150 @@ class _TeamPageState extends State<TeamPage> {
                   color: Palette.scaffold,
                 ),
               ),
-              const SizedBox(height: 24),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Center(
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.height * .6,
-                      width: min(600, MediaQuery.of(context).size.width),
-                      child: isLoading
-                          ? const Center(
-                              child: SizedBox(
-                                height: 48,
-                                width: 48,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation(Palette.scaffold),
+              Center(
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height * .6,
+                  width: min(600, MediaQuery.of(context).size.width),
+                  child: isLoading
+                      ? const Center(
+                          child: SizedBox(
+                            height: 48,
+                            width: 48,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation(Palette.scaffold),
+                              color: Palette.scaffold,
+                            ),
+                          ),
+                        )
+                      : isDone
+                          ? Center(
+                              child: Text(
+                                getEndString(),
+                                style: const TextStyle(
+                                  fontSize: 18,
                                   color: Palette.scaffold,
                                 ),
+                                textAlign: TextAlign.center,
                               ),
                             )
-                          : isDone
-                              ? Center(
-                                  child: Text(
-                                    getEndString(),
-                                    style: const TextStyle(
-                                      fontSize: 18,
+                          : SwipeCards(
+                              matchEngine: _matchEngine!,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Stack(
+                                  fit: StackFit.expand,
+                                  children: <Widget>[
+                                    Card(
+                                      margin: const EdgeInsets.all(16.0),
+                                      shadowColor: Palette.purple,
+                                      elevation: 12.0,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(24.0),
+                                      ),
                                       color: Palette.scaffold,
                                     ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                )
-                              : SwipeCards(
-                                  matchEngine: _matchEngine!,
-                                  itemBuilder: (BuildContext context, int index) {
-                                    return Stack(
-                                      fit: StackFit.expand,
-                                      children: <Widget>[
-                                        Card(
-                                          margin: const EdgeInsets.all(16.0),
-                                          shadowColor: Palette.purple,
-                                          elevation: 12.0,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(24.0),
-                                          ),
-                                          color: Palette.scaffold,
+                                    Container(
+                                      margin: const EdgeInsets.all(24.0),
+                                      decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.all(Radius.circular(24.0)),
+                                        color: Palette.black,
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: const BorderRadius.all(Radius.circular(24.0)),
+                                        child: Image.asset(
+                                          usersData[index].image,
+                                          fit: BoxFit.cover,
+                                          filterQuality: FilterQuality.high,
+                                          isAntiAlias: true,
                                         ),
-                                        Container(
-                                          margin: const EdgeInsets.all(24.0),
-                                          decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.all(Radius.circular(24.0)),
-                                            color: Palette.black,
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.bottomCenter,
+                                      child: Container(
+                                        height: 136.0,
+                                        decoration: const BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(24.0),
+                                            bottomRight: Radius.circular(24.0),
                                           ),
-                                          child: ClipRRect(
-                                            borderRadius: const BorderRadius.all(Radius.circular(24.0)),
-                                            child: Image.asset(
-                                              usersData[index].image,
-                                              fit: BoxFit.cover,
-                                              filterQuality: FilterQuality.high,
-                                              isAntiAlias: true,
-                                            ),
-                                          ),
+                                          color: Color.fromARGB(155, 51, 51, 51),
                                         ),
-                                        Align(
-                                          alignment: Alignment.bottomCenter,
-                                          child: Container(
-                                            height: 136.0,
-                                            decoration: const BoxDecoration(
-                                              borderRadius: BorderRadius.only(
-                                                bottomLeft: Radius.circular(24.0),
-                                                bottomRight: Radius.circular(24.0),
-                                              ),
-                                              color: Color.fromARGB(155, 51, 51, 51),
-                                            ),
-                                            margin: const EdgeInsets.all(24.0),
-                                            child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                        margin: const EdgeInsets.all(24.0),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: <Widget>[
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
                                               children: <Widget>[
-                                                Column(
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                  children: <Widget>[
-                                                    Padding(
-                                                      padding: const EdgeInsets.all(8.0),
-                                                      child: Text(
-                                                        usersData[index].name,
-                                                        overflow: TextOverflow.ellipsis,
-                                                        maxLines: 1,
-                                                        softWrap: false,
-                                                        style: const TextStyle(
-                                                          color: Palette.scaffold,
-                                                          fontSize: 26,
-                                                          fontWeight: FontWeight.bold,
-                                                        ),
-                                                      ),
+                                                Padding(
+                                                  padding: const EdgeInsets.all(8.0),
+                                                  child: Text(
+                                                    usersData[index].name,
+                                                    overflow: TextOverflow.ellipsis,
+                                                    maxLines: 1,
+                                                    softWrap: false,
+                                                    style: const TextStyle(
+                                                      color: Palette.scaffold,
+                                                      fontSize: 26,
+                                                      fontWeight: FontWeight.bold,
                                                     ),
-                                                    Padding(
-                                                      padding: const EdgeInsets.only(left: 8.0),
-                                                      child: Text(
-                                                        usersData[index].short,
-                                                        maxLines: 1,
-                                                        softWrap: false,
-                                                        textAlign: TextAlign.left,
-                                                        style: const TextStyle(
-                                                          color: Palette.scaffold,
-                                                          fontSize: 18.0,
-                                                          fontWeight: FontWeight.bold,
-                                                          fontStyle: FontStyle.italic,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding: const EdgeInsets.only(left: 8.0),
-                                                      child: Text(
-                                                        usersData[index].description,
-                                                        maxLines: 3,
-                                                        softWrap: false,
-                                                        textAlign: TextAlign.left,
-                                                        style: const TextStyle(
-                                                          color: Palette.scaffold,
-                                                          fontSize: 14.0,
-                                                          fontWeight: FontWeight.normal,
-                                                        ),
-                                                      ),
-                                                    )
-                                                  ],
+                                                  ),
                                                 ),
+                                                Padding(
+                                                  padding: const EdgeInsets.only(left: 8.0),
+                                                  child: Text(
+                                                    usersData[index].short,
+                                                    maxLines: 1,
+                                                    softWrap: false,
+                                                    textAlign: TextAlign.left,
+                                                    style: const TextStyle(
+                                                      color: Palette.scaffold,
+                                                      fontSize: 18.0,
+                                                      fontWeight: FontWeight.bold,
+                                                      fontStyle: FontStyle.italic,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsets.only(left: 8.0),
+                                                  child: Text(
+                                                    usersData[index].description,
+                                                    maxLines: 3,
+                                                    softWrap: false,
+                                                    textAlign: TextAlign.left,
+                                                    style: const TextStyle(
+                                                      color: Palette.scaffold,
+                                                      fontSize: 14.0,
+                                                      fontWeight: FontWeight.normal,
+                                                    ),
+                                                  ),
+                                                )
                                               ],
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ],
-                                    );
-                                  },
-                                  onStackFinished: () {
-                                    setState(() {
-                                      isDone = true;
-                                    });
-                                    debugPrint(
-                                        'nopes: $_nopeCount | super: $_superCount | likes: $_likeCount');
-                                    // isLoading = true;
-                                    // initState();
-                                  },
-                                  itemChanged: (SwipeItem item, int index) {
-                                    debugPrint('item: ${item.content.text}, index: $index');
-                                  },
-                                  upSwipeAllowed: true,
-                                  fillSpace: true,
-                                ),
-                    ),
-                  ),
-                  const SizedBox(height: 24.0),
-                  makeBottomButtons(),
-                ],
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
+                              onStackFinished: () {
+                                setState(() {
+                                  isDone = true;
+                                });
+                                debugPrint('nopes: $_nopeCount | super: $_superCount | likes: $_likeCount');
+                              },
+                              itemChanged: (SwipeItem item, int index) {
+                                debugPrint('item: ${item.content.text}, index: $index');
+                              },
+                              upSwipeAllowed: true,
+                              fillSpace: true,
+                            ),
+                ),
               ),
+              const SizedBox(height: 24.0),
+              makeBottomButtons(),
             ],
           ),
         ),

@@ -5,6 +5,7 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
@@ -134,7 +135,7 @@ class _MealPageState extends State<MealPage> {
         backgroundColor: Palette.greyDark,
         foregroundColor: Palette.scaffold,
         child: const Icon(
-          Icons.copy_rounded,
+          Icons.qr_code_2_rounded,
           color: Palette.scaffold,
         ),
         onPressed: _saveCurrentMenu,
@@ -202,29 +203,40 @@ class _MealPageState extends State<MealPage> {
     );
   }
 
-  void _saveCurrentMenu() {
-    String export = '';
-    const int s = 1, m = 7, d = 17;
-
-    if (!isLoading) {
-      final int deadBeef = '💩'.hashCode; // shit is happening
-      final String build = '$appName - v$version ($buildNumber)';
-      final int str = _starterIndex.value << s | _mainIndex.value << m | _dessertIndex.value << d;
-
-      export = '${build.hashCode ^ deadBeef}$str'.padRight(16, '0');
-      debugPrint(export);
-    }
-
-    Clipboard.setData(ClipboardData(text: export)).then((_) {
+  void _saveCurrentMenu() async {
+    if (isLoading) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           backgroundColor: Palette.greyDark,
-          content: Text(
-            isLoading ? 'App hash loading please try again later' : 'Current menu exported to clipboard',
+          content: const Text(
+            'App hash loading please try again later',
             textAlign: TextAlign.center,
-            style: const TextStyle(color: Palette.scaffold),
+            style: TextStyle(color: Palette.scaffold),
           )));
-    });
+      return;
+    }
+
+    final String export = '$appName - v$version ($buildNumber)\n'
+        'Entrée : '
+        '${_starters[_starterIndex.value].name}\n'
+        'Plat : '
+        '${_mains[_mainIndex.value].name}\n'
+        'Dessert : '
+        '${_desserts[_dessertIndex.value].name}\n';
+
+    final QrImage img = QrImage(data: export);
+
+    await showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            alignment: Alignment.center,
+            child: Container(
+              child: img,
+            ),
+          );
+        });
   }
 
   Widget createCustomMealSwiper({required List<Miam> items, required Wrapper<int> index}) {

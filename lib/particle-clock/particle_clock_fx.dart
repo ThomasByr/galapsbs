@@ -6,7 +6,7 @@ import 'clock_fx.dart';
 import 'particle.dart';
 import 'utils/rnd.dart';
 
-final easingDelayDuration = Duration(seconds: 10);
+const easingDelayDuration = Duration(seconds: 10);
 
 /// Probabilities of Hour, Minute, Noise.
 final particleDistributions = [2, 4, 100];
@@ -112,7 +112,7 @@ class ParticleClockFx extends ClockFx {
       case ParticleType.hour:
         angle = _getHourRadians();
         p.life = Rnd.getDouble(.5, .55);
-        p.size = sizeMin * .010;
+        p.size = sizeMin * .015;
         p.isFlowing = Rnd.ratio > .85;
         p.color = palette!.components![palette!.components!.length - 1];
         break;
@@ -120,7 +120,7 @@ class ParticleClockFx extends ClockFx {
       case ParticleType.minute:
         angle = _getMinuteRadians();
         p.life = Rnd.getDouble(.68, .73);
-        p.size = sizeMin * .008;
+        p.size = sizeMin * .01;
         p.isFlowing = Rnd.ratio > .6;
         p.color = palette!.components![palette!.components!.length - 1];
         break;
@@ -137,7 +137,7 @@ class ParticleClockFx extends ClockFx {
         } while (_isBetween(angle!, am - d, am + d) || _isBetween(angle, ah - d, ah + d));
 
         p.life = Rnd.getDouble(0.75, .8);
-        p.size = sizeMin * (Rnd.ratio > .8 ? Rnd.getDouble(.0015, .003) : Rnd.getDouble(.002, .006));
+        p.size = sizeMin * (Rnd.ratio > .8 ? Rnd.getDouble(.0025, .005) : Rnd.getDouble(.005, .01));
         break;
     }
 

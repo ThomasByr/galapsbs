@@ -90,27 +90,27 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
           const SizedBox(height: 48),
           buildMenuItem(
             text: 'Accueil',
-            icon: Icons.home,
+            icon: Icons.home_rounded,
             onClicked: () => selectedItem(context, 0),
           ),
           buildMenuItem(
             text: 'Événements',
-            icon: Icons.event,
+            icon: Icons.event_available_rounded,
             onClicked: () => selectedItem(context, 1),
           ),
           buildMenuItem(
             text: 'Menu',
-            icon: Icons.restaurant_menu,
+            icon: Icons.restaurant_menu_rounded,
             onClicked: () => selectedItem(context, 2),
           ),
           buildMenuItem(
             text: 'Boissons',
-            icon: Icons.local_bar,
+            icon: Icons.local_bar_rounded,
             onClicked: () => selectedItem(context, 3),
           ),
           buildMenuItem(
             text: 'Billets',
-            icon: Icons.local_atm,
+            icon: Icons.local_atm_rounded,
             onClicked: () => selectedItem(context, 4),
           ),
           const Divider(
@@ -119,17 +119,17 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
           ),
           buildMenuItem(
             text: 'Venir',
-            icon: Icons.location_on,
+            icon: Icons.location_on_rounded,
             onClicked: () => selectedItem(context, 5),
           ),
           buildMenuItem(
             text: 'L\'équipe',
-            icon: Icons.group,
+            icon: Icons.group_rounded,
             onClicked: () => selectedItem(context, 6),
           ),
           buildMenuItem(
             text: 'À propos',
-            icon: Icons.info,
+            icon: Icons.info_outline_rounded,
             onClicked: () => selectedItem(context, 7),
           ),
         ],

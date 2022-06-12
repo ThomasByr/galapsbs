@@ -9,7 +9,7 @@ import 'scene.dart';
 import '../helper/model.dart';
 
 class ParticleClock extends StatefulWidget {
-  const ParticleClock(this.model);
+  const ParticleClock(this.model, {Key? key}) : super(key: key);
   final ClockModel model;
 
   @override

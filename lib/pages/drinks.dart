@@ -21,13 +21,14 @@ class DrinkData {
 }
 
 class Drink {
-  final String name, sub_name, price, degree, image;
+  final String name, sub_name, price, degree, location, image;
 
   Drink(
       {required this.name,
       required this.sub_name,
       required this.price,
       required this.degree,
+      required this.location,
       required this.image});
 
   factory Drink.fromJson(Map<String, dynamic> data) {
@@ -36,6 +37,7 @@ class Drink {
       sub_name: data['sub_name'] as String,
       price: data['price'] as String,
       degree: data['degree'] as String,
+      location: data['location'] as String,
       image: data['image'] as String,
     );
   }
@@ -145,11 +147,15 @@ class _DrinkPageState extends State<DrinkPage> {
                   return Container(
                     padding: const EdgeInsets.only(right: 20, left: 20, top: 30),
                     decoration: const BoxDecoration(
-                        color: Palette.scaffold, borderRadius: BorderRadius.all(Radius.circular(10))),
+                      color: Palette.scaffold,
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
                           _drinks[index].name,
+                          textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontSize: 26,
                             fontWeight: FontWeight.bold,
@@ -161,9 +167,10 @@ class _DrinkPageState extends State<DrinkPage> {
                         ),
                         Text(
                           _drinks[index].sub_name,
+                          textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontSize: 18,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.bold,
                             color: Palette.greyDark,
                           ),
                         ),
@@ -171,43 +178,64 @@ class _DrinkPageState extends State<DrinkPage> {
                           height: 200,
                           child: Image.asset(_drinks[index].image),
                         ),
-                        const SizedBox(
-                          height: 12,
-                        ),
-                        Row(
-                          children: [
-                            const Icon(Icons.euro_rounded),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            Text(
-                              _drinks[index].price,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Palette.black,
+                        const SizedBox(height: 12),
+                        Container(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      const Icon(Icons.euro_sharp, color: Palette.black),
+                                      const SizedBox(width: 12),
+                                      Text(
+                                        _drinks[index].price,
+                                        style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Palette.black,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Row(
+                                    children: [
+                                      const Icon(Icons.liquor_rounded, color: Palette.black),
+                                      const SizedBox(width: 12),
+                                      Text(
+                                        _drinks[index].degree,
+                                        style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Palette.black,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ],
                               ),
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            const Icon(Icons.liquor_rounded),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            Text(
-                              _drinks[index].degree,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Palette.black,
-                              ),
-                            )
-                          ],
+                              Row(
+                                children: [
+                                  const Icon(Icons.location_on_sharp, color: Palette.black),
+                                  const SizedBox(width: 12),
+                                  Text(
+                                    _drinks[index].location,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Palette.black,
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
                         )
                       ],
                     ),

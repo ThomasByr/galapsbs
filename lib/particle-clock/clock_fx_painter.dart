@@ -49,7 +49,7 @@ class ClockFxPainter extends CustomPainter {
         circlePaint.style = PaintingStyle.fill;
 
         // Draw gradient arc stroke on some filled particles.
-        if (p.isFlowing!) {
+        if (p.isFlowing) {
           var threshold = p.distribution < 2 ? .2 : .4;
           var flowAlpha = max(0, (p.distFrac - threshold) / p.distFrac) * alpha;
           var shader = SweepGradient(

@@ -66,8 +66,8 @@ class EventPage extends StatefulWidget {
 
 class _EventPageState extends State<EventPage> {
   bool isLoading = true;
-  List<String> _locs = [];
-  List<Event> _events = [];
+  List<String> _locs = []; // List of locations
+  List<List<Event>> _events = []; // List of events for each location
   final List<Widget> _selectChildren = [];
   final List<Widget> _coreChildren = [];
 
@@ -79,28 +79,10 @@ class _EventPageState extends State<EventPage> {
 
     setState(() {
       _locs = LocData.fromJson(data).locs;
-      _events = EventData.fromJson(data, _locs[0]).events;
-
-      // todo: add selectors for each location
-
-      // todo: add events
-    });
-  }
-
-  Future<void> _onRefresh(String loc) async {
-    setState(() {
-      isLoading = true;
-      _events = [];
-    });
-
-    final String response = await rootBundle.loadString('assets/json/events.json');
-    final data = await json.decode(response);
-
-    setState(() {
-      _events = EventData.fromJson(data, loc).events;
-      // todo: add events
-
-      isLoading = false;
+      for (var i = 0; i < _locs.length; i++) {
+        List<Event> e = EventData.fromJson(data, _locs[i]).events;
+        _events.add([...e]);
+      }
     });
   }
 

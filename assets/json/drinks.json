@@ -5,6 +5,7 @@
       "sub_name": "Slushy, with a sour kick",
       "price": "2.50",
       "degree": "14°",
+      "location": "Hall",
       "image": "assets/images/strawberry.png"
     },
     {
@@ -12,6 +13,7 @@
       "sub_name": "Tastes like summer",
       "price": "2.50",
       "degree": "12°",
+      "location": "RDC",
       "image": "assets/images/mojito.png"
     },
     {
@@ -19,13 +21,15 @@
       "sub_name": "A sweet and sour cocktail",
       "price": "2.50",
       "degree": "11°",
+      "location": "1er",
       "image": "assets/images/colada.png"
     },
     {
       "name": "Kiwi Pina Colada",
-      "sub_name": "Nothing like a good Kiwi Pina Colada",
+      "sub_name": "Nothing like a good Pina Colada",
       "price": "2.50",
       "degree": "13°",
+      "location": "RDC",
       "image": "assets/images/kiwi.png"
     },
     {
@@ -33,6 +37,7 @@
       "sub_name": "A refreshing drink",
       "price": "2.50",
       "degree": "16°",
+      "location": "Poly",
       "image": "assets/images/long.png"
     }
   ],

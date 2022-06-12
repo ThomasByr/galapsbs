@@ -390,17 +390,17 @@ class _TeamPageState extends State<TeamPage> {
         return '🙊 Tu nous aimes tous !\nsauf un.e 😠\nBon promis je lui dit pas...';
       } else if (_superCount == 1) {
         return '🙉 On a un.e heureux.se élu.e !\nC\'est mignon 💖\nSoit tu lui dit soit je m\'en charge !';
-      } else if (_superCount > _likeCount && _likeCount >= _nopeCount) {
+      } else if (_superCount >= _likeCount && _likeCount >= _nopeCount) {
         return '🙈 Un maximum de superlikes !\nC\'est la fête 🎉';
-      } else if (_superCount > _nopeCount && _nopeCount > _likeCount) {
+      } else if (_superCount > _nopeCount && _nopeCount >= _likeCount) {
         return '🙈 Un maximum de superlikes !\nMais plus de nopes que de likes...\n C\'est mieux que rien 😜';
-      } else if (_likeCount > _superCount && _superCount >= _nopeCount) {
+      } else if (_likeCount >= _superCount && _superCount >= _nopeCount) {
         return '🙈 Un maximum de likes !\nEt de superlikes !\nMerci ❤️';
-      } else if (_likeCount > _nopeCount && _nopeCount > _superCount) {
+      } else if (_likeCount > _nopeCount && _nopeCount >= _superCount) {
         return '🙈 Globalement c\'est bon !\nTu nous détestes pas trop !\nMerci ❤️';
-      } else if (_nopeCount > _superCount && _superCount >= _likeCount) {
+      } else if (_nopeCount >= _superCount && _superCount >= _likeCount) {
         return '🙊 Mais qu\'est-ce qu\'on a\nfait pour mériter ça ? 😭\n Soit ça passe\nsoit ça casse avec toi...';
-      } else if (_nopeCount > _likeCount && _likeCount > _superCount) {
+      } else if (_nopeCount > _likeCount && _likeCount >= _superCount) {
         return '🙊 Globalement... C\'est la catastrophe\nMais on est sauvés par quelques\nlikes quand même ! 😮‍💨';
       }
       return 'Error on emptied queue';

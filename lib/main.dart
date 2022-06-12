@@ -30,6 +30,7 @@
 //! POSSIBILITY OF SUCH DAMAGE.
 
 import 'package:flutter/material.dart';
+import 'package:galapsbs/pages/404.dart';
 
 import 'pages/pages.dart';
 
@@ -44,6 +45,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      onUnknownRoute: (RouteSettings settings) {
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const ErrorPage(),
+        );
+      },
       debugShowCheckedModeBanner: true,
       title: 'Gala TPS ESBS',
       theme: ThemeData(

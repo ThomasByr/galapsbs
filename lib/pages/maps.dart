@@ -49,61 +49,59 @@ class _MapPageState extends State<MapPage> {
       backgroundColor: Palette.bg,
       drawer: NavigationDrawerWidget(),
       appBar: MyAppBar('🗺️ Venir'),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Center(
-          child: SizedBox(
+      body: Column(
+        children: <Widget>[
+          SizedBox(
             width: min(600, MediaQuery.of(context).size.width),
-            child: Column(
+            child: Container(
+              alignment: Alignment.center,
+              height: MediaQuery.of(context).size.height * 0.7,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: GoogleMap(
+                  onMapCreated: _onMapCreated,
+                  initialCameraPosition: CameraPosition(
+                    target: _center,
+                    zoom: 16.0,
+                  ),
+                  markers: _markers.values.toSet(),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.2,
+            width: min(600, MediaQuery.of(context).size.width),
+            child: ListView(
+              clipBehavior: Clip.antiAliasWithSaveLayer,
               children: <Widget>[
-                Container(
-                  alignment: Alignment.center,
-                  height: MediaQuery.of(context).size.height * 0.7,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: GoogleMap(
-                      onMapCreated: _onMapCreated,
-                      initialCameraPosition: CameraPosition(
+                buildMenuItem(
+                  text: 'Recentrer la carte',
+                  icon: Icons.refresh,
+                  onClicked: () => mapController.animateCamera(
+                    CameraUpdate.newCameraPosition(
+                      CameraPosition(
                         target: _center,
                         zoom: 16.0,
                       ),
-                      markers: _markers.values.toSet(),
                     ),
                   ),
                 ),
-                ListView(
-                  padding: const EdgeInsets.all(16),
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: <Widget>[
-                    buildMenuItem(
-                      text: 'Recentrer la carte',
-                      icon: Icons.refresh,
-                      onClicked: () => mapController.animateCamera(
-                        CameraUpdate.newCameraPosition(
-                          CameraPosition(
-                            target: _center,
-                            zoom: 16.0,
-                          ),
-                        ),
-                      ),
-                    ),
-                    buildMenuItem(
-                      text: 'Venir en tram',
-                      icon: Icons.directions_bus,
-                      onClicked: () => launchUrlString(url1.toString()),
-                    ),
-                    buildMenuItem(
-                      text: 'Venir en voiture',
-                      icon: Icons.directions_car,
-                      onClicked: () => launchUrlString(url2.toString()),
-                    ),
-                  ],
+                buildMenuItem(
+                  text: 'Venir en transports en commun',
+                  icon: Icons.directions_bus_filled_rounded,
+                  onClicked: () => launchUrlString(url1.toString()),
                 ),
+                buildMenuItem(
+                  text: 'Venir en voiture',
+                  icon: Icons.directions_car_filled_rounded,
+                  onClicked: () => launchUrlString(url2.toString()),
+                ),
+                const SizedBox(height: 48),
               ],
             ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -115,7 +113,7 @@ class _MapPageState extends State<MapPage> {
   }) {
     const color = Palette.scaffold;
     const hoverColor = Palette.greyDark;
-    const textSize = 18.0;
+    const textSize = 16.0;
 
     return ListTile(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

@@ -90,7 +90,6 @@ class _AboutPageState extends State<AboutPage> {
                       ),
               ),
               Container(
-                // height: 200,
                 width: min(600, MediaQuery.of(context).size.width * .9),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -120,7 +119,6 @@ class _AboutPageState extends State<AboutPage> {
               ),
               const SizedBox(height: 48),
               Container(
-                // height: 250,
                 width: min(600, MediaQuery.of(context).size.width * .9),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -160,7 +158,6 @@ class _AboutPageState extends State<AboutPage> {
               ),
               const SizedBox(height: 48),
               Container(
-                // height: 850,
                 width: min(600, MediaQuery.of(context).size.width * .9),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),

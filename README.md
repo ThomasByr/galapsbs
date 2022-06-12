@@ -29,7 +29,7 @@ This repo contains all the source code and assets of the 2023 Gala Web App hoste
 - `master` which holds the said source code
 - `gh-pages` which is an _up-to-date_ clone of the [`./build/web`](build/web/) folder
 
-Normally, you would find a release version of the web app running by [galapsbs.fr](galapsbs.fr) hosted by [ionos](https://www.ionos.com/). Alternatively, find a local version running by [Github Pages](https://thomasbyr.github.io/galapsbs/).
+Normally, you would find a release version of the web app running by [galapsbs.fr](http://galapsbs.fr) hosted by [ionos](https://www.ionos.com/). Alternatively, find a local version running by [Github Pages](https://thomasbyr.github.io/galapsbs/).
 
 ## 👩‍🏫 Usage
 

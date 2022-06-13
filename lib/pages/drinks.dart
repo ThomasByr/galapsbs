@@ -278,7 +278,7 @@ class _DrinkPageState extends State<DrinkPage> {
                   ),
                 )
               ],
-            )
+            ),
           ],
         ),
       ),

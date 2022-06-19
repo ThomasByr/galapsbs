@@ -21,11 +21,11 @@ class DrinkData {
 }
 
 class Drink {
-  final String name, sub_name, price, degree, location, image;
+  final String name, subName, price, degree, location, image;
 
   Drink(
       {required this.name,
-      required this.sub_name,
+      required this.subName,
       required this.price,
       required this.degree,
       required this.location,
@@ -34,7 +34,7 @@ class Drink {
   factory Drink.fromJson(Map<String, dynamic> data) {
     return Drink(
       name: data['name'] as String,
-      sub_name: data['sub_name'] as String,
+      subName: data['sub_name'] as String,
       price: data['price'] as String,
       degree: data['degree'] as String,
       location: data['location'] as String,
@@ -166,7 +166,7 @@ class _DrinkPageState extends State<DrinkPage> {
                           height: 10,
                         ),
                         Text(
-                          _drinks[index].sub_name,
+                          _drinks[index].subName,
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontSize: 18,

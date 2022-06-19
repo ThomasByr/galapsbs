@@ -70,8 +70,7 @@ class _MapPageState extends State<MapPage> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height -
-                  MediaQuery.of(context).size.height * 0.7 -
+              height: MediaQuery.of(context).size.height * 0.3 -
                   MediaQuery.of(context).padding.top -
                   myAppBar.preferredSize.height,
               width: min(600, MediaQuery.of(context).size.width),

@@ -17,11 +17,11 @@ class NavigationDrawerWidget extends StatefulWidget {
 }
 
 class NavigationDrawerState extends State<NavigationDrawerWidget> {
-  static const padding = EdgeInsets.symmetric(horizontal: 20);
+  static const EdgeInsets padding = EdgeInsets.symmetric(horizontal: 20);
 
-  static const name = 'Gala TPS ESBS';
-  static const email = 'email@exampe.com';
-  static const avatar = 'assets/images/avatar.png';
+  static const String name = 'Gala TPS ESBS';
+  static const String email = 'email@exampe.com';
+  static const String avatar = 'assets/images/avatar.png';
 
   final Uri url = Uri.parse(
     'mailto:$email?subject=request&body='

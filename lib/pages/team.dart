@@ -109,7 +109,7 @@ class _TeamPageState extends State<TeamPage> {
     super.initState();
     readJson().then((_) {
       setState(() {
-        // usersData.shuffle(); // uncomment to shuffle
+        // usersData.shuffle(); //+ uncomment to shuffle
         isLoading = false;
       });
     });
@@ -239,12 +239,12 @@ class _TeamPageState extends State<TeamPage> {
                                                     ),
                                                   ),
                                                 ),
-                                                Padding(
+                                                Container(
                                                   padding: const EdgeInsets.only(left: 8.0),
                                                   child: Text(
                                                     usersData[index].description,
                                                     maxLines: 3,
-                                                    softWrap: false,
+                                                    softWrap: true,
                                                     textAlign: TextAlign.left,
                                                     style: const TextStyle(
                                                       color: Palette.scaffold,
@@ -252,7 +252,7 @@ class _TeamPageState extends State<TeamPage> {
                                                       fontWeight: FontWeight.normal,
                                                     ),
                                                   ),
-                                                )
+                                                ),
                                               ],
                                             ),
                                           ],
@@ -332,18 +332,15 @@ class _TeamPageState extends State<TeamPage> {
             child: CircleAvatar(
               radius: 32.0,
               backgroundColor: Palette.purple,
-              child: Center(
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.favorite,
-                    color: Palette.scaffold,
-                    size: 36.0,
-                  ),
-                  onPressed: () {
-                    _matchEngine!.currentItem?.superLike();
-                  },
-                  //child: const Text("Superlike"),
+              child: IconButton(
+                icon: const Icon(
+                  Icons.favorite,
+                  color: Palette.scaffold,
                 ),
+                onPressed: () {
+                  _matchEngine!.currentItem?.superLike();
+                },
+                //child: const Text("Superlike"),
               ),
             ),
           ),
@@ -373,7 +370,7 @@ class _TeamPageState extends State<TeamPage> {
               //  child: const Text("Like"),
             ),
           ),
-        )
+        ),
       ],
     );
   }

@@ -13,7 +13,7 @@ class BgFx extends ClockFx {
       : super(
           size: size,
           time: time,
-          numParticles: 120,
+          numParticles: 50,
         );
 
   @override

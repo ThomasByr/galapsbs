@@ -23,13 +23,14 @@ class DrinkData {
 class Drink {
   final String name, subName, price, degree, location, image;
 
-  Drink(
-      {required this.name,
-      required this.subName,
-      required this.price,
-      required this.degree,
-      required this.location,
-      required this.image});
+  Drink({
+    required this.name,
+    required this.subName,
+    required this.price,
+    required this.degree,
+    required this.location,
+    required this.image,
+  });
 
   factory Drink.fromJson(Map<String, dynamic> data) {
     return Drink(

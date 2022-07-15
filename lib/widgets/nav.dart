@@ -74,8 +74,11 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
     return Drawer(
       backgroundColor: bg,
       elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+        ),
       ),
       child: ListView(
         padding: padding,

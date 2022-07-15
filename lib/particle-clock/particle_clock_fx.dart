@@ -9,7 +9,7 @@ import 'utils/rnd.dart';
 const easingDelayDuration = Duration(seconds: 10);
 
 /// Probabilities of Hour, Minute, Noise.
-final particleDistributions = [2, 4, 100];
+final particleDistributions = [30, 50, 100];
 
 /// Number of "arms" to emit noise particles from center.
 const int noiseAngles = 2000;

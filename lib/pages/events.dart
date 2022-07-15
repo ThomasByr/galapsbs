@@ -35,14 +35,15 @@ class EventData {
 class Event {
   final String name, date, time0, time1, description, details, image;
 
-  Event(
-      {required this.name,
-      required this.date,
-      required this.time0,
-      required this.time1,
-      required this.description,
-      required this.details,
-      required this.image});
+  Event({
+    required this.name,
+    required this.date,
+    required this.time0,
+    required this.time1,
+    required this.description,
+    required this.details,
+    required this.image,
+  });
 
   factory Event.fromJson(Map<String, dynamic> data) {
     return Event(

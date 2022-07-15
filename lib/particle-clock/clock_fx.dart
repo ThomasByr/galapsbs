@@ -39,7 +39,7 @@ abstract class ClockFx with ChangeNotifier {
   ClockFx({
     required Size size,
     required DateTime? time,
-    this.numParticles = 2000, //! [5000]
+    this.numParticles = 200, //! [5000]
   }) {
     setTime(time);
 

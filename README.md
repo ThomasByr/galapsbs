@@ -18,11 +18,14 @@
 3. [💁 Get Help](#-get-help)
 4. [🔰 Support](#-support)
 5. [⚖️ License](#️-license)
-6. [🔄 Changelog, Bugs and TODO](#-changelog-bugs-and-todo)
+6. [🔄 Changelog](#-changelog)
+7. [🐛 Bugs and TODO](#-bugs-and-todo)
 
 ## ✏️ In short
 
+> **Warning**
 > This repo is supposed to be private. It could leave this state though for showcase purposes. If you ever get access to it please do not steal all the hard work !
+> We are also _temporarily_ closing pushes to the `gh-pages` branch to help with secrets.
 
 This repo contains all the source code and assets of the 2023 Gala Web App hosted by [Télécom Physique Strasbourg](https://www.telecom-physique.fr/). There are two (main) branches here :
 
@@ -45,7 +48,8 @@ Run a production version with the device of your choice with :
 flutter run -d <device> --release --web-renderer canvaskit
 ```
 
-> **note** since some animations can be pretty heavy for some devices, we will use canvaskit as the renderer ; please make sure you load the web app with a WASM enabled browser !
+> **Note**
+> Since some animations can be pretty heavy for some devices, we will use canvaskit as the renderer ; please make sure you load the web app with a WASM enabled browser !
 
 ## 💁 Get Help
 
@@ -93,7 +97,7 @@ Redistribution and use in source and binary forms, with or without modification,
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-## 🔄 Changelog, Bugs and TODO
+## 🔄 Changelog
 
 ```mermaid
 gantt
@@ -112,6 +116,8 @@ gantt
     IONOS        : 2022-06-04, 2d
 
 ```
+
+## 🐛 Bugs and TODO
 
 **Bugs** - first fix patch version
 

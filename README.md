@@ -130,4 +130,4 @@ gantt
 - [x] stable release for larger screens (v1.1.2)
 - [x] proper pre-cache for large assets / image compression (v1.1.2)
 - [ ] events page
-- [ ] but tickets page
+- [ ] buy tickets page

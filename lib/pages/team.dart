@@ -386,7 +386,7 @@ class _TeamPageState extends State<TeamPage> {
       } else if (_nopeCount == 1) {
         return '🙊 Tu nous aimes tous !\nsauf un.e 😠\nBon promis je lui dit pas...';
       } else if (_superCount == 1) {
-        return '🙉 On a un.e heureux.se élu.e !\nC\'est mignon 💖\nSoit tu lui dit soit je m\'en charge !';
+        return '🙉 On a un.e heureux.se élu.e !\nJe dis rien... promis !\nMais on se comprend 😇';
       } else if (_superCount >= _likeCount && _likeCount >= _nopeCount) {
         return '🙈 Un maximum de superlikes !\nC\'est la fête 🎉';
       } else if (_superCount > _nopeCount && _nopeCount >= _likeCount) {

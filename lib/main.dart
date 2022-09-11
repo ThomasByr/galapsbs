@@ -53,7 +53,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: true,
       title: 'Gala TPS ESBS',
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+        primarySwatch: Colors.amber,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: const TextTheme(
           bodyMedium: TextStyle(fontSize: 12.0),
         ),

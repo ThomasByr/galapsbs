@@ -21,7 +21,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
 
   static const String name = 'Gala TPS ESBS';
   static const String email = 'email@exampe.com';
-  static const String avatar = 'assets/images/avatar.png';
+  static const String avatar = 'assets/images/logo.png';
 
   final Uri url = Uri.parse(
     'mailto:$email?subject=request&body='

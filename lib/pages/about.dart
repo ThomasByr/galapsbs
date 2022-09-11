@@ -58,13 +58,14 @@ class _AboutPageState extends State<AboutPage> {
         child: Center(
           child: Column(
             children: <Widget>[
-              const SizedBox(height: 48),
-              SizedBox(
-                height: 200,
-                child: Image.asset(
-                  'assets/images/avatar.png',
-                  fit: BoxFit.cover,
-                ),
+              // const SizedBox(height: 48),
+              const SizedBox(
+                height: 150,
+                // child: Image.asset(
+                //   'assets/images/logo.png',
+                //   fit: BoxFit.cover,
+                // ),
+                child: AnimatedLogo(),
               ),
               SizedBox(
                 height: 48,

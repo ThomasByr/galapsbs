@@ -1,4 +1,4 @@
-# <img src="assets/images/avatar.png" alt="icon" width="3%"/> galapsbs
+# <img src="assets/images/logo.png" alt="icon" width="3%"/> galapsbs
 
 > The source code of the Gala 2023 Web App
 

@@ -77,7 +77,7 @@ class _DrinkPageState extends State<DrinkPage> {
   bool isLoading = true;
   List<Drink> _drinks = [];
   List<Snack> _snacks = [];
-  List<Widget> _children = [];
+  final List<Widget> _children = [];
 
   Future<void> readJson() async {
     final String response = await rootBundle.loadString('assets/json/drinks.json');

@@ -85,7 +85,7 @@ YES
 
 ## ⚖️ License
 
-This project is licensed under the GPL-3.0 new or revised license. Please read the [LICENSE](LICENSE) file. Specific [ASSETS LICENSE](assets/LICENSE) apply for all assets.
+This project is licensed under the GPL-3.0 new or revised license. Please read the [LICENSE](LICENSE) file. Specific [ASSETS LICENSE](assets/LICENSE) apply for all assets. TL;DR : you shouldn't use them.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met :
 
@@ -129,5 +129,6 @@ gantt
 - [x] redo the team page description widget (v1.1.1)
 - [x] stable release for larger screens (v1.1.2)
 - [x] proper pre-cache for large assets / image compression (v1.1.2)
-- [ ] events page
+- [x] events page (v1.3.0)
 - [ ] buy tickets page
+- [ ] light/dark mode switch [suggested by Nicolas M]

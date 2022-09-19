@@ -1,7 +1,10 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
@@ -72,6 +75,8 @@ class _EventPageState extends State<EventPage> {
   final List<Widget> _selectChildren = [];
   final List<Widget> _coreChildren = [];
 
+  PreferredSizeWidget myAppBar = MyAppBar('🗓️ Événements', bg: Colors.transparent);
+
   Future<void> readJson() async {
     _selectChildren.clear();
     _coreChildren.clear();
@@ -93,17 +98,115 @@ class _EventPageState extends State<EventPage> {
     readJson().then((_) => setState(() => isLoading = false));
   }
 
+  void rebuildAllChildren(BuildContext context) {
+    void rebuild(Element el) {
+      el.markNeedsBuild();
+      el.visitChildren(rebuild);
+    }
+
+    (context as Element).visitChildren(rebuild);
+  }
+
   @override
   Widget build(BuildContext context) {
+    final PageController controller = PageController(
+      initialPage: 0,
+      keepPage: false,
+      viewportFraction: 0.8,
+    );
+
+    final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);
     return Stack(
       children: <Widget>[
         ClockCustomizer((ClockModel model) => ParticleClock(model)),
         Scaffold(
           backgroundColor: Colors.transparent,
           drawer: NavigationDrawerWidget(bg: Colors.transparent),
-          appBar: MyAppBar('🗓️ Événements', bg: Colors.transparent),
+          appBar: myAppBar,
+          body: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 48,
+                child: isLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: _locs.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return ValueListenableBuilder(
+                            builder: (BuildContext context, int value, Widget? child) {
+                              return TextButton(
+                                onPressed: () {
+                                  _selectedIndex.value = index;
+                                  controller.animateToPage(index,
+                                      duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
+                                },
+                                child: Text(
+                                  _locs[index],
+                                  style: TextStyle(
+                                    color: _selectedIndex.value == index
+                                        ? Theme.of(context).accentColor
+                                        : Theme.of(context).textTheme.bodyText1!.color,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              );
+                            },
+                            valueListenable: _selectedIndex,
+                          );
+                        },
+                      ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height -
+                    48 -
+                    MediaQuery.of(context).padding.top -
+                    myAppBar.preferredSize.height,
+                child: isLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : PageView(
+                        controller: controller,
+                        scrollDirection: Axis.horizontal,
+                        dragStartBehavior: DragStartBehavior.start,
+                        onPageChanged: (int index) {
+                          debugPrint('Page changed to $index');
+                          _selectedIndex.value = index;
+                        },
+                        children: List<Widget>.generate(
+                            _locs.length, (int index) => _buildPage(index, _events[index])),
+                      ),
+              ),
+            ],
+          ),
         ),
       ],
+    );
+  }
+
+  Widget _buildPage(int index, List<Event> events) {
+    return ListView.builder(
+      itemCount: events.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Card(
+            color: Palette.black.withAlpha(100),
+            child: Column(
+              children: <Widget>[
+                ListTile(
+                  title: Text(events[index].name, style: const TextStyle(color: Palette.scaffold)),
+                  subtitle: Text(events[index].date, style: const TextStyle(color: Palette.scaffold)),
+                ),
+                Image.asset(events[index].image),
+                ListTile(
+                  title: Text(events[index].description, style: const TextStyle(color: Palette.scaffold)),
+                  subtitle: Text(events[index].details, style: const TextStyle(color: Palette.scaffold)),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

@@ -1,9 +1,9 @@
 import 'dart:math';
 import 'dart:ui';
 
-import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:chewie/chewie.dart';
 
 import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   bool isLoading = true;
 
   final videoPlayerController = VideoPlayerController.network(
-      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4');
+      'https://drive.google.com/u/0/uc?id=1U-VfvExjcJBZTjguUMpjwKilD1cMOkEj&export=download');
   late ChewieController chewieController;
   late Chewie playerWidget;
 
@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Palette.bg,
       drawer: NavigationDrawerWidget(),
-      appBar: MyAppBar('🎉 Accueil', bg: Colors.transparent),
+      appBar: MyAppBar('🎉 Accueil'),
       body: Builder(
         builder: (context) => Center(
           child: Column(
@@ -66,10 +66,8 @@ class _HomePageState extends State<HomePage> {
               // const SizedBox(height: 48),
               SizedBox(
                 height: MediaQuery.of(context).size.height * .65,
-                width: min(600, MediaQuery.of(context).size.width),
-                child: isLoading
-                    ? const Center(child: CircularProgressIndicator())
-                    : Center(child: playerWidget),
+                width: min(400, MediaQuery.of(context).size.width),
+                child: isLoading ? loadingWidget() : Center(child: playerWidget),
               ),
               const SizedBox(height: 48),
               Container(
@@ -99,5 +97,29 @@ class _HomePageState extends State<HomePage> {
     videoPlayerController.dispose();
     chewieController.dispose();
     super.dispose();
+  }
+
+  Widget loadingWidget() {
+    return Center(
+      child: Stack(
+        children: const <Widget>[
+          // 100x100 progress indicator
+          Center(
+            child: SizedBox(
+              height: 100,
+              width: 100,
+              child: CircularProgressIndicator(strokeWidth: 3),
+            ),
+          ),
+          Center(
+            child: Image(
+              image: AssetImage('assets/images/logo.png'),
+              height: 100,
+              width: 100,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

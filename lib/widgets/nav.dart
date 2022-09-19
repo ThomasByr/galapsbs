@@ -20,7 +20,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
   static const EdgeInsets padding = EdgeInsets.symmetric(horizontal: 20);
 
   static const String name = 'Gala TPS ESBS';
-  static const String email = 'email@exampe.com';
+  static const String email = '11 février 2023';
   static const String avatar = 'assets/images/logo.png';
 
   final Uri url = Uri.parse(
@@ -87,7 +87,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
             urlImage: avatar,
             name: name,
             email: email,
-            onClicked: () => launchUrlString(url.toString()),
+            onClicked: () => {/* launchUrlString(url.toString()) */},
           ),
           buildSearchField(context),
           const SizedBox(height: 48),

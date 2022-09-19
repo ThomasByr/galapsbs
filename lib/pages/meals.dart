@@ -241,7 +241,7 @@ class _MealPageState extends State<MealPage> {
 
   Widget createCustomMealSwiper({required List<Miam> items, required Wrapper<int> index}) {
     return Swiper(
-      onIndexChanged: (int i) => index.value = i,
+      onIndexChanged: (int i) => setState(() => index.value = i),
       autoplay: false,
       autoplayDelay: 5000,
       autoplayDisableOnInteraction: true,

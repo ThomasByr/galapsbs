@@ -18,7 +18,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool isLoading = true;
 
-  final videoPlayerController = VideoPlayerController.network('assets/posts/movies/Gala_2022.mp4');
+  final videoPlayerController = VideoPlayerController.asset('assets/posts/movies/Gala_2022.mp4');
   late ChewieController chewieController;
   late Chewie playerWidget;
 

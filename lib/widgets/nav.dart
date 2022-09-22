@@ -39,6 +39,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
     'starter': 2,
     'main': 2,
     'dessert': 2,
+    'meal': 2,
     'bar': 3,
     'drink': 3,
     'wine': 3,
@@ -51,6 +52,10 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
     'address': 5,
     'come': 5,
     'team': 6,
+    'tinder': 6,
+    'match': 6,
+    'contact': 6,
+    'about': 7,
     // fr
     'accueil': 0,
     'nourriture': 2,
@@ -58,13 +63,16 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
     'entrée': 2,
     'plat': 2,
     'boisson': 3,
+    'repas': 3,
     'boire': 3,
     'vin': 3,
     'bière': 3,
     'liqueur': 3,
     'adresse': 5,
     'venir': 5,
-    'équipe': 6
+    'équipe': 6,
+    'propos': 7,
+    'à propos': 7,
   };
 
   Color get bg => widget._bg;

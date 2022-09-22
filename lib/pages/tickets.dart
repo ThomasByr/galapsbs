@@ -23,22 +23,25 @@ class _TicketPageState extends State<TicketPage> {
       appBar: MyAppBar('🎟️ Billets'),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: SizedBox(
-          height: 600,
-          child: Center(
-            child: IconButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const ErrorPage(),
-                ));
-              },
-              icon: const Icon(Icons.attach_money),
-              iconSize: 64,
-              color: Palette.scaffold,
-              hoverColor: Palette.greyDark,
-              highlightColor: Palette.greyDark,
+        child: Column(
+          children: <Widget>[
+            const SizedBox(height: 16),
+            Center(
+              child: IconButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const ErrorPage(),
+                  ));
+                },
+                icon: const Icon(Icons.attach_money),
+                iconSize: 64,
+                color: Palette.scaffold,
+                hoverColor: Palette.greyDark,
+                highlightColor: Palette.greyDark,
+              ),
             ),
-          ),
+            const SizedBox(height: 16),
+          ],
         ),
       ),
     );

@@ -18,8 +18,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool isLoading = true;
 
-  final videoPlayerController = VideoPlayerController.network(
-      'https://drive.google.com/u/0/uc?id=1U-VfvExjcJBZTjguUMpjwKilD1cMOkEj&export=download');
+  final videoPlayerController = VideoPlayerController.network('assets/posts/movies/Gala_2022.mp4');
   late ChewieController chewieController;
   late Chewie playerWidget;
 
@@ -103,19 +102,18 @@ class _HomePageState extends State<HomePage> {
     return Center(
       child: Stack(
         children: const <Widget>[
-          // 100x100 progress indicator
           Center(
             child: SizedBox(
-              height: 100,
-              width: 100,
+              height: 200,
+              width: 200,
               child: CircularProgressIndicator(strokeWidth: 3),
             ),
           ),
           Center(
             child: Image(
               image: AssetImage('assets/images/logo.png'),
-              height: 100,
-              width: 100,
+              height: 200,
+              width: 200,
             ),
           ),
         ],

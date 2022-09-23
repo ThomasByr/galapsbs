@@ -249,7 +249,7 @@ class _MealPageState extends State<MealPage> {
       controller: SwiperController(),
       physics: const ClampingScrollPhysics(),
       itemCount: items.length,
-      viewportFraction: window.physicalSize.width <= window.physicalSize.height ? 0.8 : 0.4,
+      viewportFraction: MediaQuery.of(context).orientation == Orientation.portrait ? 0.8 : 0.5,
       scale: 0.7,
       itemBuilder: (BuildContext context, int index) {
         return Container(

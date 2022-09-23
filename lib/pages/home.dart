@@ -25,20 +25,12 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    videoPlayerController.addListener(() {
-      setState(() {});
-    });
-    videoPlayerController.initialize().then((_) {
-      setState(() {
-        isLoading = false;
-      });
-    });
 
-    videoPlayerController.setLooping(true);
+    videoPlayerController.initialize();
+
     final chewieController = ChewieController(
       videoPlayerController: videoPlayerController,
-      autoInitialize: true,
-      autoPlay: true,
+      autoPlay: false,
       looping: true,
     );
 
@@ -49,6 +41,12 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       this.chewieController = chewieController;
       this.playerWidget = playerWidget;
+    });
+
+    Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        isLoading = false;
+      });
     });
   }
 

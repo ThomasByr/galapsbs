@@ -112,7 +112,7 @@ class _EventPageState extends State<EventPage> {
     final PageController controller = PageController(
       initialPage: 0,
       keepPage: false,
-      viewportFraction: 0.8,
+      viewportFraction: MediaQuery.of(context).orientation == Orientation.portrait ? 0.8 : 0.5,
     );
 
     final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);

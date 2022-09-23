@@ -137,7 +137,7 @@ class _TeamPageState extends State<TeamPage> {
               Center(
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height * .6,
-                  width: min(600, MediaQuery.of(context).size.width),
+                  width: min(500, MediaQuery.of(context).size.width),
                   child: isLoading
                       ? const Center(
                           child: SizedBox(

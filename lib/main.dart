@@ -53,6 +53,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: true,
       title: 'Gala TPS ESBS',
       theme: ThemeData(
+<<<<<<< HEAD
         brightness: Brightness.light,
         visualDensity: VisualDensity.standard,
         primaryColorBrightness: Brightness.dark,
@@ -107,6 +108,12 @@ class MyApp extends StatelessWidget {
           caption: TextStyle(
             color: Color(0xfff0f2f5),
           ),
+=======
+        primarySwatch: Colors.amber,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(fontSize: 12.0),
+>>>>>>> c11a8bd4dbb1cbfbab1f76ff71f63b1b46cf23fc
         ),
       ),
       darkTheme: ThemeData(

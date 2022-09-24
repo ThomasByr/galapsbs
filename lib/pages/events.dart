@@ -190,7 +190,6 @@ class _EventPageState extends State<EventPage> {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Card(
-<<<<<<< HEAD
             color: Colors.black.withAlpha(100),
             child: Column(
               children: <Widget>[
@@ -202,19 +201,6 @@ class _EventPageState extends State<EventPage> {
                 ListTile(
                   title: Text(events[index].description),
                   subtitle: Text(events[index].details),
-=======
-            color: Palette.black.withAlpha(100),
-            child: Column(
-              children: <Widget>[
-                ListTile(
-                  title: Text(events[index].name, style: const TextStyle(color: Palette.scaffold)),
-                  subtitle: Text(events[index].date, style: const TextStyle(color: Palette.scaffold)),
-                ),
-                Image.asset(events[index].image),
-                ListTile(
-                  title: Text(events[index].description, style: const TextStyle(color: Palette.scaffold)),
-                  subtitle: Text(events[index].details, style: const TextStyle(color: Palette.scaffold)),
->>>>>>> c11a8bd4dbb1cbfbab1f76ff71f63b1b46cf23fc
                 ),
               ],
             ),

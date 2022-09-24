@@ -325,11 +325,7 @@ class _TeamPageState extends State<TeamPage> {
             backgroundColor: Palette.scaffold,
             child: CircleAvatar(
               radius: 32.0,
-<<<<<<< HEAD
               backgroundColor: Colors.purple,
-=======
-              backgroundColor: Palette.purple,
->>>>>>> c11a8bd4dbb1cbfbab1f76ff71f63b1b46cf23fc
               child: IconButton(
                 icon: const Icon(
                   Icons.favorite,

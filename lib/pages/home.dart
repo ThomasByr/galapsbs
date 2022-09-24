@@ -67,12 +67,6 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 48),
               Container(
                 width: min(window.physicalSize.width, 400),
-<<<<<<< HEAD
-=======
-                decoration: const BoxDecoration(
-                  color: Palette.bg,
-                ),
->>>>>>> c11a8bd4dbb1cbfbab1f76ff71f63b1b46cf23fc
                 alignment: Alignment.center,
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: OpenNavWidget(

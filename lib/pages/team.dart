@@ -118,7 +118,6 @@ class _TeamPageState extends State<TeamPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.bg,
       drawer: NavigationDrawerWidget(),
       appBar: MyAppBar('👥 L\'équipe'),
       body: SingleChildScrollView(
@@ -131,7 +130,6 @@ class _TeamPageState extends State<TeamPage> {
                 '👋 Venez découvrir notre équipe dévouée !',
                 style: TextStyle(
                   fontSize: 16,
-                  color: Palette.scaffold,
                 ),
               ),
               Center(
@@ -143,10 +141,7 @@ class _TeamPageState extends State<TeamPage> {
                           child: SizedBox(
                             height: 48,
                             width: 48,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation(Palette.scaffold),
-                              color: Palette.scaffold,
-                            ),
+                            child: CircularProgressIndicator(),
                           ),
                         )
                       : isDone
@@ -155,7 +150,6 @@ class _TeamPageState extends State<TeamPage> {
                                 getEndString(),
                                 style: const TextStyle(
                                   fontSize: 18,
-                                  color: Palette.scaffold,
                                 ),
                                 textAlign: TextAlign.center,
                               ),
@@ -168,7 +162,7 @@ class _TeamPageState extends State<TeamPage> {
                                   children: <Widget>[
                                     Card(
                                       margin: const EdgeInsets.all(16.0),
-                                      shadowColor: Palette.purple,
+                                      shadowColor: Colors.purple,
                                       elevation: 12.0,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(24.0),
@@ -306,7 +300,7 @@ class _TeamPageState extends State<TeamPage> {
             child: IconButton(
               icon: const Icon(
                 Icons.thumb_down_alt_rounded,
-                color: Palette.red,
+                color: Colors.red,
               ),
               onPressed: () {
                 _matchEngine!.currentItem?.nope();
@@ -331,7 +325,7 @@ class _TeamPageState extends State<TeamPage> {
             backgroundColor: Palette.scaffold,
             child: CircleAvatar(
               radius: 32.0,
-              backgroundColor: Palette.purple,
+              backgroundColor: Colors.purple,
               child: IconButton(
                 icon: const Icon(
                   Icons.favorite,
@@ -362,7 +356,7 @@ class _TeamPageState extends State<TeamPage> {
             child: IconButton(
               icon: const Icon(
                 Icons.thumb_up_alt_rounded,
-                color: Palette.red,
+                color: Colors.red,
               ),
               onPressed: () {
                 _matchEngine!.currentItem?.like();

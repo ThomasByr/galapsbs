@@ -18,7 +18,6 @@ class _TicketPageState extends State<TicketPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.bg,
       drawer: NavigationDrawerWidget(),
       appBar: MyAppBar('🎟️ Billets'),
       body: SingleChildScrollView(
@@ -35,9 +34,6 @@ class _TicketPageState extends State<TicketPage> {
                 },
                 icon: const Icon(Icons.attach_money),
                 iconSize: 64,
-                color: Palette.scaffold,
-                hoverColor: Palette.greyDark,
-                highlightColor: Palette.greyDark,
               ),
             ),
             const SizedBox(height: 16),

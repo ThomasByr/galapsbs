@@ -48,7 +48,6 @@ class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.bg,
       drawer: NavigationDrawerWidget(),
       appBar: myAppBar,
       body: Center(
@@ -115,21 +114,17 @@ class _MapPageState extends State<MapPage> {
     required IconData icon,
     VoidCallback? onClicked,
   }) {
-    const color = Palette.scaffold;
-    const hoverColor = Palette.greyDark;
     const textSize = 16.0;
 
     return ListTile(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      leading: Icon(icon, color: color),
+      leading: Icon(icon),
       title: Text(
         text,
         style: const TextStyle(
-          color: color,
           fontSize: textSize,
         ),
       ),
-      hoverColor: hoverColor,
       onTap: onClicked,
     );
   }

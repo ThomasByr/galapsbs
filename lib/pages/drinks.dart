@@ -123,7 +123,6 @@ class _DrinkPageState extends State<DrinkPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.bg,
       drawer: NavigationDrawerWidget(),
       appBar: MyAppBar('🍹 Boissons'),
       body: SingleChildScrollView(

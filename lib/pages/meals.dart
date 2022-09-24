@@ -127,16 +127,11 @@ class _MealPageState extends State<MealPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.bg,
       drawer: NavigationDrawerWidget(),
       appBar: MyAppBar('🍽 Menu'),
       floatingActionButton: FloatingActionButton(
-        splashColor: Palette.grey,
-        backgroundColor: Palette.greyDark,
-        foregroundColor: Palette.scaffold,
         child: const Icon(
           Icons.qr_code_2_rounded,
-          color: Palette.scaffold,
         ),
         onPressed: _saveCurrentMenu,
       ),
@@ -207,7 +202,6 @@ class _MealPageState extends State<MealPage> {
     if (isLoading) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          backgroundColor: Palette.greyDark,
           content: const Text(
             'App hash loading please try again later',
             textAlign: TextAlign.center,
@@ -231,6 +225,7 @@ class _MealPageState extends State<MealPage> {
         builder: (BuildContext context) {
           return Dialog(
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            backgroundColor: Colors.white,
             alignment: Alignment.center,
             child: Container(
               child: img,

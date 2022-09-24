@@ -14,7 +14,6 @@ class _ErrorPageState extends State<ErrorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.bg,
       // drawer: const NavigationDrawerWidget(),
       appBar: MyAppBar('🔍 404'),
       body: SingleChildScrollView(
@@ -36,16 +35,11 @@ class _ErrorPageState extends State<ErrorPage> {
                 style: TextStyle(
                   fontSize: 48,
                   fontWeight: FontWeight.bold,
-                  color: Palette.scaffold,
                 ),
               ),
               const SizedBox(height: 16),
               const Text(
                 'La page que vous recherchez n\'existe pas.',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Palette.scaffold,
-                ),
               ),
               const SizedBox(height: 48),
             ],

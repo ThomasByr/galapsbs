@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 
-import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
 
 class HomePage extends StatefulWidget {
@@ -53,7 +52,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.bg,
       drawer: NavigationDrawerWidget(),
       appBar: MyAppBar('🎉 Accueil'),
       body: Builder(
@@ -69,9 +67,6 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 48),
               Container(
                 width: min(window.physicalSize.width, 400),
-                decoration: const BoxDecoration(
-                  color: Palette.bg,
-                ),
                 alignment: Alignment.center,
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: OpenNavWidget(

@@ -30,7 +30,7 @@ class OpenNavWidget extends StatelessWidget {
           const SizedBox(width: 16),
           Text(
             text,
-            style: const TextStyle(fontSize: 22, color: Palette.scaffold),
+            style: const TextStyle(fontSize: 22),
           ),
         ],
       );

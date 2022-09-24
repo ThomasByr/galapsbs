@@ -7,7 +7,7 @@ import '../pages/pages.dart';
 
 class NavigationDrawerWidget extends StatefulWidget {
   NavigationDrawerWidget({Key? key, Color? bg}) : super(key: key) {
-    _bg = bg ?? Palette.bg;
+    _bg = bg ?? const Color.fromARGB(255, 51, 51, 51);
   }
 
   late Color _bg;
@@ -125,7 +125,6 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
             onClicked: () => selectedItem(context, 4),
           ),
           const Divider(
-            color: Palette.scaffold,
             thickness: 2,
           ),
           buildMenuItem(
@@ -170,12 +169,12 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
                 children: [
                   Text(
                     name,
-                    style: const TextStyle(fontSize: 18, color: Palette.scaffold),
+                    style: const TextStyle(fontSize: 18),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     email,
-                    style: const TextStyle(fontSize: 14, color: Palette.scaffold),
+                    style: const TextStyle(fontSize: 14),
                   ),
                 ],
               ),
@@ -195,7 +194,6 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
         hintStyle: const TextStyle(color: color),
         prefixIcon: const Icon(Icons.search, color: color),
         filled: true,
-        fillColor: Palette.greyDark,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
           borderSide: BorderSide(color: color.withOpacity(0.7)),
@@ -227,21 +225,17 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
     required IconData icon,
     VoidCallback? onClicked,
   }) {
-    const color = Palette.scaffold;
-    const hoverColor = Palette.greyDark;
     const textSize = 18.0;
 
     return ListTile(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      leading: Icon(icon, color: color),
+      leading: Icon(icon),
       title: Text(
         text,
         style: const TextStyle(
-          color: color,
           fontSize: textSize,
         ),
       ),
-      hoverColor: hoverColor,
       onTap: onClicked,
     );
   }

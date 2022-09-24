@@ -50,7 +50,6 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.bg,
       drawer: NavigationDrawerWidget(),
       appBar: MyAppBar('ℹ À propos'),
       body: SingleChildScrollView(
@@ -74,9 +73,6 @@ class _AboutPageState extends State<AboutPage> {
                         child: SizedBox(
                           width: min(600, MediaQuery.of(context).size.width * 0.9),
                           child: const LinearProgressIndicator(
-                            backgroundColor: Palette.bg,
-                            color: Palette.scaffold,
-                            valueColor: AlwaysStoppedAnimation<Color>(Palette.scaffold),
                             minHeight: 2,
                           ),
                         ),
@@ -113,6 +109,9 @@ class _AboutPageState extends State<AboutPage> {
                       Text(
                         'Cette application vous permet d\'avoir un accès direct aux informations importantes du Gala 2023.'
                         'Vous y trouverez notamment une billetterie en ligne, le menu du soir, ainsi qu\'un sous ensemble d\'événements prévus pendant la soirée.',
+                        style: TextStyle(
+                          color: Palette.black,
+                        ),
                       ),
                     ],
                   ),
@@ -182,6 +181,9 @@ class _AboutPageState extends State<AboutPage> {
                         'La totalité des ressources, textes, icônes et images de cette application sont la propriété des auteurs, des développeurs, des graphistes et des personnes concernées par leur utilisation.'
                         'Toute reproduction, représentation, modification, adaptation, traduction, publication, adaptation de tout ou partie des documents précédents est interdite sans l\'autorisation préalable du développeur.\n\n'
                         'Cette application est distribuée sous la license GNU GPL v3.\n',
+                        style: TextStyle(
+                          color: Palette.black,
+                        ),
                       ),
                       const SizedBox(height: 16),
                       const Text(
@@ -208,6 +210,9 @@ class _AboutPageState extends State<AboutPage> {
                         'CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) '
                         'ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE '
                         'POSSIBILITY OF SUCH DAMAGE.',
+                        style: TextStyle(
+                          color: Palette.black,
+                        ),
                       ),
                       buildMenuItemIcon(
                         text: 'LICENSE logiciel GPLv3',

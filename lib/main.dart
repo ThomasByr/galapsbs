@@ -53,12 +53,120 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: true,
       title: 'Gala TPS ESBS',
       theme: ThemeData(
+        brightness: Brightness.light,
+        visualDensity: VisualDensity.standard,
+        primaryColorBrightness: Brightness.dark,
         primarySwatch: Colors.amber,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: const TextTheme(
-          bodyMedium: TextStyle(fontSize: 12.0),
+        primaryColor: Color(0xfff0f2f5),
+        primaryColorLight: Color(0xff515151),
+        primaryColorDark: Color(0xff515151),
+        accentColor: Colors.amberAccent,
+        canvasColor: Color(0xff515151),
+        shadowColor: Color(0xff000000),
+        scaffoldBackgroundColor: Color(0xff515151),
+        bottomAppBarColor: Color(0xff515151),
+        cardColor: Color(0xff515151),
+        dividerColor: Color(0xfff0f2f5),
+        textTheme: TextTheme(
+          headline1: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          headline2: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          headline3: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          headline4: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          headline5: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          headline6: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          overline: TextStyle(
+            color: Color(0xff000000),
+          ),
+          subtitle1: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          subtitle2: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          bodyText1: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          bodyText2: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          button: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          caption: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
         ),
       ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        visualDensity: VisualDensity.standard,
+        primaryColorBrightness: Brightness.dark,
+        primarySwatch: Colors.amber,
+        primaryColor: Color(0xfff0f2f5),
+        primaryColorLight: Color(0xff515151),
+        primaryColorDark: Color(0xff515151),
+        accentColor: Colors.amberAccent,
+        canvasColor: Color(0xff515151),
+        shadowColor: Color(0xff000000),
+        scaffoldBackgroundColor: Color(0xff515151),
+        bottomAppBarColor: Color(0xff515151),
+        cardColor: Color(0xff515151),
+        dividerColor: Color(0xfff0f2f5),
+        textTheme: TextTheme(
+          headline1: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          headline2: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          headline3: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          headline4: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          headline5: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          headline6: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          overline: TextStyle(
+            color: Color(0xff000000),
+          ),
+          subtitle1: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          subtitle2: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          bodyText1: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          bodyText2: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          button: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+          caption: TextStyle(
+            color: Color(0xfff0f2f5),
+          ),
+        ),
+      ),
+      themeMode: ThemeMode.dark,
       home: const HomePage(),
     );
   }

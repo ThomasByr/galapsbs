@@ -1,4 +1,4 @@
-# <img src="assets/images/logo.png" alt="icon" width="3%"/> galapsbs
+# <img src="assets/images/logo.png" alt="icon" width="4%"/> galapsbs
 
 > The source code of the Gala 2023 Web App
 
@@ -32,7 +32,7 @@ This repo contains all the source code and assets of the 2023 Gala Web App hoste
 - `master` which holds the said source code
 - `gh-pages` which is an _up-to-date_ clone of the [`./build/web`](build/web/) folder
 
-Normally, you would find a release version of the web app running by [galapsbs.fr](http://galapsbs.fr) hosted by [ionos](https://www.ionos.com/). Alternatively, find a local version running by [Github Pages](https://thomasbyr.github.io/galapsbs/).
+Normally, you would find a release version of the web app running by [galapsbs.fr](https://galapsbs.fr) hosted by [ionos](https://www.ionos.com/). Alternatively, find a local version running by [Github Pages](https://thomasbyr.github.io/galapsbs/) (removed for now, waiting for Flutter GitHub actions).
 
 ## 👩‍🏫 Usage
 
@@ -104,16 +104,30 @@ gantt
     title Main Versions
     dateFormat YYYY-MM-DD
 
-    section source Code v1.0.0
+    section source Code v1.0+
     Android version : 2022-06-01, 3d
     iOS version     : 2022-06-02, 3d
-    Web App         : 2022-06-01, 5d
+    Web App         : 2022-06-01, 157d
     Testing         : 2022-06-05, 1d
+
+    section source Code v1.5+
+    Android version : 2022-11-25, 7d
+    iOS version     : 2022-11-26, 2d
+    Web App         : 2022-11-25, 31d
+    Testing         : 2022-11-29, 1d
+
+    section source Code v2.0+
+    Android version : 2023-01-01, 7d
+    iOS version     : 2023-01-02, 2d
+    Web App         : 2023-01-01, 42d
+    Testing         : 2023-01-05, 1d
 
     section Production release
     Web App      : 2022-06-03, 4d
     Github Pages : 2022-06-05, 2d
     IONOS        : 2022-06-04, 2d
+    Google Cloud : 2022-10-29, 1d
+    Firebase     : 2022-10-29, 1d
 
 ```
 
@@ -132,3 +146,4 @@ gantt
 - [x] events page (v1.3.0)
 - [ ] buy tickets page
 - [ ] light/dark mode switch [suggested by Nicolas M]
+- [ ] flutter GitHub web build & deploy action

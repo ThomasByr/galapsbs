@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
+import '../helper/splitview.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);
@@ -48,62 +49,65 @@ class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavigationDrawerWidget(),
+      drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
       appBar: myAppBar,
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.7,
-              width: min(600, MediaQuery.of(context).size.width),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: GoogleMap(
-                  onMapCreated: _onMapCreated,
-                  initialCameraPosition: CameraPosition(
-                    target: _center,
-                    zoom: 16.0,
+      body: Splitview(
+        left: NavigationDrawerWidget(),
+        right: Center(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.7,
+                width: min(600, MediaQuery.of(context).size.width),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: GoogleMap(
+                    onMapCreated: _onMapCreated,
+                    initialCameraPosition: CameraPosition(
+                      target: _center,
+                      zoom: 16.0,
+                    ),
+                    markers: _markers.values.toSet(),
                   ),
-                  markers: _markers.values.toSet(),
                 ),
               ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3 -
-                  MediaQuery.of(context).padding.top -
-                  myAppBar.preferredSize.height,
-              width: min(600, MediaQuery.of(context).size.width),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: <Widget>[
-                    buildMenuItem(
-                      text: 'Recentrer la carte',
-                      icon: Icons.refresh,
-                      onClicked: () => mapController.animateCamera(
-                        CameraUpdate.newCameraPosition(
-                          CameraPosition(
-                            target: _center,
-                            zoom: 16.0,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.3 -
+                    MediaQuery.of(context).padding.top -
+                    myAppBar.preferredSize.height,
+                width: min(600, MediaQuery.of(context).size.width),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      buildMenuItem(
+                        text: 'Recentrer la carte',
+                        icon: Icons.refresh,
+                        onClicked: () => mapController.animateCamera(
+                          CameraUpdate.newCameraPosition(
+                            CameraPosition(
+                              target: _center,
+                              zoom: 16.0,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    buildMenuItem(
-                      text: 'Venir en transports en commun',
-                      icon: Icons.directions_bus_filled_rounded,
-                      onClicked: () => launchUrlString(url1.toString()),
-                    ),
-                    buildMenuItem(
-                      text: 'Venir en voiture',
-                      icon: Icons.directions_car_filled_rounded,
-                      onClicked: () => launchUrlString(url2.toString()),
-                    ),
-                    const SizedBox(height: 48),
-                  ],
+                      buildMenuItem(
+                        text: 'Venir en transports en commun',
+                        icon: Icons.directions_bus_filled_rounded,
+                        onClicked: () => launchUrlString(url1.toString()),
+                      ),
+                      buildMenuItem(
+                        text: 'Venir en voiture',
+                        icon: Icons.directions_car_filled_rounded,
+                        onClicked: () => launchUrlString(url2.toString()),
+                      ),
+                      const SizedBox(height: 48),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

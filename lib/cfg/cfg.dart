@@ -2,6 +2,8 @@ import 'dart:async';
 
 export 'palette.dart';
 
+const breakpoint = 600;
+
 class Wrapper<T> {
   T value;
 

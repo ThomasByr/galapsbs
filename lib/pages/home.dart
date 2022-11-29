@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 
+import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
+import '../helper/splitview.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -52,32 +54,37 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavigationDrawerWidget(),
+      drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
       appBar: MyAppBar('🎉 Accueil'),
       body: Builder(
-        builder: (context) => Center(
-          child: Column(
-            children: <Widget>[
-              // const SizedBox(height: 48),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .65,
-                width: min(400, MediaQuery.of(context).size.width),
-                child: isLoading ? loadingWidget() : Center(child: playerWidget),
-              ),
-              const SizedBox(height: 48),
-              Container(
-                width: min(window.physicalSize.width, 400),
-                alignment: Alignment.center,
-                padding: const EdgeInsets.symmetric(horizontal: 32),
-                child: OpenNavWidget(
-                  icon: Icons.menu,
-                  text: 'Voir Plus',
-                  onClicked: () {
-                    Scaffold.of(context).openDrawer();
-                  },
+        builder: (context) => Splitview(
+          left: NavigationDrawerWidget(),
+          right: Center(
+            child: Column(
+              children: <Widget>[
+                // const SizedBox(height: 48),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * .65,
+                  width: min(800, MediaQuery.of(context).size.width),
+                  child: isLoading ? loadingWidget() : Center(child: playerWidget),
                 ),
-              )
-            ],
+                const SizedBox(height: 48),
+                MediaQuery.of(context).size.width < breakpoint
+                    ? Container(
+                        width: min(window.physicalSize.width, 400),
+                        alignment: Alignment.center,
+                        padding: const EdgeInsets.symmetric(horizontal: 32),
+                        child: OpenNavWidget(
+                          icon: Icons.menu,
+                          text: 'Voir Plus',
+                          onClicked: () {
+                            Scaffold.of(context).openDrawer();
+                          },
+                        ),
+                      )
+                    : Container(),
+              ],
+            ),
           ),
         ),
       ),

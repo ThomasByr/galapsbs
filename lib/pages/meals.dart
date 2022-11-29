@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:galapsbs/helper/splitview.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -127,7 +128,7 @@ class _MealPageState extends State<MealPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavigationDrawerWidget(),
+      drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
       appBar: MyAppBar('🍽 Menu'),
       floatingActionButton: FloatingActionButton(
         child: const Icon(
@@ -135,64 +136,67 @@ class _MealPageState extends State<MealPage> {
         ),
         onPressed: _saveCurrentMenu,
       ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            const SizedBox(height: 24),
-            const Text(
-              'Entrées',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Palette.scaffold,
+      body: Splitview(
+        left: NavigationDrawerWidget(),
+        right: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              const SizedBox(height: 24),
+              const Text(
+                'Entrées',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Palette.scaffold,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              height: 200,
-              child: createCustomMealSwiper(
-                items: _starters,
-                index: _starterIndex,
+              const SizedBox(height: 20),
+              SizedBox(
+                height: 200,
+                child: createCustomMealSwiper(
+                  items: _starters,
+                  index: _starterIndex,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Plats',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Palette.scaffold,
+              const SizedBox(height: 20),
+              const Text(
+                'Plats',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Palette.scaffold,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              height: 200,
-              child: createCustomMealSwiper(
-                items: _mains,
-                index: _mainIndex,
+              const SizedBox(height: 20),
+              SizedBox(
+                height: 200,
+                child: createCustomMealSwiper(
+                  items: _mains,
+                  index: _mainIndex,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Desserts',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Palette.scaffold,
+              const SizedBox(height: 20),
+              const Text(
+                'Desserts',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Palette.scaffold,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              height: 200,
-              child: createCustomMealSwiper(
-                items: _desserts,
-                index: _dessertIndex,
+              const SizedBox(height: 20),
+              SizedBox(
+                height: 200,
+                child: createCustomMealSwiper(
+                  items: _desserts,
+                  index: _dessertIndex,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-          ],
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );

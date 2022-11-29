@@ -11,6 +11,7 @@ import '../widgets/widgets.dart';
 import '../particle-clock/particle_clock.dart';
 import '../helper/customizer.dart';
 import '../helper/model.dart';
+import '../helper/splitview.dart';
 
 class LocData {
   List<String> locs;
@@ -121,62 +122,70 @@ class _EventPageState extends State<EventPage> {
         ClockCustomizer((ClockModel model) => ParticleClock(model)),
         Scaffold(
           backgroundColor: Colors.transparent,
-          drawer: NavigationDrawerWidget(bg: Colors.transparent),
+          drawer: MediaQuery.of(context).size.width < breakpoint
+              ? NavigationDrawerWidget(
+                  bg: Colors.transparent,
+                )
+              : null,
           appBar: myAppBar,
-          body: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 48,
-                child: isLoading
-                    ? const Center(child: CircularProgressIndicator())
-                    : ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: _locs.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return ValueListenableBuilder(
-                            builder: (BuildContext context, int value, Widget? child) {
-                              return TextButton(
-                                onPressed: () {
-                                  _selectedIndex.value = index;
-                                  controller.animateToPage(index,
-                                      duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
-                                },
-                                child: Text(
-                                  _locs[index],
-                                  style: TextStyle(
-                                    color: _selectedIndex.value == index
-                                        ? Theme.of(context).accentColor
-                                        : Theme.of(context).textTheme.bodyText1!.color,
-                                    fontSize: 16,
+          body: Splitview(
+            bg: Colors.transparent,
+            left: NavigationDrawerWidget(bg: Colors.transparent),
+            right: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 48,
+                  child: isLoading
+                      ? const Center(child: CircularProgressIndicator())
+                      : ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: _locs.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return ValueListenableBuilder(
+                              builder: (BuildContext context, int value, Widget? child) {
+                                return TextButton(
+                                  onPressed: () {
+                                    _selectedIndex.value = index;
+                                    controller.animateToPage(index,
+                                        duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
+                                  },
+                                  child: Text(
+                                    _locs[index],
+                                    style: TextStyle(
+                                      color: _selectedIndex.value == index
+                                          ? Theme.of(context).accentColor
+                                          : Theme.of(context).textTheme.bodyText1!.color,
+                                      fontSize: 16,
+                                    ),
                                   ),
-                                ),
-                              );
-                            },
-                            valueListenable: _selectedIndex,
-                          );
-                        },
-                      ),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height -
-                    48 -
-                    MediaQuery.of(context).padding.top -
-                    myAppBar.preferredSize.height,
-                child: isLoading
-                    ? const Center(child: CircularProgressIndicator())
-                    : PageView(
-                        controller: controller,
-                        scrollDirection: Axis.horizontal,
-                        dragStartBehavior: DragStartBehavior.start,
-                        onPageChanged: (int index) {
-                          debugPrint('Page changed to $index');
-                          _selectedIndex.value = index;
-                        },
-                        children: List<Widget>.generate(
-                            _locs.length, (int index) => _buildPage(index, _events[index])),
-                      ),
-              ),
-            ],
+                                );
+                              },
+                              valueListenable: _selectedIndex,
+                            );
+                          },
+                        ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height -
+                      48 -
+                      MediaQuery.of(context).padding.top -
+                      myAppBar.preferredSize.height,
+                  child: isLoading
+                      ? const Center(child: CircularProgressIndicator())
+                      : PageView(
+                          controller: controller,
+                          scrollDirection: Axis.horizontal,
+                          dragStartBehavior: DragStartBehavior.start,
+                          onPageChanged: (int index) {
+                            debugPrint('Page changed to $index');
+                            _selectedIndex.value = index;
+                          },
+                          children: List<Widget>.generate(
+                              _locs.length, (int index) => _buildPage(index, _events[index])),
+                        ),
+                ),
+              ],
+            ),
           ),
         ),
       ],

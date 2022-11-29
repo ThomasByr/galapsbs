@@ -70,10 +70,10 @@ class _TeamPageState extends State<TeamPage> {
 
         if (usersData.isNotEmpty) {
           for (int i = 0; i < usersData.length; i++) {
-            precacheImage(
-              Image.asset(usersData[i].image).image,
-              context,
-            );
+            // precacheImage(
+            //   Image.asset(usersData[i].image).image,
+            //   context,
+            // );
 
             _swipeItems.add(
               SwipeItem(

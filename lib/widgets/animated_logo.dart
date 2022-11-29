@@ -145,19 +145,19 @@ class _AnimatedLogoState extends State<AnimatedLogo> with TickerProviderStateMix
       backgroundColor: Colors.transparent,
       body: Stack(
         children: [
-          if (MediaQuery.of(context).size.width > 600)
-            Align(
-              alignment: AlignmentDirectional.topEnd,
-              child: IconButton(
-                icon: const Icon(Icons.settings),
-                color: _showSettings ? Colors.black54 : Colors.black12,
-                onPressed: () {
-                  setState(() {
-                    _showSettings = !_showSettings;
-                  });
-                },
-              ),
-            ),
+          // if (MediaQuery.of(context).size.width > 600)
+          // Align(
+          //   alignment: AlignmentDirectional.topEnd,
+          //   child: IconButton(
+          //     icon: const Icon(Icons.settings),
+          //     color: _showSettings ? Colors.black54 : Colors.black12,
+          //     onPressed: () {
+          //       setState(() {
+          //         _showSettings = !_showSettings;
+          //       });
+          //     },
+          //   ),
+          // ),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[

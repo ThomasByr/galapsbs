@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:galapsbs/pages/404.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:string_similarity/string_similarity.dart';
 
@@ -98,7 +99,8 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
             onClicked: () => {/* launchUrlString(url.toString()) */},
           ),
           buildSearchField(context),
-          const SizedBox(height: 48),
+          const SizedBox(height: 24),
+          const Divider(thickness: 2),
           buildMenuItem(
             text: 'Accueil',
             icon: Icons.home_rounded,
@@ -124,23 +126,26 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
             icon: Icons.local_atm_rounded,
             onClicked: () => selectedItem(context, 4),
           ),
-          const Divider(
-            thickness: 2,
+          buildMenuItem(
+            text: 'Sncf',
+            icon: Icons.train_rounded,
+            onClicked: () => selectedItem(context, 5),
           ),
+          const Divider(thickness: 2),
           buildMenuItem(
             text: 'Venir',
             icon: Icons.location_on_rounded,
-            onClicked: () => selectedItem(context, 5),
+            onClicked: () => selectedItem(context, 6),
           ),
           buildMenuItem(
             text: 'L\'équipe',
             icon: Icons.group_rounded,
-            onClicked: () => selectedItem(context, 6),
+            onClicked: () => selectedItem(context, 7),
           ),
           buildMenuItem(
             text: 'À propos',
             icon: Icons.info_outline_rounded,
-            onClicked: () => selectedItem(context, 7),
+            onClicked: () => selectedItem(context, 8),
           ),
         ],
       ),
@@ -271,19 +276,29 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
         break;
       case 5:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const MapPage(),
+          builder: (context) => const SncfPage(),
         ));
         break;
       case 6:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const TeamPage(),
+          builder: (context) => const MapPage(),
         ));
         break;
       case 7:
         Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => const TeamPage(),
+        ));
+        break;
+      case 8:
+        Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const AboutPage(),
         ));
         break;
+
+      default:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => const ErrorPage(),
+        ));
     }
   }
 }

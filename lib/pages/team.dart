@@ -118,12 +118,12 @@ class _TeamPageState extends State<TeamPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
-      appBar: MyAppBar('👥 L\'équipe'),
-      body: Splitview(
-        left: NavigationDrawerWidget(),
-        right: SingleChildScrollView(
+    return Splitview(
+      left: NavigationDrawerWidget(),
+      right: Scaffold(
+        drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
+        appBar: MyAppBar('👥 L\'équipe'),
+        body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Center(
             child: Column(

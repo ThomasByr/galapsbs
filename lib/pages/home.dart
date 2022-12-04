@@ -53,20 +53,20 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
-      appBar: MyAppBar('🎉 Accueil'),
-      body: Builder(
-        builder: (context) => Splitview(
-          left: NavigationDrawerWidget(),
-          right: Center(
+    return Splitview(
+      left: NavigationDrawerWidget(),
+      right: Scaffold(
+        drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
+        appBar: MyAppBar('🎉 Accueil'),
+        body: Builder(
+          builder: (context) => Center(
             child: Column(
               children: <Widget>[
                 // const SizedBox(height: 48),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * .65,
                   width: min(800, MediaQuery.of(context).size.width),
-                  child: isLoading ? loadingWidget() : Center(child: playerWidget),
+                  child: isLoading ? loadingWidget() : Center(child: Expanded(child: playerWidget)),
                 ),
                 const SizedBox(height: 48),
                 MediaQuery.of(context).size.width < breakpoint

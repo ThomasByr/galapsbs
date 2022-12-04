@@ -120,18 +120,16 @@ class _EventPageState extends State<EventPage> {
     return Stack(
       children: <Widget>[
         ClockCustomizer((ClockModel model) => ParticleClock(model)),
-        Scaffold(
-          backgroundColor: Colors.transparent,
-          drawer: MediaQuery.of(context).size.width < breakpoint
-              ? NavigationDrawerWidget(
-                  bg: Colors.transparent,
-                )
-              : null,
-          appBar: myAppBar,
-          body: Splitview(
-            bg: Colors.transparent,
-            left: NavigationDrawerWidget(bg: Colors.transparent),
-            right: Column(
+        Splitview(
+          bg: Colors.transparent,
+          left: NavigationDrawerWidget(bg: Colors.transparent),
+          right: Scaffold(
+            backgroundColor: Colors.transparent,
+            drawer: MediaQuery.of(context).size.width < breakpoint
+                ? NavigationDrawerWidget(bg: Colors.transparent)
+                : null,
+            appBar: myAppBar,
+            body: Column(
               children: <Widget>[
                 SizedBox(
                   height: 48,

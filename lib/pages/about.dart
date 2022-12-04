@@ -50,12 +50,12 @@ class _AboutPageState extends State<AboutPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
-      appBar: MyAppBar('ℹ À propos'),
-      body: Splitview(
-        left: NavigationDrawerWidget(),
-        right: SingleChildScrollView(
+    return Splitview(
+      left: NavigationDrawerWidget(),
+      right: Scaffold(
+        drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
+        appBar: MyAppBar('ℹ À propos'),
+        body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Center(
             child: Column(

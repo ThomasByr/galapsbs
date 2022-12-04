@@ -19,12 +19,12 @@ class TicketPage extends StatefulWidget {
 class _TicketPageState extends State<TicketPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
-      appBar: MyAppBar('🎟️ Billets'),
-      body: Splitview(
-        left: NavigationDrawerWidget(),
-        right: SingleChildScrollView(
+    return Splitview(
+      left: NavigationDrawerWidget(),
+      right: Scaffold(
+        drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
+        appBar: MyAppBar('🎟️ Billets'),
+        body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
             children: <Widget>[

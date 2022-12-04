@@ -127,18 +127,18 @@ class _MealPageState extends State<MealPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
-      appBar: MyAppBar('🍽 Menu'),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(
-          Icons.qr_code_2_rounded,
+    return Splitview(
+      left: NavigationDrawerWidget(),
+      right: Scaffold(
+        drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
+        appBar: MyAppBar('🍽 Menu'),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(
+            Icons.qr_code_2_rounded,
+          ),
+          onPressed: _saveCurrentMenu,
         ),
-        onPressed: _saveCurrentMenu,
-      ),
-      body: Splitview(
-        left: NavigationDrawerWidget(),
-        right: SingleChildScrollView(
+        body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,

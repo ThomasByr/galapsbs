@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:galapsbs/pages/404.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 import 'package:string_similarity/string_similarity.dart';
 
 import '../cfg/cfg.dart';
@@ -17,63 +16,83 @@ class NavigationDrawerWidget extends StatefulWidget {
   NavigationDrawerState createState() => NavigationDrawerState();
 }
 
+enum Pages {
+  home,
+  events,
+  menu,
+  drinks,
+  tickets,
+  sncf,
+  maps,
+  team,
+  about,
+}
+
 class NavigationDrawerState extends State<NavigationDrawerWidget> {
   static const EdgeInsets padding = EdgeInsets.symmetric(horizontal: 20);
 
   static const String name = 'Gala TPS ESBS';
-  static const String email = '11 février 2023';
+  static const String date = '11 février 2023';
   static const String avatar = 'assets/images/logo.png';
 
-  final Uri url = Uri.parse(
-    'mailto:$email?subject=request&body='
-    'Hi!\nI would like to know more about the Gala.'
-    '\n\n[your message here]\n\n'
-    'Best Regards,\n[please add your contact info here]\n',
-  );
-
-  static const Map<String, int> hints = {
+  static const Map<String, Pages> hints = {
     // en
-    'home': 0,
-    'food': 2,
-    'menu': 2,
-    'eat': 2,
-    'starter': 2,
-    'main': 2,
-    'dessert': 2,
-    'meal': 2,
-    'bar': 3,
-    'drink': 3,
-    'wine': 3,
-    'beer': 3,
-    'cocktail': 3,
-    'liquor': 3,
-    'buy': 4,
-    'buy now': 4,
-    'ticket': 4,
-    'address': 5,
-    'come': 5,
-    'team': 6,
-    'tinder': 6,
-    'match': 6,
-    'contact': 6,
-    'about': 7,
+    'home': Pages.home,
+    'events': Pages.events,
+    'schedule': Pages.events,
+    'calendar': Pages.events,
+    'food': Pages.menu,
+    'menu': Pages.menu,
+    'eat': Pages.menu,
+    'starter': Pages.menu,
+    'main': Pages.menu,
+    'dessert': Pages.menu,
+    'meal': Pages.menu,
+    'bar': Pages.drinks,
+    'drink': Pages.drinks,
+    'wine': Pages.drinks,
+    'beer': Pages.drinks,
+    'cocktail': Pages.drinks,
+    'liquor': Pages.drinks,
+    'buy': Pages.tickets,
+    'buy now': Pages.tickets,
+    'ticket': Pages.tickets,
+    'placement': Pages.sncf,
+    'seat': Pages.sncf,
+    'table': Pages.sncf,
+    'address': Pages.maps,
+    'come': Pages.maps,
+    'location': Pages.maps,
+    'team': Pages.team,
+    'tinder': Pages.team,
+    'match': Pages.team,
+    'contact': Pages.team,
+    'about': Pages.about,
     // fr
-    'accueil': 0,
-    'nourriture': 2,
-    'manger': 2,
-    'entrée': 2,
-    'plat': 2,
-    'boisson': 3,
-    'repas': 3,
-    'boire': 3,
-    'vin': 3,
-    'bière': 3,
-    'liqueur': 3,
-    'adresse': 5,
-    'venir': 5,
-    'équipe': 6,
-    'propos': 7,
-    'à propos': 7,
+    'accueil': Pages.home,
+    'événements': Pages.events,
+    'horaire': Pages.events,
+    'calendrier': Pages.events,
+    'nourriture': Pages.menu,
+    'manger': Pages.menu,
+    'entrée': Pages.menu,
+    'plat': Pages.menu,
+    'boisson': Pages.drinks,
+    'repas': Pages.drinks,
+    'boire': Pages.drinks,
+    'vin': Pages.drinks,
+    'bière': Pages.drinks,
+    'liqueur': Pages.drinks,
+    'acheter': Pages.tickets,
+    'place': Pages.tickets,
+    'réservation': Pages.sncf,
+    'réservé': Pages.sncf,
+    'sncf': Pages.sncf,
+    'adresse': Pages.maps,
+    'venir': Pages.maps,
+    'équipe': Pages.team,
+    'propos': Pages.about,
+    'à propos': Pages.about,
   };
 
   Color get bg => widget._bg;
@@ -95,8 +114,8 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
           buildHeader(
             urlImage: avatar,
             name: name,
-            email: email,
-            onClicked: () => {/* launchUrlString(url.toString()) */},
+            sub: date,
+            onClicked: () => {},
           ),
           buildSearchField(context),
           const SizedBox(height: 24),
@@ -104,48 +123,48 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
           buildMenuItem(
             text: 'Accueil',
             icon: Icons.home_rounded,
-            onClicked: () => selectedItem(context, 0),
+            onClicked: () => selectedItem(context, Pages.home),
           ),
           buildMenuItem(
             text: 'Événements',
             icon: Icons.event_available_rounded,
-            onClicked: () => selectedItem(context, 1),
+            onClicked: () => selectedItem(context, Pages.events),
           ),
           buildMenuItem(
             text: 'Menu',
             icon: Icons.restaurant_menu_rounded,
-            onClicked: () => selectedItem(context, 2),
+            onClicked: () => selectedItem(context, Pages.menu),
           ),
           buildMenuItem(
             text: 'Boissons',
             icon: Icons.local_bar_rounded,
-            onClicked: () => selectedItem(context, 3),
+            onClicked: () => selectedItem(context, Pages.drinks),
           ),
           buildMenuItem(
             text: 'Billets',
             icon: Icons.local_atm_rounded,
-            onClicked: () => selectedItem(context, 4),
+            onClicked: () => selectedItem(context, Pages.tickets),
           ),
           buildMenuItem(
             text: 'Sncf',
             icon: Icons.train_rounded,
-            onClicked: () => selectedItem(context, 5),
+            onClicked: () => selectedItem(context, Pages.sncf),
           ),
           const Divider(thickness: 2),
           buildMenuItem(
             text: 'Venir',
             icon: Icons.location_on_rounded,
-            onClicked: () => selectedItem(context, 6),
+            onClicked: () => selectedItem(context, Pages.maps),
           ),
           buildMenuItem(
             text: 'L\'équipe',
             icon: Icons.group_rounded,
-            onClicked: () => selectedItem(context, 7),
+            onClicked: () => selectedItem(context, Pages.team),
           ),
           buildMenuItem(
             text: 'À propos',
             icon: Icons.info_outline_rounded,
-            onClicked: () => selectedItem(context, 8),
+            onClicked: () => selectedItem(context, Pages.about),
           ),
         ],
       ),
@@ -155,7 +174,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
   Widget buildHeader({
     required String urlImage,
     required String name,
-    required String email,
+    required String sub,
     required VoidCallback onClicked,
   }) =>
       InkWell(
@@ -178,7 +197,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    email,
+                    sub,
                     style: const TextStyle(fontSize: 14),
                   ),
                 ],
@@ -195,7 +214,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
       style: const TextStyle(color: color),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-        hintText: 'Search',
+        hintText: 'Chercher',
         hintStyle: const TextStyle(color: color),
         prefixIcon: const Icon(Icons.search, color: color),
         filled: true,
@@ -208,21 +227,21 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
           borderSide: BorderSide(color: color.withOpacity(0.7)),
         ),
       ),
-      autofillHints: hints.entries.map((e) => e.key).toList(),
+      autofillHints: hints.keys.toList(),
       onSubmitted: (value) => {selectedItem(context, searchFor(value))},
     );
   }
 
-  int searchFor(String text) {
-    String closest = text
+  Pages searchFor(String text) {
+    Rating r = text
         .bestMatch(
           hints.entries.map((e) => e.key).toList(),
         )
-        .bestMatch
-        .target!;
+        .bestMatch;
+    String closest = r.target!;
 
     debugPrint('closest: $closest');
-    return hints[closest] ?? 0;
+    return r.rating! > 0.5 ? hints[closest]! : Pages.home;
   }
 
   Widget buildMenuItem({
@@ -245,51 +264,51 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
     );
   }
 
-  void selectedItem(BuildContext context, int index) {
+  void selectedItem(BuildContext context, Pages index) {
     Navigator.of(context).pop();
 
     switch (index) {
-      case 0:
+      case Pages.home:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const HomePage(),
         ));
         break;
-      case 1:
+      case Pages.events:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const EventPage(),
         ));
         break;
-      case 2:
+      case Pages.menu:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const MealPage(),
         ));
         break;
-      case 3:
+      case Pages.drinks:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const DrinkPage(),
         ));
         break;
-      case 4:
+      case Pages.tickets:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const TicketPage(),
         ));
         break;
-      case 5:
+      case Pages.sncf:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const SncfPage(),
         ));
         break;
-      case 6:
+      case Pages.maps:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const MapPage(),
         ));
         break;
-      case 7:
+      case Pages.team:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const TeamPage(),
         ));
         break;
-      case 8:
+      case Pages.about:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const AboutPage(),
         ));

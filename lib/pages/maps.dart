@@ -48,12 +48,12 @@ class _MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
-      appBar: myAppBar,
-      body: Splitview(
-        left: NavigationDrawerWidget(),
-        right: Center(
+    return Splitview(
+      left: NavigationDrawerWidget(),
+      right: Scaffold(
+        drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
+        appBar: myAppBar,
+        body: Center(
           child: Column(
             children: <Widget>[
               SizedBox(

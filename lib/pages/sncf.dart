@@ -99,7 +99,7 @@ class _SncfPageState extends State<SncfPage> {
       left: NavigationDrawerWidget(),
       right: Scaffold(
         drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
-        appBar: MyAppBar('🚂 SNCF'),
+        appBar: MyAppBar('🗺️ Plan de table'),
         body: Center(
           child: Column(
             children: <Widget>[
@@ -155,11 +155,9 @@ class _SncfPageState extends State<SncfPage> {
                                         for (var seat in snapshot.data!.tables[index].seats)
                                           ListTile(
                                             title: Text(seat.name),
-                                            subtitle: Text(seat.menu.starter +
-                                                ' - ' +
-                                                seat.menu.main +
-                                                ' - ' +
-                                                seat.menu.dessert),
+                                            subtitle: Text(
+                                              '${seat.menu.starter} - ${seat.menu.main} - ${seat.menu.dessert}',
+                                            ),
                                           ),
                                       ],
                                     );

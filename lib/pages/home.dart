@@ -32,7 +32,18 @@ class _HomePageState extends State<HomePage> {
     final chewieController = ChewieController(
       videoPlayerController: videoPlayerController,
       autoPlay: false,
-      looping: true,
+      looping: false,
+      useRootNavigator: false,
+      aspectRatio: 16 / 9,
+      autoInitialize: false,
+      errorBuilder: (context, errorMessage) {
+        return Center(
+          child: Text(
+            errorMessage,
+            style: const TextStyle(color: Colors.white),
+          ),
+        );
+      },
     );
 
     final playerWidget = Chewie(
@@ -62,11 +73,10 @@ class _HomePageState extends State<HomePage> {
           builder: (context) => Center(
             child: Column(
               children: <Widget>[
-                // const SizedBox(height: 48),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * .65,
                   width: min(800, MediaQuery.of(context).size.width),
-                  child: isLoading ? loadingWidget() : Center(child: Expanded(child: playerWidget)),
+                  child: isLoading ? loadingWidget() : Expanded(child: Center(child: playerWidget)),
                 ),
                 const SizedBox(height: 48),
                 MediaQuery.of(context).size.width < breakpoint
@@ -111,7 +121,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Center(
             child: Image(
-              image: AssetImage('assets/images/logo.png'),
+              image: AssetImage('assets/images/gala.png'),
               height: 200,
               width: 200,
             ),

@@ -33,7 +33,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
 
   static const String name = 'Gala TPS ESBS';
   static const String date = '11 février 2023';
-  static const String avatar = 'assets/images/logo.png';
+  static const String avatar = 'assets/images/gala.png';
 
   static const Map<String, Pages> hints = {
     // en
@@ -146,8 +146,8 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
             onClicked: () => selectedItem(context, Pages.tickets),
           ),
           buildMenuItem(
-            text: 'Sncf',
-            icon: Icons.train_rounded,
+            text: 'Plan de table',
+            icon: Icons.map_rounded,
             onClicked: () => selectedItem(context, Pages.sncf),
           ),
           const Divider(thickness: 2),

@@ -274,7 +274,10 @@ class _TeamPageState extends State<TeamPage> {
                   ),
                 ),
                 const SizedBox(height: 24.0),
-                makeBottomButtons(),
+                SizedBox(
+                  width: min(500, MediaQuery.of(context).size.width),
+                  child: makeBottomButtons(),
+                ),
               ],
             ),
           ),

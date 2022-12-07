@@ -131,7 +131,7 @@ class _MealPageState extends State<MealPage> {
       left: NavigationDrawerWidget(),
       right: Scaffold(
         drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
-        appBar: MyAppBar('🍽 Menu'),
+        appBar: MyAppBar('🍽️ Menu'),
         floatingActionButton: FloatingActionButton(
           child: const Icon(
             Icons.qr_code_2_rounded,

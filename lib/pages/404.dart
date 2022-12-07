@@ -25,7 +25,7 @@ class _ErrorPageState extends State<ErrorPage> {
               SizedBox(
                 height: 200,
                 child: Image.asset(
-                  'assets/images/logo.png',
+                  'assets/images/gala.png',
                   fit: BoxFit.cover,
                 ),
               ),

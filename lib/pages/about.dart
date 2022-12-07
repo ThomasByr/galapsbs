@@ -64,7 +64,7 @@ class _AboutPageState extends State<AboutPage> {
                 const SizedBox(
                   height: 150,
                   // child: Image.asset(
-                  //   'assets/images/logo.png',
+                  //   'assets/images/gala.png',
                   //   fit: BoxFit.cover,
                   // ),
                   child: AnimatedLogo(),

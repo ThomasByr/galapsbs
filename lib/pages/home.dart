@@ -17,7 +17,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool isLoading = true;
+  Wrapper<bool> isLoading = Wrapper(true);
+  int _selectedIndex = 0;
 
   final videoPlayerController = VideoPlayerController.asset('assets/posts/movies/Gala_2022.mp4');
   late ChewieController chewieController;
@@ -26,7 +27,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-
     videoPlayerController.initialize();
 
     final chewieController = ChewieController(
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
 
     Future.delayed(const Duration(seconds: 3), () {
       setState(() {
-        isLoading = false;
+        isLoading.value = false;
       });
     });
   }
@@ -58,37 +58,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Splitview(
       left: NavigationDrawerWidget(),
-      right: Scaffold(
-        drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
-        appBar: MyAppBar('🎉 Accueil'),
-        body: Builder(
-          builder: (context) => Center(
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * .65,
-                  width: min(800, MediaQuery.of(context).size.width),
-                  child: isLoading ? loadingWidget() : playerWidget,
-                ),
-                const SizedBox(height: 48),
-                MediaQuery.of(context).size.width < breakpoint
-                    ? Container(
-                        width: min(window.physicalSize.width, 400),
-                        alignment: Alignment.center,
-                        padding: const EdgeInsets.symmetric(horizontal: 32),
-                        child: OpenNavWidget(
-                          icon: Icons.menu,
-                          text: 'Voir Plus',
-                          onClicked: () {
-                            Scaffold.of(context).openDrawer();
-                          },
-                        ),
-                      )
-                    : Container(),
-              ],
-            ),
-          ),
-        ),
+      right: NavPages(
+        playerWidget: playerWidget,
+        isLoading: isLoading,
       ),
     );
   }
@@ -98,6 +70,68 @@ class _HomePageState extends State<HomePage> {
     videoPlayerController.dispose();
     chewieController.dispose();
     super.dispose();
+  }
+}
+
+class NavPages extends StatefulWidget {
+  const NavPages({super.key, required this.playerWidget, required this.isLoading});
+
+  final Widget playerWidget;
+  final Wrapper<bool> isLoading;
+
+  @override
+  State<NavPages> createState() => _NavPagesState();
+}
+
+class _NavPagesState extends State<NavPages> {
+  int currentPageIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+        },
+        selectedIndex: currentPageIndex,
+        destinations: const <Widget>[
+          NavigationDestination(
+            icon: Icon(Icons.home_rounded),
+            label: 'Accueil',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.explore_rounded),
+            label: 'Explore',
+          ),
+        ],
+      ),
+      body: <Widget>[
+        Builder(
+          builder: (context) => Center(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * .65,
+                  width: min(800, MediaQuery.of(context).size.width),
+                  child: widget.isLoading.value ? loadingWidget() : widget.playerWidget,
+                ),
+                const SizedBox(height: 48),
+              ],
+            ),
+          ),
+        ),
+        Center(
+          child: Column(
+            children: const <Widget>[
+              SizedBox(height: 48),
+              Text('Commute'),
+            ],
+          ),
+        ),
+      ][currentPageIndex],
+    );
   }
 
   Widget loadingWidget() {

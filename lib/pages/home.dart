@@ -33,17 +33,9 @@ class _HomePageState extends State<HomePage> {
       videoPlayerController: videoPlayerController,
       autoPlay: false,
       looping: false,
-      useRootNavigator: false,
+      useRootNavigator: true,
       aspectRatio: 16 / 9,
       autoInitialize: false,
-      errorBuilder: (context, errorMessage) {
-        return Center(
-          child: Text(
-            errorMessage,
-            style: const TextStyle(color: Colors.white),
-          ),
-        );
-      },
     );
 
     final playerWidget = Chewie(
@@ -76,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * .65,
                   width: min(800, MediaQuery.of(context).size.width),
-                  child: isLoading ? loadingWidget() : Expanded(child: Center(child: playerWidget)),
+                  child: isLoading ? loadingWidget() : playerWidget,
                 ),
                 const SizedBox(height: 48),
                 MediaQuery.of(context).size.width < breakpoint

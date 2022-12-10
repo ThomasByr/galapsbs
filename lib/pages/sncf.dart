@@ -153,10 +153,32 @@ class _SncfPageState extends State<SncfPage> {
                                       isThreeLine: true,
                                       children: <Widget>[
                                         for (var seat in snapshot.data!.tables[index].seats)
-                                          ListTile(
-                                            title: Text(seat.name),
-                                            subtitle: Text(
-                                              '${seat.menu.starter} - ${seat.menu.main} - ${seat.menu.dessert}',
+                                          Container(
+                                            width: min(600, MediaQuery.of(context).size.width * .9),
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(10),
+                                              color: Palette.scaffold,
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(16),
+                                              child: Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: <Widget>[
+                                                  Text(
+                                                    seat.name,
+                                                    style: const TextStyle(
+                                                      color: Palette.black,
+                                                      fontWeight: FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    '${seat.menu.starter} - ${seat.menu.main} - ${seat.menu.dessert}',
+                                                    style: const TextStyle(
+                                                      color: Palette.black,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ),
                                       ],

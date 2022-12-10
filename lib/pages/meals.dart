@@ -133,10 +133,10 @@ class _MealPageState extends State<MealPage> {
         drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
         appBar: MyAppBar('🍽️ Menu'),
         floatingActionButton: FloatingActionButton(
+          onPressed: _saveCurrentMenu,
           child: const Icon(
             Icons.qr_code_2_rounded,
           ),
-          onPressed: _saveCurrentMenu,
         ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,

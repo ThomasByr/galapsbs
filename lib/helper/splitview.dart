@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../cfg/cfg.dart';
 
-class Splitview extends StatelessWidget {
+class Splitview extends StatefulWidget {
   const Splitview({
     Key? key,
     Color? this.bg,
@@ -16,6 +16,11 @@ class Splitview extends StatelessWidget {
   final Widget right;
 
   @override
+  State<Splitview> createState() => _SplitviewState();
+}
+
+class _SplitviewState extends State<Splitview> {
+  @override
   Widget build(BuildContext context) {
     // if page is in portrait mode, use left widget as a drawer
     // else use left widget as a left side of the split view
@@ -23,17 +28,17 @@ class Splitview extends StatelessWidget {
       builder: (context, constraints) {
         if (constraints.maxWidth < breakpoint) {
           return CupertinoPageScaffold(
-            backgroundColor: bg ?? Theme.of(context).scaffoldBackgroundColor,
-            child: right,
+            backgroundColor: widget.bg ?? Theme.of(context).scaffoldBackgroundColor,
+            child: widget.right,
           );
         } else {
           return CupertinoPageScaffold(
-            backgroundColor: bg ?? Theme.of(context).scaffoldBackgroundColor,
+            backgroundColor: widget.bg ?? Theme.of(context).scaffoldBackgroundColor,
             child: Row(
               children: [
-                left,
+                widget.left,
                 Expanded(
-                  child: right,
+                  child: widget.right,
                 ),
               ],
             ),

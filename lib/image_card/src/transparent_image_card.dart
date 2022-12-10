@@ -128,11 +128,9 @@ class _TransparentImageCardState extends State<TransparentImageCard> {
                       hover ? -widget.width! * 0.025 : 0,
                       hover ? -widget.height! * 0.025 : 0,
                     ),
-                  child: Expanded(
-                    child: Image(
-                      image: widget.imageProvider,
-                      fit: BoxFit.cover,
-                    ),
+                  child: Image(
+                    image: widget.imageProvider,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),

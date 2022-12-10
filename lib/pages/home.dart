@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 
@@ -27,15 +28,26 @@ class PostsData {
 class Post {
   final String title;
   final String description;
+  final bool sponsored;
+  final String link;
   final String image;
   final int height;
 
-  Post({required this.title, required this.description, required this.image, required this.height});
+  Post({
+    required this.title,
+    required this.description,
+    required this.sponsored,
+    required this.link,
+    required this.image,
+    required this.height,
+  });
 
   factory Post.fromJson(Map<String, dynamic> json) {
     return Post(
       title: json['title'],
       description: json['description'],
+      sponsored: json['sponsored'],
+      link: json['link'],
       image: json['image'],
       height: json['height'],
     );
@@ -211,6 +223,11 @@ class _NavPagesState extends State<NavPages> {
                                     description: description,
                                     contentPadding: const EdgeInsets.all(24),
                                     borderRadius: 16,
+                                    tags: <Widget>[
+                                      snapshot.data!.posts[index].sponsored
+                                          ? sponsoredWidget(snapshot.data!.posts[index].link)
+                                          : Container(),
+                                    ],
                                   ),
                                   const SizedBox(height: 24),
                                 ],
@@ -230,6 +247,27 @@ class _NavPagesState extends State<NavPages> {
           ),
         ),
       ][currentPageIndex],
+    );
+  }
+
+  Widget sponsoredWidget(String link) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: const <BoxShadow>[
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 8,
+            offset: Offset(0, 4),
+          ),
+        ],
+      ),
+      child: TextButton(
+        onPressed: () {
+          launchUrlString(link);
+        },
+        child: const Text('Sponsorisé 🤑'),
+      ),
     );
   }
 }

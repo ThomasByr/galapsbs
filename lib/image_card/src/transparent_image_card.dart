@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'image_card_content.dart';
 
-class TransparentImageCard extends StatelessWidget {
+class TransparentImageCard extends StatefulWidget {
   const TransparentImageCard({
     Key? key,
     this.width,
@@ -20,6 +20,8 @@ class TransparentImageCard extends StatelessWidget {
     this.tagSpacing,
     this.tagRunSpacing,
   }) : super(key: key);
+
+  State<TransparentImageCard> createState() => _TransparentImageCardState();
 
   /// card width
   final double? width;
@@ -62,67 +64,92 @@ class TransparentImageCard extends StatelessWidget {
 
   /// widget footer of card
   final Widget? footer;
+}
+
+class _TransparentImageCardState extends State<TransparentImageCard> {
+  bool hover = false;
 
   @override
   Widget build(BuildContext context) {
     final Widget content = ImageCardContent(
-      contentPadding: contentPadding,
-      tags: tags,
-      title: title,
-      footer: footer,
-      description: description,
-      tagSpacing: tagSpacing,
-      tagRunSpacing: tagRunSpacing,
+      contentPadding: widget.contentPadding,
+      tags: widget.tags,
+      title: widget.title,
+      footer: widget.footer,
+      description: widget.description,
+      tagSpacing: widget.tagSpacing,
+      tagRunSpacing: widget.tagRunSpacing,
     );
 
     return _buildBody(content);
   }
 
   Widget _buildBody(Widget content) {
-    return Stack(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(borderRadius),
-          child: ShaderMask(
-            shaderCallback: (bound) {
-              return LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: <Color>[
-                  startColor ?? const Color(0xff575757).withOpacity(0),
-                  endColor ?? const Color(0xff000000),
-                ],
-                //tileMode: TileMode.,
-              ).createShader(bound);
-            },
-            blendMode: BlendMode.srcOver,
-            child: Container(
-              width: width,
-              height: height,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(borderRadius),
-                image: DecorationImage(
-                  image: imageProvider,
-                  fit: BoxFit.cover,
+    return MouseRegion(
+      onEnter: (event) {
+        setState(() {
+          hover = true;
+        });
+      },
+      onExit: (event) {
+        setState(() {
+          hover = false;
+        });
+      },
+      onHover: (event) {
+        setState(() {});
+      },
+      child: Stack(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(widget.borderRadius),
+            child: ShaderMask(
+              shaderCallback: (bound) {
+                return LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[
+                    widget.startColor ?? const Color(0xff575757).withOpacity(0),
+                    widget.endColor ?? const Color(0xff000000),
+                  ],
+                  //tileMode: TileMode.,
+                ).createShader(bound);
+              },
+              blendMode: BlendMode.srcOver,
+              child: Container(
+                width: widget.width,
+                height: widget.height,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                  transform: Matrix4.identity()
+                    ..scale(hover ? 1.05 : 1.0)
+                    ..translate(
+                      hover ? -widget.width! * 0.025 : 0,
+                      hover ? -widget.height! * 0.025 : 0,
+                    ),
+                  child: Expanded(
+                    child: Image(
+                      image: widget.imageProvider,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-                //tileMode: TileMode.,
               ),
-              padding: EdgeInsets.only(top: contentMarginTop ?? 100),
-              child: content,
             ),
           ),
-        ),
-        Container(
-          width: width,
-          height: height,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(borderRadius),
-            color: Colors.transparent,
+          Container(
+            width: widget.width,
+            height: widget.height,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(widget.borderRadius),
+              color: Colors.transparent,
+            ),
+            padding: EdgeInsets.only(top: widget.contentMarginTop ?? 100),
+            child: content,
           ),
-          padding: EdgeInsets.only(top: contentMarginTop ?? 100),
-          child: content,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

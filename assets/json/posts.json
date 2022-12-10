@@ -1,6 +1,14 @@
 {
   "posts": [
     {
+      "title": "Premier Sponsor ! 🎉",
+      "description": "Cochonou : Un p'tit bout de chez nous",
+      "sponsored": true,
+      "link": "https://www.cochonou.fr/",
+      "image": "saucisson-planche.png",
+      "height": 300
+    },
+    {
       "title": "Photo de Couverture",
       "description": "La meilleure asso 😌\nP.S. le Gala c'est le 11/02/2023 !",
       "sponsored": false,
@@ -9,8 +17,8 @@
       "height": 300
     },
     {
-      "title": "Nouvelle Photo de Profil",
-      "description": "Thomas D s'est surpassé pour cette nouvelle photo de profil ! Vous en pensez quoi ? Vous l'avez vu sur nos t-shirts ?",
+      "title": "Notre Logo !",
+      "description": "Thomas D s'est surpassé pour ce nouveau logo !\nVous l'avez vu sur nos t-shirts ?",
       "sponsored": false,
       "link": "",
       "image": "gala.png",

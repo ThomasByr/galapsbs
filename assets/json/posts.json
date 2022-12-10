@@ -1,0 +1,20 @@
+{
+  "posts": [
+    {
+      "title": "Photo de Couverture",
+      "description": "La meilleure asso 😌\nP.S. le Gala c'est le 11/02/2023 !",
+      "sponsored": false,
+      "link": "",
+      "image": "cover.jpg",
+      "height": 300
+    },
+    {
+      "title": "Nouvelle Photo de Profil",
+      "description": "Thomas D s'est surpassé pour cette nouvelle photo de profil ! Vous en pensez quoi ? Vous l'avez vu sur nos t-shirts ?",
+      "sponsored": false,
+      "link": "",
+      "image": "gala.png",
+      "height": 600
+    }
+  ]
+}

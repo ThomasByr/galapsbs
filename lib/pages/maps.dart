@@ -8,14 +8,14 @@ import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
 import '../helper/splitview.dart';
 
-class MapPage extends StatefulWidget {
-  const MapPage({Key? key}) : super(key: key);
+class MapsPage extends StatefulWidget {
+  const MapsPage({Key? key}) : super(key: key);
 
   @override
-  State<MapPage> createState() => _MapPageState();
+  State<MapsPage> createState() => _MapsPageState();
 }
 
-class _MapPageState extends State<MapPage> {
+class _MapsPageState extends State<MapsPage> {
   late GoogleMapController mapController;
 
   final Map<String, Marker> _markers = {};

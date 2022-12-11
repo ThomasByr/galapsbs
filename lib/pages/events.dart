@@ -60,14 +60,14 @@ class Event {
   }
 }
 
-class EventPage extends StatefulWidget {
-  const EventPage({Key? key}) : super(key: key);
+class EventsPage extends StatefulWidget {
+  const EventsPage({Key? key}) : super(key: key);
 
   @override
-  State<EventPage> createState() => _EventPageState();
+  State<EventsPage> createState() => _EventsPageState();
 }
 
-class _EventPageState extends State<EventPage> {
+class _EventsPageState extends State<EventsPage> {
   bool isLoading = true;
   List<String> _locs = []; // List of locations
   List<List<Event>> _events = []; // List of events for each location

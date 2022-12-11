@@ -77,14 +77,14 @@ class Miam {
   }
 }
 
-class MealPage extends StatefulWidget {
-  const MealPage({Key? key}) : super(key: key);
+class MenuPage extends StatefulWidget {
+  const MenuPage({Key? key}) : super(key: key);
 
   @override
-  State<MealPage> createState() => _MealPageState();
+  State<MenuPage> createState() => _MenuPageState();
 }
 
-class _MealPageState extends State<MealPage> {
+class _MenuPageState extends State<MenuPage> {
   bool isLoading = true;
   List<Miam> _starters = [], _mains = [], _desserts = [];
   final Wrapper<int> _starterIndex = Wrapper<int>(0),

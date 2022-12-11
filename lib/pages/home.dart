@@ -55,7 +55,9 @@ class Post {
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key, this.index = 0});
+
+  final int index;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -118,6 +120,7 @@ class _HomePageState extends State<HomePage> {
           : NavPages(
               playerWidget: playerWidget,
               postsData: postsData,
+              index: widget.index,
             ),
     );
   }
@@ -131,19 +134,27 @@ class _HomePageState extends State<HomePage> {
 }
 
 class NavPages extends StatefulWidget {
-  const NavPages({super.key, required this.playerWidget, required this.postsData});
+  const NavPages({super.key, required this.playerWidget, required this.postsData, this.index = 0});
 
   final Widget playerWidget;
   final Future<PostsData> postsData;
+  final int index;
 
   @override
   State<NavPages> createState() => _NavPagesState();
 }
 
 class _NavPagesState extends State<NavPages> {
+  final String postPath = 'assets/posts/images/';
   int currentPageIndex = 0;
 
-  final String postPath = 'assets/posts/images/';
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      currentPageIndex = widget.index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -156,16 +167,24 @@ class _NavPagesState extends State<NavPages> {
             currentPageIndex = index;
           });
         },
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         height: 56,
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
-            icon: Icon(Icons.home_rounded),
+            selectedIcon: Icon(Icons.home_rounded),
+            icon: Icon(Icons.home_outlined),
             label: 'Accueil',
           ),
           NavigationDestination(
-            icon: Icon(Icons.explore_rounded),
+            selectedIcon: Icon(Icons.explore_rounded),
+            icon: Icon(Icons.explore_outlined),
             label: 'Explorer',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.photo_size_select_actual_rounded),
+            icon: Icon(Icons.photo_size_select_actual_outlined),
+            label: 'Affiche',
           ),
         ],
       ),
@@ -216,22 +235,19 @@ class _NavPagesState extends State<NavPages> {
                             return Center(
                               child: Column(
                                 children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 16, right: 16),
-                                    child: TransparentImageCard(
-                                      height: snapshot.data!.posts[index].height.toDouble(),
-                                      width: min(600, MediaQuery.of(context).size.width),
-                                      imageProvider: imageProvider,
-                                      title: title,
-                                      description: description,
-                                      contentPadding: const EdgeInsets.all(24),
-                                      borderRadius: 16,
-                                      tags: <Widget>[
-                                        snapshot.data!.posts[index].sponsored
-                                            ? sponsoredWidget(snapshot.data!.posts[index].link)
-                                            : Container(),
-                                      ],
-                                    ),
+                                  TransparentImageCard(
+                                    height: snapshot.data!.posts[index].height.toDouble(),
+                                    width: min(600, MediaQuery.of(context).size.width),
+                                    imageProvider: imageProvider,
+                                    title: title,
+                                    description: description,
+                                    contentPadding: const EdgeInsets.all(24),
+                                    borderRadius: 16,
+                                    tags: <Widget>[
+                                      snapshot.data!.posts[index].sponsored
+                                          ? sponsoredWidget(snapshot.data!.posts[index].link)
+                                          : Container(),
+                                    ],
                                   ),
                                   const SizedBox(height: 48),
                                 ],
@@ -247,6 +263,40 @@ class _NavPagesState extends State<NavPages> {
                   },
                 ),
               ],
+            ),
+          ),
+        ),
+        Builder(
+          builder: (context) => Center(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: const <Widget>[
+                  Text(
+                    'Notre Magnifique Affiche',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'Va falloir attendre encore un peu pour la découvrir !',
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  // Text(
+                  //   '👏 Bravo à Arielle !\nTu gagnes ta place pour le Gala ! 🥳',
+                  //   style: TextStyle(
+                  //     fontSize: 16,
+                  //   ),
+                  //   textAlign: TextAlign.center,
+                  // ),
+                  // SizedBox(height: 48),
+                  // ICard(img_path: 'assets/images/affiche.png'),
+                ],
+              ),
             ),
           ),
         ),
@@ -277,7 +327,7 @@ class _NavPagesState extends State<NavPages> {
 }
 
 class MyPlayer extends StatefulWidget {
-  const MyPlayer({required this.playerWidget});
+  const MyPlayer({super.key, required this.playerWidget});
 
   final Widget playerWidget;
 
@@ -322,6 +372,68 @@ class _MyPlayerState extends State<MyPlayer> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ICard extends StatefulWidget {
+  const ICard({required this.img_path});
+
+  final String img_path;
+
+  @override
+  State<ICard> createState() => _ICardState();
+}
+
+class _ICardState extends State<ICard> {
+  bool hover = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (event) {
+        setState(() {
+          hover = true;
+        });
+      },
+      onExit: (event) {
+        setState(() {
+          hover = false;
+        });
+      },
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        width: min(600, MediaQuery.of(context).size.width),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: hover
+              ? const <BoxShadow>[
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 8,
+                    offset: Offset(0, 4),
+                  ),
+                ]
+              : null,
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+            transform: Matrix4.identity()
+              ..scale(hover ? 1.05 : 1.0)
+              ..translate(
+                hover ? -min(600, MediaQuery.of(context).size.width) * 0.025 : 0,
+                hover ? -min(600, MediaQuery.of(context).size.width) * 0.025 : 0,
+              ),
+            child: Image(
+              image: AssetImage(widget.img_path),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
       ),
     );
   }

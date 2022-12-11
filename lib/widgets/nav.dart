@@ -18,6 +18,8 @@ class NavigationDrawerWidget extends StatefulWidget {
 
 enum Pages {
   home,
+  home_explore,
+  home_poster,
   events,
   menu,
   drinks,
@@ -38,6 +40,11 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
   static const Map<String, Pages> hints = {
     // en
     'home': Pages.home,
+    'explore': Pages.home_explore,
+    'posts': Pages.home_explore,
+    'sponsors': Pages.home_explore,
+    'poster': Pages.home_poster,
+    'winner': Pages.home_poster,
     'events': Pages.events,
     'schedule': Pages.events,
     'calendar': Pages.events,
@@ -70,6 +77,9 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
     'about': Pages.about,
     // fr
     'accueil': Pages.home,
+    'explorer': Pages.home_explore,
+    'affiche': Pages.home_poster,
+    'gagnant': Pages.home_poster,
     'événements': Pages.events,
     'horaire': Pages.events,
     'calendrier': Pages.events,
@@ -141,7 +151,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
             onClicked: () => selectedItem(context, Pages.drinks),
           ),
           buildMenuItem(
-            text: 'Billets',
+            text: 'Billetterie',
             icon: Icons.local_atm_rounded,
             onClicked: () => selectedItem(context, Pages.tickets),
           ),
@@ -273,24 +283,34 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
           builder: (context) => const HomePage(),
         ));
         break;
+      case Pages.home_explore:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => const HomePage(index: 1),
+        ));
+        break;
+      case Pages.home_poster:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => const HomePage(index: 2),
+        ));
+        break;
       case Pages.events:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const EventPage(),
+          builder: (context) => const EventsPage(),
         ));
         break;
       case Pages.menu:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const MealPage(),
+          builder: (context) => const MenuPage(),
         ));
         break;
       case Pages.drinks:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const DrinkPage(),
+          builder: (context) => const DrinksPage(),
         ));
         break;
       case Pages.tickets:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const TicketPage(),
+          builder: (context) => const TicketsPage(),
         ));
         break;
       case Pages.sncf:
@@ -300,7 +320,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
         break;
       case Pages.maps:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const MapPage(),
+          builder: (context) => const MapsPage(),
         ));
         break;
       case Pages.team:

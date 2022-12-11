@@ -6,21 +6,21 @@ import 'package:galapsbs/helper/splitview.dart';
 import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
 
-class TicketPage extends StatefulWidget {
-  const TicketPage({Key? key}) : super(key: key);
+class TicketsPage extends StatefulWidget {
+  const TicketsPage({Key? key}) : super(key: key);
 
   @override
-  State<TicketPage> createState() => _TicketPageState();
+  State<TicketsPage> createState() => _TicketsPageState();
 }
 
-class _TicketPageState extends State<TicketPage> {
+class _TicketsPageState extends State<TicketsPage> {
   @override
   Widget build(BuildContext context) {
     return Splitview(
       left: NavigationDrawerWidget(),
       right: Scaffold(
         drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
-        appBar: MyAppBar('🎟️ Billets'),
+        appBar: MyAppBar('🎟️ Billetterie'),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Center(
@@ -76,7 +76,8 @@ class _TicketPageState extends State<TicketPage> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: ' (vous pouvez le copier depuis la page "menu")\n',
+                                  text: ' lors de l\'achat dans HelloAsso '
+                                      '(vous pouvez le copier depuis la page "menu")\n',
                                 ),
                                 TextSpan(
                                   text: ' - ',

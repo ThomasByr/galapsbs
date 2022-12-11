@@ -67,14 +67,14 @@ class Snack {
   }
 }
 
-class DrinkPage extends StatefulWidget {
-  const DrinkPage({Key? key}) : super(key: key);
+class DrinksPage extends StatefulWidget {
+  const DrinksPage({Key? key}) : super(key: key);
 
   @override
-  State<DrinkPage> createState() => _DrinkPageState();
+  State<DrinksPage> createState() => _DrinksPageState();
 }
 
-class _DrinkPageState extends State<DrinkPage> {
+class _DrinksPageState extends State<DrinksPage> {
   bool isLoading = true;
   List<Drink> _drinks = [];
   List<Snack> _snacks = [];
@@ -129,162 +129,162 @@ class _DrinkPageState extends State<DrinkPage> {
         drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
         appBar: MyAppBar('🍹 Boissons'),
         body: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(height: 24),
-                SizedBox(
-                  height: 400,
-                  child: Swiper(
-                    autoplay: true,
-                    autoplayDelay: 5000,
-                    autoplayDisableOnInteraction: true,
-                    duration: 1000,
-                    controller: SwiperController(),
-                    physics: const ClampingScrollPhysics(),
-                    itemCount: _drinks.length,
-                    viewportFraction: MediaQuery.of(context).orientation == Orientation.portrait ? 0.8 : 0.5,
-                    scale: 0.7,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        padding: const EdgeInsets.only(right: 20, left: 20, top: 30),
-                        decoration: const BoxDecoration(
-                          color: Palette.scaffold,
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              _drinks[index].name,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 26,
-                                fontWeight: FontWeight.bold,
-                                color: Palette.black,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              _drinks[index].subName,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Palette.greyDark,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 200,
-                              child: Image.asset(_drinks[index].image),
-                            ),
-                            const SizedBox(height: 12),
-                            Container(
-                              padding: const EdgeInsets.only(left: 10, right: 10),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          const Icon(Icons.euro_sharp, color: Palette.black),
-                                          const SizedBox(width: 12),
-                                          Text(
-                                            _drinks[index].price,
-                                            style: const TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
-                                              color: Palette.black,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      const SizedBox(height: 10),
-                                      Row(
-                                        children: [
-                                          const Icon(Icons.liquor_rounded, color: Palette.black),
-                                          const SizedBox(width: 12),
-                                          Text(
-                                            _drinks[index].degree,
-                                            style: const TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
-                                              color: Palette.black,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      const Icon(Icons.location_on_sharp, color: Palette.black),
-                                      const SizedBox(width: 12),
-                                      Text(
-                                        _drinks[index].location,
-                                        style: const TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                          color: Palette.black,
-                                        ),
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                const SizedBox(height: 48),
-                Column(
-                  children: <Widget>[
-                    const Text(
-                      '🍿 Snacks disponibles aux bars\n',
-                      softWrap: false,
-                      style: TextStyle(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 24),
+              SizedBox(
+                height: 400,
+                child: Swiper(
+                  autoplay: true,
+                  autoplayDelay: 5000,
+                  autoplayDisableOnInteraction: true,
+                  duration: 1000,
+                  controller: SwiperController(),
+                  physics: const ClampingScrollPhysics(),
+                  itemCount: _drinks.length,
+                  viewportFraction: MediaQuery.of(context).orientation == Orientation.portrait ? 0.8 : 0.5,
+                  scale: 0.7,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      padding: const EdgeInsets.only(right: 20, left: 20, top: 30),
+                      decoration: const BoxDecoration(
                         color: Palette.scaffold,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.normal,
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),
-                    ),
-                    const SizedBox(height: 12),
-                    SizedBox(
-                      width: 200,
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          isLoading
-                              ? const Center(
-                                  child: SizedBox(
-                                    height: 48,
-                                    width: 48,
-                                    child: CircularProgressIndicator(
-                                      color: Palette.scaffold,
+                          Text(
+                            _drinks[index].name,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 26,
+                              fontWeight: FontWeight.bold,
+                              color: Palette.black,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            _drinks[index].subName,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Palette.greyDark,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 200,
+                            child: Image.asset(_drinks[index].image),
+                          ),
+                          const SizedBox(height: 12),
+                          Container(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const Icon(Icons.euro_sharp, color: Palette.black),
+                                        const SizedBox(width: 12),
+                                        Text(
+                                          _drinks[index].price,
+                                          style: const TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: Palette.black,
+                                          ),
+                                        )
+                                      ],
                                     ),
-                                  ),
-                                )
-                              : Column(
-                                  children: _children,
+                                    const SizedBox(height: 10),
+                                    Row(
+                                      children: [
+                                        const Icon(Icons.liquor_rounded, color: Palette.black),
+                                        const SizedBox(width: 12),
+                                        Text(
+                                          _drinks[index].degree,
+                                          style: const TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: Palette.black,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                          const SizedBox(height: 24),
+                                Row(
+                                  children: [
+                                    const Icon(Icons.location_on_sharp, color: Palette.black),
+                                    const SizedBox(width: 12),
+                                    Text(
+                                      _drinks[index].location,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Palette.black,
+                                      ),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          )
                         ],
                       ),
-                    )
-                  ],
+                    );
+                  },
                 ),
-              ],
-            ),
+              ),
+              const SizedBox(height: 48),
+              Column(
+                children: <Widget>[
+                  const Text(
+                    '🍿 Snacks disponibles aux bars\n',
+                    softWrap: false,
+                    style: TextStyle(
+                      color: Palette.scaffold,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  SizedBox(
+                    width: 200,
+                    child: Column(
+                      children: [
+                        isLoading
+                            ? const Center(
+                                child: SizedBox(
+                                  height: 48,
+                                  width: 48,
+                                  child: CircularProgressIndicator(
+                                    color: Palette.scaffold,
+                                  ),
+                                ),
+                              )
+                            : Column(
+                                children: _children,
+                              ),
+                        const SizedBox(height: 24),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ],
           ),
+        ),
       ),
     );
   }

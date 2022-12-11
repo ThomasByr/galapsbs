@@ -50,6 +50,20 @@ class MyApp extends StatelessWidget {
           builder: (BuildContext context) => const ErrorPage(),
         );
       },
+      routes: {
+        '/home': (context) => const HomePage(),
+        '/home/home': (context) => const HomePage(index: 0),
+        '/home/explore': (context) => const HomePage(index: 1),
+        '/home/poster': (context) => const HomePage(index: 2),
+        '/events': (context) => const EventsPage(),
+        '/menu': (context) => const MenuPage(),
+        '/drinks': (context) => const DrinksPage(),
+        '/tickets': (context) => const TicketsPage(),
+        '/sncf': (context) => const SncfPage(),
+        '/maps': (context) => const MapsPage(),
+        '/team': (context) => const TeamPage(),
+        '/about': (context) => const AboutPage(),
+      },
       debugShowCheckedModeBanner: true,
       title: 'Gala TPS ESBS',
       theme: ThemeData(

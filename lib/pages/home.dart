@@ -156,6 +156,7 @@ class _NavPagesState extends State<NavPages> {
             currentPageIndex = index;
           });
         },
+        height: 56,
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
@@ -215,21 +216,24 @@ class _NavPagesState extends State<NavPages> {
                             return Center(
                               child: Column(
                                 children: <Widget>[
-                                  TransparentImageCard(
-                                    height: snapshot.data!.posts[index].height.toDouble(),
-                                    width: min(600, MediaQuery.of(context).size.width),
-                                    imageProvider: imageProvider,
-                                    title: title,
-                                    description: description,
-                                    contentPadding: const EdgeInsets.all(24),
-                                    borderRadius: 16,
-                                    tags: <Widget>[
-                                      snapshot.data!.posts[index].sponsored
-                                          ? sponsoredWidget(snapshot.data!.posts[index].link)
-                                          : Container(),
-                                    ],
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 16, right: 16),
+                                    child: TransparentImageCard(
+                                      height: snapshot.data!.posts[index].height.toDouble(),
+                                      width: min(600, MediaQuery.of(context).size.width),
+                                      imageProvider: imageProvider,
+                                      title: title,
+                                      description: description,
+                                      contentPadding: const EdgeInsets.all(24),
+                                      borderRadius: 16,
+                                      tags: <Widget>[
+                                        snapshot.data!.posts[index].sponsored
+                                            ? sponsoredWidget(snapshot.data!.posts[index].link)
+                                            : Container(),
+                                      ],
+                                    ),
                                   ),
-                                  const SizedBox(height: 24),
+                                  const SizedBox(height: 48),
                                 ],
                               ),
                             );

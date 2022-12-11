@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
 
 class ErrorPage extends StatefulWidget {

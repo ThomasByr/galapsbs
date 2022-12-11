@@ -112,7 +112,6 @@ class _TransparentImageCardState extends State<TransparentImageCard> {
                     widget.startColor ?? const Color(0xff575757).withOpacity(0),
                     widget.endColor ?? const Color(0xff000000),
                   ],
-                  //tileMode: TileMode.,
                 ).createShader(bound);
               },
               blendMode: BlendMode.srcOver,

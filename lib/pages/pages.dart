@@ -1,7 +1,7 @@
 export 'drinks.dart';
 export 'home.dart';
 export 'team.dart';
-export 'meals.dart';
+export 'menu.dart';
 export 'events.dart';
 export 'tickets.dart';
 export 'maps.dart';

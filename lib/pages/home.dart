@@ -44,12 +44,12 @@ class Post {
 
   factory Post.fromJson(Map<String, dynamic> json) {
     return Post(
-      title: json['title'],
-      description: json['description'],
-      sponsored: json['sponsored'],
-      link: json['link'],
-      image: json['image'],
-      height: json['height'],
+      title: json['title'] as String,
+      description: json['description'] as String,
+      sponsored: json['sponsored'] as bool,
+      link: json['link'] as String,
+      image: json['image'] as String,
+      height: json['height'] as int,
     );
   }
 }

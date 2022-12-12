@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:galapsbs/helper/splitview.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
 import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
@@ -134,7 +133,7 @@ class _MenuPageState extends State<MenuPage> {
         floatingActionButton: FloatingActionButton(
           onPressed: _saveCurrentMenu,
           child: const Icon(
-            Icons.qr_code_2_rounded,
+            Icons.save_rounded,
           ),
         ),
         body: SingleChildScrollView(
@@ -203,13 +202,7 @@ class _MenuPageState extends State<MenuPage> {
 
   void _saveCurrentMenu() async {
     if (isLoading) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          content: const Text(
-            'App hash loading please try again later',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Palette.scaffold),
-          )));
+      _showSnackBar('Loading...');
       return;
     }
 
@@ -221,20 +214,19 @@ class _MenuPageState extends State<MenuPage> {
         'Dessert : '
         '${_desserts[_dessertIndex.value].name}\n';
 
-    final QrImage img = QrImage(data: export);
+    await Clipboard.setData(ClipboardData(text: export))
+        .then((_) => _showSnackBar('Menu copié dans le presse-papier'));
+  }
 
-    await showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return Dialog(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            backgroundColor: Colors.white,
-            alignment: Alignment.center,
-            child: Container(
-              child: img,
-            ),
-          );
-        });
+  void _showSnackBar(String text) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        backgroundColor: Palette.scaffold,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        content: Text(
+          text,
+          textAlign: TextAlign.center,
+          // style: TextStyle(color: Palette.scaffold),
+        )));
   }
 
   Widget createCustomMealSwiper({required List<Miam> items, required Wrapper<int> index}) {

@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
@@ -94,12 +94,12 @@ class _MapsPageState extends State<MapsPage> {
                       buildMenuItem(
                         text: 'Venir en transports en commun',
                         icon: Icons.directions_bus_filled_rounded,
-                        onClicked: () => launchUrlString(url1.toString()),
+                        onClicked: () => launchUrl(url1),
                       ),
                       buildMenuItem(
                         text: 'Venir en voiture',
                         icon: Icons.directions_car_filled_rounded,
-                        onClicked: () => launchUrlString(url2.toString()),
+                        onClicked: () => launchUrl(url2),
                       ),
                       const SizedBox(height: 48),
                     ],

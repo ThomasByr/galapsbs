@@ -33,7 +33,7 @@ class Train {
     var list = json['seats'] as List;
     List<Seat> seats = list.map((i) => Seat.fromJson(i)).toList();
 
-    return Train(id: json['id'], seats: seats);
+    return Train(id: json['id'] as int, seats: seats);
   }
 }
 
@@ -44,7 +44,10 @@ class Seat {
   Seat({required this.name, required this.menu});
 
   factory Seat.fromJson(Map<String, dynamic> json) {
-    return Seat(name: json['name'], menu: Menu.fromJson(json['menu']));
+    return Seat(
+      name: json['name'] as String,
+      menu: Menu.fromJson(json['menu']),
+    );
   }
 }
 
@@ -57,9 +60,9 @@ class Menu {
 
   factory Menu.fromJson(Map<String, dynamic> json) {
     return Menu(
-      starter: json['starter'],
-      main: json['main'],
-      dessert: json['dessert'],
+      starter: json['starter'] as String,
+      main: json['main'] as String,
+      dessert: json['dessert'] as String,
     );
   }
 }

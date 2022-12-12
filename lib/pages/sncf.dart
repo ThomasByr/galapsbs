@@ -156,34 +156,7 @@ class _SncfPageState extends State<SncfPage> {
                                       isThreeLine: true,
                                       children: <Widget>[
                                         for (var seat in snapshot.data!.tables[index].seats)
-                                          Container(
-                                            width: min(600, MediaQuery.of(context).size.width * .9),
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(10),
-                                              color: Palette.scaffold,
-                                            ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(16),
-                                              child: Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: <Widget>[
-                                                  Text(
-                                                    seat.name,
-                                                    style: const TextStyle(
-                                                      color: Palette.black,
-                                                      fontWeight: FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    '${seat.menu.starter} - ${seat.menu.main} - ${seat.menu.dessert}',
-                                                    style: const TextStyle(
-                                                      color: Palette.black,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
+                                          individualSeat(seat),
                                       ],
                                     );
                                   },
@@ -208,12 +181,24 @@ class _SncfPageState extends State<SncfPage> {
     );
   }
 
+  Widget individualSeat(Seat seat) {
+    return ListTile(
+      title: Text(seat.name),
+      subtitle: Text('${seat.menu.starter} - ${seat.menu.main} - ${seat.menu.dessert}'),
+      trailing: IconButton(
+        icon: const Icon(Icons.person_rounded),
+        onPressed: () {
+          lookupName(seat.name);
+        },
+      ),
+    );
+  }
+
   void lookupName(String name) {
     trainData.then((value) {
       Rating r = name.bestMatch(allNames.keys.toList()).bestMatch;
       if (r.rating! > 0.5) {
         String closest = r.target!;
-        debugPrint('closest: $closest');
         Menu menu = allNames[closest]!.item2;
 
         showDialog(

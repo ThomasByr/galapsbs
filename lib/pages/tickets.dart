@@ -39,8 +39,8 @@ class _TicketsPageState extends State<TicketsPage> {
                       padding: const EdgeInsets.all(16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const <Widget>[
-                          Text(
+                        children: <Widget>[
+                          const Text(
                             'Informations Générales',
                             style: TextStyle(
                               color: Palette.black,
@@ -48,52 +48,16 @@ class _TicketsPageState extends State<TicketsPage> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(height: 16),
-                          Text.rich(
-                            TextSpan(
-                              text:
-                                  'Les billets sont disponibles en vente sur place au fouaille du <> au <>. Ils sont également disponibles en prévente sur l\'application HelloAsso en ligne.\n\n',
-                              style: TextStyle(
-                                color: Palette.black,
-                              ),
-                              children: <TextSpan>[
-                                TextSpan(
-                                  text: 'Si vous prenez des billets en ligne',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: ', pensez à :\n',
-                                ),
-                                TextSpan(
-                                  text: ' - ',
-                                ),
-                                TextSpan(
-                                  text: 'Renseigner le menu',
-                                  style: TextStyle(
-                                    decoration: TextDecoration.underline,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: ' lors de l\'achat dans HelloAsso '
-                                      '(vous pouvez le copier depuis la page "menu")\n',
-                                ),
-                                TextSpan(
-                                  text: ' - ',
-                                ),
-                                TextSpan(
-                                  text: 'Décocher l\'option',
-                                  style: TextStyle(
-                                    decoration: TextDecoration.underline,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: ' pour soutenir HelloAsso',
-                                ),
-                              ],
+                          const SizedBox(height: 16),
+                          Text.rich(textSpan(
+                            'Les billets sont disponibles en vente sur place au fouaille du <> au <>. Ils sont également disponibles en prévente sur l\'application HelloAsso en ligne.\n\n'
+                            'Si vous prenez des **billets en ligne**, pensez à :\n'
+                            ' - __Renseigner le menu__ lors de l\'achat dans HelloAsso (vous pouvez le copier depuis la page "menu")\n'
+                            ' - __Décocher l\'option__ pour soutenir HelloAsso\n\n',
+                            style: const TextStyle(
+                              color: Palette.black,
                             ),
-                          ),
+                          )),
                         ],
                       ),
                     ),

@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:galapsbs/helper/splitview.dart';
 
+import '../animated/animated.dart';
 import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
 
@@ -14,6 +15,20 @@ class TicketsPage extends StatefulWidget {
 }
 
 class _TicketsPageState extends State<TicketsPage> {
+  late Widget current;
+  final List<Widget> selectionSwitches = [
+    Container(),
+    Container(),
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      current = selectionSwitches[0];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Splitview(
@@ -53,7 +68,7 @@ class _TicketsPageState extends State<TicketsPage> {
                             'Les billets sont disponibles en vente sur place au fouaille du <> au <>. Ils sont également disponibles en prévente sur l\'application HelloAsso en ligne.\n\n'
                             'Si vous prenez des **billets en ligne**, pensez à :\n'
                             ' - __Renseigner le menu__ lors de l\'achat dans HelloAsso (vous pouvez le copier depuis la page "menu")\n'
-                            ' - __Décocher l\'option__ pour soutenir HelloAsso\n\n',
+                            ' - __Décocher l\'option__ pour soutenir HelloAsso',
                             style: const TextStyle(
                               color: Palette.black,
                             ),
@@ -62,6 +77,17 @@ class _TicketsPageState extends State<TicketsPage> {
                       ),
                     ),
                   ),
+                ),
+                const SizedBox(height: 48),
+                AnimatedToggleSwitch<Widget>.dual(
+                  current: current,
+                  first: selectionSwitches[0],
+                  second: selectionSwitches[1],
+                  onChanged: (w) {
+                    setState(() {
+                      current = w;
+                    });
+                  },
                 ),
                 const SizedBox(height: 48),
               ],

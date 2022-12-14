@@ -278,9 +278,10 @@ class _NavPagesState extends State<NavPages> {
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                   Text(
-                    'Va falloir attendre encore un peu pour la découvrir !',
+                    'Il va falloir attendre encore un peu pour la découvrir !\n(omg Célia bouge un peu pour faire le post...)',
                     style: TextStyle(
                       fontSize: 16,
                     ),

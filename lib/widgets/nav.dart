@@ -93,6 +93,8 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
     'vin': Pages.drinks,
     'bière': Pages.drinks,
     'liqueur': Pages.drinks,
+    'billet': Pages.tickets,
+    'billetterie': Pages.tickets,
     'acheter': Pages.tickets,
     'place': Pages.tickets,
     'réservation': Pages.sncf,
@@ -226,7 +228,7 @@ class NavigationDrawerState extends State<NavigationDrawerWidget> {
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         hintText: 'Chercher',
         hintStyle: const TextStyle(color: color),
-        prefixIcon: const Icon(Icons.search, color: color),
+        prefixIcon: const Icon(Icons.search_rounded, color: color),
         filled: true,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),

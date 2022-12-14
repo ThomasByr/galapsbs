@@ -235,7 +235,7 @@ class _SncfPageState extends State<SncfPage> {
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         hintText: 'Chercher un nom',
         hintStyle: const TextStyle(color: color),
-        prefixIcon: const Icon(Icons.search, color: color),
+        prefixIcon: const Icon(Icons.search_rounded, color: color),
         filled: true,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),

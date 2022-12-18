@@ -220,7 +220,7 @@ class _MenuPageState extends State<MenuPage> {
 
   void _showSnackBar(String text) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        backgroundColor: Palette.scaffold,
+        backgroundColor: Colors.amber,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         content: Text(
           text,

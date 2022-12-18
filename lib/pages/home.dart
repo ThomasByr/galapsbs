@@ -281,21 +281,14 @@ class _NavPagesState extends State<NavPages> {
                     textAlign: TextAlign.center,
                   ),
                   Text(
-                    'Il va falloir attendre encore un peu pour la découvrir !\n(omg Célia bouge un peu pour faire le post...)',
+                    '👏 Bravo à Arielle !\nTu gagnes ta place pour le Gala ! 🥳',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  // Text(
-                  //   '👏 Bravo à Arielle !\nTu gagnes ta place pour le Gala ! 🥳',
-                  //   style: TextStyle(
-                  //     fontSize: 16,
-                  //   ),
-                  //   textAlign: TextAlign.center,
-                  // ),
-                  // SizedBox(height: 48),
-                  // ICard(img_path: 'assets/images/affiche.png'),
+                  SizedBox(height: 48),
+                  ICard(img_path: 'assets/images/affiche.png'),
                 ],
               ),
             ),

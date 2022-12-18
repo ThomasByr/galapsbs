@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:galapsbs/helper/splitview.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:sliding_switch/sliding_switch.dart';
 
 import '../animated/animated.dart';
 import '../cfg/cfg.dart';
@@ -16,7 +17,7 @@ class TicketsPage extends StatefulWidget {
 }
 
 class _TicketsPageState extends State<TicketsPage> {
-  Wrapper<int> current = Wrapper(0);
+  Wrapper<bool> current = Wrapper(false);
 
   @override
   Widget build(BuildContext context) {
@@ -31,37 +32,16 @@ class _TicketsPageState extends State<TicketsPage> {
             child: Column(
               children: <Widget>[
                 const SizedBox(height: 16),
-                AnimatedToggleSwitch<int>.dual(
-                  current: current.value,
-                  height: 48,
-                  indicatorSize: const Size(84, 48),
-                  first: 0,
-                  second: 1,
-                  indicatorColor: Colors.transparent,
-                  borderColor: Palette.scaffold,
-                  onChanged: (i) {
-                    setState(() => current.value = i);
-                  },
-                  iconBuilder: (i) {
-                    switch (i) {
-                      case 0:
-                        return const Icon(Icons.event_available_outlined);
-                      case 1:
-                        return const Icon(Icons.dinner_dining_rounded);
-                      default:
-                        return const Icon(Icons.event_available_outlined);
-                    }
-                  },
-                  textBuilder: (i) {
-                    switch (i) {
-                      case 0:
-                        return const Center(child: AnimatedText(text: 'Entrée Seule'));
-                      case 1:
-                        return const Center(child: AnimatedText(text: 'Entrée + Repas'));
-                      default:
-                        return const Center(child: AnimatedText(text: 'Entrée Seule'));
-                    }
-                  },
+                SlidingSwitch(
+                  width: 300.0,
+                  height: 50.0,
+                  value: current.value,
+                  onChanged: ((value) => setState(() => current.value = value)),
+                  onTap: () {},
+                  onDoubleTap: () {},
+                  onSwipe: () {},
+                  textOff: 'Entrée Seule',
+                  textOn: 'Entrée + Repas',
                 ),
                 const SizedBox(height: 48),
                 Padding(
@@ -137,7 +117,7 @@ class _AnimatedTextState extends State<AnimatedText> {
 class TicketHandler extends StatefulWidget {
   const TicketHandler({Key? key, required this.current}) : super(key: key);
 
-  final Wrapper<int> current;
+  final Wrapper<bool> current;
 
   @override
   State<TicketHandler> createState() => _TicketHandlerState();
@@ -161,14 +141,14 @@ class _TicketHandlerState extends State<TicketHandler> {
               child: Text.rich(textSpan(
                 [
                   '**Billet Entrée Seule**\n'
-                      '__prix__ 30 € (+6/12 € par ticket boisson)\n'
+                      '__prix__ 20 € (+6/12 € par ticket boisson)\n'
                       '__arrivée__ à partir de 23h',
                   '**Billet Entrée + Repas**\n'
-                      '__prix__ 60 € (+6/12 € par ticket boisson)\n'
+                      '__prix__ 50 € (+6/12 € par ticket boisson)\n'
                       '__arrivée__ à 19h\n'
                       '__renseigner__ le menu sur HelloAsso\n'
                       '__before__ INTERDIT'
-                ][widget.current.value],
+                ][widget.current.value ? 1 : 0],
                 style: const TextStyle(
                   color: Palette.black,
                 ),

@@ -2,10 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:galapsbs/helper/splitview.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:sliding_switch/sliding_switch.dart';
 
-import '../animated/animated.dart';
 import '../cfg/cfg.dart';
 import '../widgets/widgets.dart';
 
@@ -58,7 +56,8 @@ class _TicketsPageState extends State<TicketsPage> {
                         'Les billets sont disponibles en vente sur place au fouaille du <> au <>. Ils sont également disponibles en prévente sur l\'application HelloAsso en ligne.\n\n'
                         'Si vous prenez des **billets en ligne**, pensez à :\n'
                         ' - __Renseigner le menu__ lors de l\'achat dans HelloAsso (vous pouvez le copier depuis la page "menu")\n'
-                        ' - __Décocher l\'option__ pour soutenir HelloAsso',
+                        ' - __Décocher l\'option__ pour soutenir HelloAsso\n'
+                        'Une confirmation par mail vous sera envoyée une fois la vérification de votre paiement effectuée.',
                         style: const TextStyle(
                           color: Palette.black,
                         ),
@@ -72,43 +71,6 @@ class _TicketsPageState extends State<TicketsPage> {
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class AnimatedText extends StatefulWidget {
-  const AnimatedText({Key? key, required this.text}) : super(key: key);
-
-  final String text;
-
-  @override
-  State<AnimatedText> createState() => _AnimatedTextState();
-}
-
-class _AnimatedTextState extends State<AnimatedText> {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: AnimatedTextKit(
-        repeatForever: true,
-        animatedTexts: [
-          ColorizeAnimatedText(
-            widget.text,
-            speed: const Duration(milliseconds: 250),
-            textStyle: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
-            colors: const [
-              Palette.scaffold,
-              Colors.yellow,
-              Colors.red,
-              Colors.blue,
-              Colors.purple,
-            ],
-          ),
-        ],
       ),
     );
   }

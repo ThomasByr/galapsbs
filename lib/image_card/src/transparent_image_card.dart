@@ -11,6 +11,7 @@ class TransparentImageCard extends StatefulWidget {
     this.borderRadius = 6,
     this.contentPadding,
     required this.imageProvider,
+    this.logoProvider,
     this.tags,
     this.title,
     this.description,
@@ -46,6 +47,7 @@ class TransparentImageCard extends StatefulWidget {
 
   /// image provider
   final ImageProvider imageProvider;
+  final ImageProvider? logoProvider;
 
   /// list of widgets
   final List<Widget>? tags;
@@ -142,9 +144,15 @@ class _TransparentImageCardState extends State<TransparentImageCard> {
               borderRadius: BorderRadius.circular(widget.borderRadius),
               color: Colors.transparent,
             ),
-            padding: EdgeInsets.only(top: widget.contentMarginTop ?? 100),
+            padding: EdgeInsets.only(top: widget.contentMarginTop ?? 0),
             child: content,
           ),
+          if (widget.logoProvider != null)
+            Positioned(
+              top: 16,
+              left: 16,
+              child: Image(image: widget.logoProvider!, width: 64, height: 64),
+            ),
         ],
       ),
     );

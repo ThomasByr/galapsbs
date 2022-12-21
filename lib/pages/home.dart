@@ -31,6 +31,7 @@ class Post {
   final bool sponsored;
   final String link;
   final String image;
+  final String logo;
   final int height;
 
   Post({
@@ -39,6 +40,7 @@ class Post {
     required this.sponsored,
     required this.link,
     required this.image,
+    required this.logo,
     required this.height,
   });
 
@@ -49,6 +51,7 @@ class Post {
       sponsored: json['sponsored'] as bool,
       link: json['link'] as String,
       image: json['image'] as String,
+      logo: json['logo'] as String,
       height: json['height'] as int,
     );
   }
@@ -219,6 +222,8 @@ class _NavPagesState extends State<NavPages> {
                           itemBuilder: (context, index) {
                             ImageProvider imageProvider =
                                 AssetImage(postPath + snapshot.data!.posts[index].image);
+                            ImageProvider logoProvider =
+                                AssetImage(postPath + snapshot.data!.posts[index].logo);
                             Widget title = Text(
                               snapshot.data!.posts[index].title,
                               style: const TextStyle(
@@ -232,26 +237,25 @@ class _NavPagesState extends State<NavPages> {
                                 fontSize: 12,
                               ),
                             );
-                            return Center(
-                              child: Column(
-                                children: <Widget>[
-                                  TransparentImageCard(
-                                    height: snapshot.data!.posts[index].height.toDouble(),
-                                    width: min(600, MediaQuery.of(context).size.width),
-                                    imageProvider: imageProvider,
-                                    title: title,
-                                    description: description,
-                                    contentPadding: const EdgeInsets.all(24),
-                                    borderRadius: 16,
-                                    tags: <Widget>[
-                                      snapshot.data!.posts[index].sponsored
-                                          ? sponsoredWidget(snapshot.data!.posts[index].link)
-                                          : Container(),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 48),
-                                ],
-                              ),
+                            return Column(
+                              children: <Widget>[
+                                TransparentImageCard(
+                                  height: snapshot.data!.posts[index].height.toDouble(),
+                                  width: min(600, MediaQuery.of(context).size.width),
+                                  imageProvider: imageProvider,
+                                  logoProvider: snapshot.data!.posts[index].logo != '' ? logoProvider : null,
+                                  title: title,
+                                  description: description,
+                                  contentPadding: const EdgeInsets.all(24),
+                                  borderRadius: 16,
+                                  tags: <Widget>[
+                                    snapshot.data!.posts[index].sponsored
+                                        ? sponsoredWidget(snapshot.data!.posts[index].link)
+                                        : const SizedBox(),
+                                  ],
+                                ),
+                                const SizedBox(height: 48),
+                              ],
                             );
                           },
                         ),

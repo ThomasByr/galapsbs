@@ -102,7 +102,7 @@ class _SncfPageState extends State<SncfPage> {
       left: NavigationDrawerWidget(),
       right: Scaffold(
         drawer: MediaQuery.of(context).size.width < breakpoint ? NavigationDrawerWidget() : null,
-        appBar: MyAppBar('🗺️ Plan de table'),
+        appBar: MyAppBar('🪑 Plan de table'),
         body: Center(
           child: Column(
             children: <Widget>[

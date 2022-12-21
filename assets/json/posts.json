@@ -1,28 +1,143 @@
 {
   "posts": [
     {
-      "title": "Premier Sponsor ! 🎉",
-      "description": "Cochonou : Un p'tit bout de chez nous",
+      "title": "Shop for geek",
+      "description": "ShopForGeek fournit le meilleur des produits dérivés des plus grandes licences actuelles. T-shirts, figurines ou même décorations murales, l'enseigne propose ce qu'il y a de mieux pour que chaque geek qui se respecte y trouve toujours son compte.",
       "sponsored": true,
-      "link": "https://www.cochonou.fr/",
-      "image": "saucisson-planche.png",
+      "link": "https://www.shopforgeek.com/Magasin-Strasbourg",
+      "image": "shopforgeek.png",
+      "logo": "shopforgeeklogo.png",
       "height": 300
     },
+    {
+      "title": "Jeff de Bruges",
+      "description": "Jeff de Bruges vous propose mille et une idées cadeaux sans cesse renouvelées : pralinés croustillants, ganaches intenses, chocolats biscuités, ours en guimauve, tablettes de chocolat à  personnaliser...",
+      "sponsored": true,
+      "link": "https://www.jeff-de-bruges.com/jeff-de-bruges-strasbourg-grand-rue",
+      "image": "jeffdebruges.jpg",
+      "logo": "jeffdebrugeslogo.png",
+      "height": 300
+    },
+    {
+      "title": "Virtual Center",
+      "description": "Des espaces comprenant plusieurs univers d'expériences de Réalité Virtuelle (VR), de jeux d'Arcade, d'E-Sport avec entre autres After H, et les meilleurs simulateurs Racing du marché.",
+      "sponsored": true,
+      "link": "https://strasbourg-nord.virtual-center.com/",
+      "image": "virtualcenter.jpg",
+      "logo": "virtualcenterlogo.png",
+      "height": 300
+    },
+
     {
       "title": "Photo de Couverture",
       "description": "La meilleure asso 😌\nP.S. le Gala c'est le 11/02/2023 !",
       "sponsored": false,
       "link": "",
       "image": "cover.jpg",
+      "logo": "",
       "height": 300
     },
+
+    {
+      "title": "Les Secrets du Sablier",
+      "description": "Le principe est simple : résoudre une mission dans un univers où l'on se retrouve enfermé en moins de 60 minutes, en équipe de 2 à 7 joueurs.",
+      "sponsored": true,
+      "link": "https://lessecretsdusablier.com/",
+      "image": "lessecretsdusablier.jpg",
+      "logo": "lessecretsdusablierlogo.png",
+      "height": 400
+    },
+    {
+      "title": "Dooz Escape",
+      "description": "7 salles d'escape game, 3 bars, 6 pistes de lancer de haches, 3 zone de destroy rooms et 1 atelier de conception de salles d'escape game...",
+      "sponsored": true,
+      "link": "https://www.doozescape.com/",
+      "image": "doozescape.jpg",
+      "logo": "doozescapelogo.png",
+      "height": 200
+    },
+    {
+      "title": "Insolit' Prod Strasbourg",
+      "description": "Expert dans la conception de scenarii inédits à destination des professionnels et particuliers depuis 2009, Insolit'Prod propose des escape game, des jeux outdoors, team building...",
+      "sponsored": true,
+      "link": "https://www.insolitprod.com/ville/strasbourg",
+      "image": "insolitprod.png",
+      "logo": "insolitprodlogo.png",
+      "height": 300
+    },
+    {
+      "title": "Ninjastorm",
+      "description": "Avec 350m² d'obstacles et plus de 33 modules, la route vers la sortie ne sera pas toute droite ! Votre mission sera d'enchaîner les différents agrès sans tomber.",
+      "sponsored": true,
+      "link": "https://ninjastorm.fr/",
+      "image": "ninjastorm.jpg",
+      "logo": "ninjastormlogo.png",
+      "height": 300
+    },
+
     {
       "title": "Notre Logo !",
       "description": "Thomas D s'est surpassé pour ce nouveau logo !\nVous l'avez vu sur nos t-shirts ?",
       "sponsored": false,
       "link": "",
       "image": "gala.png",
+      "logo": "",
       "height": 600
+    },
+
+    {
+      "title": "Straskart",
+      "description": "Votre piste de karting à Strasbourg",
+      "sponsored": true,
+      "link": "http://www.straskart.fr/",
+      "image": "straskart.jpg",
+      "logo": "straskartlogo.png",
+      "height": 300
+    },
+    {
+      "title": "Fortwenger Strasbourg Cathédrale",
+      "description": "La tradition du pain d'épices depuis 1768.",
+      "sponsored": true,
+      "link": "https://www.fortwenger.fr/nos-boutiques/strasbourg-cathedrale/",
+      "image": "fortwenger.jpg",
+      "logo": "fortwengerlogo.png",
+      "height": 300
+    },
+    {
+      "title": "L'Occitane",
+      "description": "L'OCCITANE en Provence développe des soins aux huiles essentielles et des parfums naturels élaborés selon les principes de la phytothérapie et de l'aromathérapie.",
+      "sponsored": true,
+      "link": "https://fr.loccitane.com/",
+      "image": "occitane.jpg",
+      "logo": "occitanelogo.png",
+      "height": 300
+    },
+    {
+      "title": "Coutellerie Laguiole Strasbourg",
+      "description": "Vaste choix de Couteaux Laguiole pliants, Sommeliers, Couteaux de cuisine ainsi qu'une large gamme de Couteaux de Table et leurs fourchettes et cuillères assorties.",
+      "sponsored": true,
+      "link": "https://www.coutellerie-laguiole-strasbourg.com/",
+      "image": "laguiole.jpg",
+      "logo": "laguiolelogo.png",
+      "height": 300
+    },
+    {
+      "title": "UGC Ciné Cité Strasbourg",
+      "description": "...",
+      "sponsored": true,
+      "link": "https://www.ugc.fr/cinema.html?id=30",
+      "image": "ugccinecite.jpg",
+      "logo": "ugccinecitelogo.png",
+      "height": 300
+    },
+    {
+      "title": "Palais des thés Strasbourg",
+      "description": "Boutique de thés",
+      "sponsored": true,
+      "link": "https://www.palaisdesthes.com/fr/boutiques/strasbourg/grand-rue-fr/",
+      "image": "palaisdesthes.jpg",
+      "logo": "palaisdestheslogo.png",
+      "height": 300
     }
   ]
 }

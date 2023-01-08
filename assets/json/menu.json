@@ -1,0 +1,74 @@
+{
+  "starters": [
+    {
+      "name": "Toast de Chèvre Chaud",
+      "image": "toats.jpg",
+      "is_vegan": true,
+      "description": "Chèvre chaud et poires caramélisées, Feuilles de saison et vinaigrette au melfor"
+    },
+    {
+      "name": "Sandre & Saumon",
+      "image": "duo.jpg",
+      "is_vegan": false,
+      "description": "Fusion de sandre et de saumon, salade de chou blanc croquant au cumin et légèreté au raifort"
+    },
+    {
+      "name": "Burger d'Alsace",
+      "image": "burger.jpg",
+      "is_vegan": false,
+      "description": "Burger d'Alsace à la rillette de sandre aux herbes et un ketchup de betterave rouge"
+    }
+  ],
+  "mains": [
+    {
+      "name": "Jambonnette de Poulet",
+      "image": "chicken.jpg",
+      "is_vegan": false,
+      "description": "Jambonnette de poulet farcie aux bolets et raisins, spaetzles et jus Pinot Noir"
+    },
+    {
+      "name": "Lieu poêlé",
+      "image": "lieu.jpg",
+      "is_vegan": false,
+      "description": "Lieu poêlé, quelques missala et poireaux crème au safran"
+    },
+    {
+      "name": "Cuisse de Volaille",
+      "image": "chicken-leg.jpg",
+      "is_vegan": false,
+      "description": "Cuisse de volaille au riesling et spaetzles aux croutons"
+    },
+    {
+      "name": "Filet de Poulet",
+      "image": "chicken-filet.jpg",
+      "is_vegan": false,
+      "description": "Filet de poulet, poêlée de légumes et crème de champignons"
+    },
+    {
+      "name": "Pastilla de Légumes",
+      "image": "pastilla.jpg",
+      "is_vegan": true,
+      "description": "Pastilla de légumes grillées aux épices, mesclun, jus de carottes et huile d'olive"
+    }
+  ],
+  "desserts": [
+    {
+      "name": "Cheesecake fondant",
+      "image": "cheesecake.jpg",
+      "is_vegan": true,
+      "description": "Cheesecake fondant, déclinaison de fruit de saison"
+    },
+    {
+      "name": "Soupe de Quetsches",
+      "image": "soup.jpg",
+      "is_vegan": true,
+      "description": "Soupe de quetsches à la cannelle, glace au fromage blanc soupçon de poudre de spéculoos"
+    },
+    {
+      "name": "Eclair",
+      "image": "eclair.jpg",
+      "is_vegan": true,
+      "description": "Eclair aux fruits d'automne et crème whisky"
+    }
+  ]
+}

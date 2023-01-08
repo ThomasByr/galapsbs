@@ -1,6 +1,15 @@
 {
   "posts": [
     {
+      "title": "Partenaire Gala Officiel 🥳",
+      "description": "ITS, l'association informatique de l'école ! C'est grâce à leurs serveurs que vous pouvez lire ceci ! Merci à eux !\nRejoignez ITS pour faire vivre vos projets informatiques les plus fous !",
+      "sponsored": false,
+      "link": "",
+      "image": "its.jpeg",
+      "logo": "itslogo.png",
+      "height": 400
+    },
+    {
       "title": "Shop for geek",
       "description": "ShopForGeek fournit le meilleur des produits dérivés des plus grandes licences actuelles. T-shirts, figurines ou même décorations murales, l'enseigne propose ce qu'il y a de mieux pour que chaque geek qui se respecte y trouve toujours son compte.",
       "sponsored": true,
@@ -35,7 +44,7 @@
       "link": "",
       "image": "cover.jpg",
       "logo": "",
-      "height": 300
+      "height": 400
     },
 
     {

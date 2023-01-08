@@ -4,109 +4,11 @@
       "id": 1,
       "seats": [
         {
-          "name": "Thomas",
+          "name": "n/a",
           "menu": {
-            "starter": "Salade",
-            "main": "Poulet",
-            "dessert": "Tarte"
-          }
-        },
-        {
-          "name": "Pierre",
-          "menu": {
-            "starter": "Salade",
-            "main": "Poulet",
-            "dessert": "Tarte"
-          }
-        },
-        {
-          "name": "Paul",
-          "menu": {
-            "starter": "Salade",
-            "main": "Poulet",
-            "dessert": "Tarte"
-          }
-        },
-        {
-          "name": "Jacques",
-          "menu": {
-            "starter": "Salade",
-            "main": "Poulet",
-            "dessert": "Tarte"
-          }
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "seats": [
-        {
-          "name": "Jules",
-          "menu": {
-            "starter": "Salade",
-            "main": "Poulet",
-            "dessert": "Tarte"
-          }
-        },
-        {
-          "name": "Manon",
-          "menu": {
-            "starter": "Salade",
-            "main": "Poulet",
-            "dessert": "Tarte"
-          }
-        },
-        {
-          "name": "Charles",
-          "menu": {
-            "starter": "Salade",
-            "main": "Poulet",
-            "dessert": "Tarte"
-          }
-        },
-        {
-          "name": "Maxime",
-          "menu": {
-            "starter": "Salade",
-            "main": "Poulet",
-            "dessert": "Tarte"
-          }
-        },
-        {
-          "name": "Jean",
-          "menu": {
-            "starter": "Salade",
-            "main": "Poulet",
-            "dessert": "Tarte"
-          }
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "seats": [
-        {
-          "name": "Adrien",
-          "menu": {
-            "starter": "Salade",
-            "main": "Poulet",
-            "dessert": "Tarte"
-          }
-        },
-        {
-          "name": "Bastian",
-          "menu": {
-            "starter": "Salade",
-            "main": "Poulet",
-            "dessert": "Tarte"
-          }
-        },
-        {
-          "name": "Louis",
-          "menu": {
-            "starter": "Salade",
-            "main": "Poulet",
-            "dessert": "Tarte"
+            "starter": "nop",
+            "main": "nop",
+            "dessert": "nop"
           }
         }
       ]

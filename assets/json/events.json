@@ -3,55 +3,10 @@
 
   "Hall": [
     {
-      "name": "arrivée",
-      "date": "05/10/2022",
-      "time0": "19h30",
-      "time1": "20h30",
-      "description": "",
-      "details": "",
-      "image": "assets/images/gala.png"
-    },
-    {
-      "name": "arrivée",
-      "date": "05/10/2022",
-      "time0": "19h30",
-      "time1": "20h30",
-      "description": "",
-      "details": "",
-      "image": ""
-    },
-    {
-      "name": "arrivée",
-      "date": "05/10/2022",
-      "time0": "19h30",
-      "time1": "20h30",
-      "description": "",
-      "details": "",
-      "image": ""
-    },
-    {
-      "name": "arrivée",
-      "date": "05/10/2022",
-      "time0": "19h30",
-      "time1": "20h30",
-      "description": "",
-      "details": "",
-      "image": ""
-    },
-    {
-      "name": "arrivée",
-      "date": "05/10/2022",
-      "time0": "19h30",
-      "time1": "20h30",
-      "description": "",
-      "details": "",
-      "image": ""
-    },
-    {
-      "name": "arrivée",
-      "date": "05/10/2022",
-      "time0": "19h30",
-      "time1": "20h30",
+      "name": "n/a",
+      "date": "n/a",
+      "time0": "none",
+      "time1": "none",
       "description": "",
       "details": "",
       "image": ""
@@ -59,19 +14,10 @@
   ],
   "Poly": [
     {
-      "name": "repas",
-      "date": "05/10/2022",
-      "time0": "19h30",
-      "time1": "20h30",
-      "description": "",
-      "details": "",
-      "image": ""
-    },
-    {
-      "name": "repas",
-      "date": "05/10/2022",
-      "time0": "19h30",
-      "time1": "20h30",
+      "name": "n/a",
+      "date": "n/a",
+      "time0": "none",
+      "time1": "none",
       "description": "",
       "details": "",
       "image": ""
@@ -79,29 +25,11 @@
   ],
   "1er étage": [
     {
-      "name": "🥜",
-      "date": "05/10/2022",
-      "time0": "19h30",
-      "time1": "20h30",
-      "description": "lancer des cacahuètes sur Jardot",
-      "details": "",
-      "image": ""
-    },
-    {
-      "name": "🥜",
-      "date": "05/10/2022",
-      "time0": "19h30",
-      "time1": "20h30",
-      "description": "lancer des cacahuètes sur Jardot",
-      "details": "",
-      "image": ""
-    },
-    {
-      "name": "🥜",
-      "date": "05/10/2022",
-      "time0": "19h30",
-      "time1": "20h30",
-      "description": "lancer des cacahuètes sur Jardot",
+      "name": "n/a",
+      "date": "n/a",
+      "time0": "none",
+      "time1": "none",
+      "description": "",
       "details": "",
       "image": ""
     }

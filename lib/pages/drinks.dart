@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -79,6 +78,7 @@ class _DrinksPageState extends State<DrinksPage> {
   List<Drink> _drinks = [];
   List<Snack> _snacks = [];
   final List<Widget> _children = [];
+  final String imagePrefix = 'assets/images/';
 
   Future<void> readJson() async {
     final String response = await rootBundle.loadString('assets/json/drinks.json');
@@ -172,14 +172,17 @@ class _DrinksPageState extends State<DrinksPage> {
                             _drinks[index].subName,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
-                              fontSize: 18,
+                              fontSize: 14,
                               fontWeight: FontWeight.bold,
                               color: Palette.greyDark,
                             ),
                           ),
                           SizedBox(
                             height: 200,
-                            child: Image.asset(_drinks[index].image),
+                            child: Image.asset(
+                              '$imagePrefix${_drinks[index].image}',
+                              fit: BoxFit.contain,
+                            ),
                           ),
                           const SizedBox(height: 12),
                           Container(

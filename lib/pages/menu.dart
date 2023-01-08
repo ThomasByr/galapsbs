@@ -69,7 +69,7 @@ class Miam {
   factory Miam.fromJson(Map<String, dynamic> data) {
     return Miam(
       name: data['name'] as String,
-      image: data['image'] as String,
+      image: 'assets/images/${data['image'] as String}',
       is_vegan: data['is_vegan'] as bool,
       description: data['description'] as String,
     );
@@ -97,7 +97,7 @@ class _MenuPageState extends State<MenuPage> {
   late String buildNumber;
 
   Future<void> readJson() async {
-    final String response = await rootBundle.loadString('assets/json/meals.json');
+    final String response = await rootBundle.loadString('assets/json/menu.json');
     final data = await json.decode(response);
 
     setState(() {
@@ -230,16 +230,22 @@ class _MenuPageState extends State<MenuPage> {
   }
 
   Widget createCustomMealSwiper({required List<Miam> items, required Wrapper<int> index}) {
+    bool screen = MediaQuery.of(context).orientation == Orientation.portrait;
+    double viewportFraction = screen ? 0.8 : 0.5;
+    double width = MediaQuery.of(context).size.width * viewportFraction;
+    double availableWidth = width - 180 - (screen ? 0 : 130);
     return Swiper(
       onIndexChanged: (int i) => setState(() => index.value = i),
       autoplay: false,
       autoplayDelay: 5000,
       autoplayDisableOnInteraction: true,
+      containerWidth: MediaQuery.of(context).size.width,
+      containerHeight: 200,
       duration: 1000,
       controller: SwiperController(),
       physics: const ClampingScrollPhysics(),
       itemCount: items.length,
-      viewportFraction: MediaQuery.of(context).orientation == Orientation.portrait ? 0.8 : 0.5,
+      viewportFraction: viewportFraction,
       scale: 0.7,
       itemBuilder: (BuildContext context, int index) {
         return Container(
@@ -251,7 +257,7 @@ class _MenuPageState extends State<MenuPage> {
               Text(
                 items[index].name,
                 style: const TextStyle(
-                  fontSize: 26,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Palette.black,
                 ),
@@ -290,12 +296,14 @@ class _MenuPageState extends State<MenuPage> {
                         ],
                       ),
                       const SizedBox(height: 20),
-                      Text(
-                        items[index].description,
-                        softWrap: false,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Palette.black,
+                      SizedBox(
+                        width: availableWidth,
+                        child: Text.rich(
+                          textSpan(items[index].description),
+                          style: const TextStyle(
+                            fontSize: 11,
+                            color: Palette.black,
+                          ),
                         ),
                       ),
                     ],

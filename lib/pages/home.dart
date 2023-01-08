@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
@@ -96,6 +97,14 @@ class _HomePageState extends State<HomePage> {
       useRootNavigator: true,
       aspectRatio: 16 / 9,
       autoInitialize: false,
+      deviceOrientationsOnEnterFullScreen: [
+        DeviceOrientation.landscapeLeft,
+        DeviceOrientation.landscapeRight
+      ],
+      deviceOrientationsAfterFullScreen: [
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ],
     );
 
     final playerWidget = Chewie(
@@ -194,17 +203,9 @@ class _NavPagesState extends State<NavPages> {
       body: <Widget>[
         Builder(
           builder: (context) => Center(
-            child: Column(
-              children: <Widget>[
-                Center(
-                  child: SizedBox(
-                    height: MediaQuery.of(context).size.height * .65,
-                    width: min(800, MediaQuery.of(context).size.width),
-                    child: MyPlayer(playerWidget: widget.playerWidget),
-                  ),
-                ),
-                const SizedBox(height: 48),
-              ],
+            child: SizedBox(
+              width: min(800, MediaQuery.of(context).size.width),
+              child: MyPlayer(playerWidget: widget.playerWidget),
             ),
           ),
         ),
@@ -271,9 +272,9 @@ class _NavPagesState extends State<NavPages> {
           ),
         ),
         Builder(
-          builder: (context) => Center(
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
+          builder: (context) => SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Center(
               child: Column(
                 children: const <Widget>[
                   Text(

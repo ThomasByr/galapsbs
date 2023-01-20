@@ -125,8 +125,8 @@ class _TicketHandlerState extends State<TicketHandler> {
                   )),
                   Text.rich(textSpan(
                     [
-                      '**arrivée** à 23h',
-                      '**arrivée** à 19h\n'
+                      '**arrivée** à 22h30',
+                      '**arrivée** à 18h30\n'
                           '**renseigner** le menu\n'
                           '**before** INTERDIT',
                     ][widget.current.value ? 1 : 0],

@@ -66,6 +66,7 @@ class MyApp extends StatelessWidget {
       },
       debugShowCheckedModeBanner: true,
       title: 'Gala TPS ESBS',
+      locale: const Locale('fr', 'FR'),
       theme: ThemeData(
         brightness: Brightness.light,
         visualDensity: VisualDensity.standard,

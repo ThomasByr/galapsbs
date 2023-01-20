@@ -61,10 +61,15 @@ class DessertData extends MiamData {
 }
 
 class Miam {
-  final String name, image, description;
+  final String name, image, description, allergens;
   final bool is_vegan;
 
-  Miam({required this.name, required this.image, required this.is_vegan, required this.description});
+  Miam(
+      {required this.name,
+      required this.image,
+      required this.is_vegan,
+      required this.description,
+      required this.allergens});
 
   factory Miam.fromJson(Map<String, dynamic> data) {
     return Miam(
@@ -72,6 +77,7 @@ class Miam {
       image: 'assets/images/${data['image'] as String}',
       is_vegan: data['is_vegan'] as bool,
       description: data['description'] as String,
+      allergens: data['allergens'] as String,
     );
   }
 }
@@ -233,7 +239,8 @@ class _MenuPageState extends State<MenuPage> {
     bool screen = MediaQuery.of(context).orientation == Orientation.portrait;
     double viewportFraction = screen ? 0.8 : 0.5;
     double width = MediaQuery.of(context).size.width * viewportFraction;
-    double availableWidth = width - 180 - (screen ? 0 : 130);
+    double availableWidth = width - 180 - (screen ? 0 : 132);
+
     return Swiper(
       onIndexChanged: (int i) => setState(() => index.value = i),
       autoplay: false,
@@ -306,6 +313,16 @@ class _MenuPageState extends State<MenuPage> {
                           ),
                         ),
                       ),
+                      SizedBox(
+                        width: availableWidth,
+                        child: Text.rich(
+                          textSpan('**allergènes :** ${items[index].allergens}'),
+                          style: const TextStyle(
+                            fontSize: 11,
+                            color: Palette.black,
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ],

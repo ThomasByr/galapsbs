@@ -66,14 +66,6 @@
       "location": "1er",
       "image": "cremant_rose.png"
     },
-    {
-      "name": "Magnum Crémant brut",
-      "sub_name": "du crémant brut, mais en plus grand",
-      "price": "n/a",
-      "degree": "n/a",
-      "location": "1er",
-      "image": "cremant_brut_magnum.png"
-    },
 
     {
       "name": "Primus",
@@ -92,6 +84,7 @@
       "image": "chouffe.png"
     }
   ],
+
   "snacks": [
     {
       "name": "UNKNOWN",

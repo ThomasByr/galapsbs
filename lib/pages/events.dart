@@ -74,6 +74,8 @@ class _EventsPageState extends State<EventsPage> {
   final List<Widget> _selectChildren = [];
   final List<Widget> _coreChildren = [];
 
+  final String imagePrefix = 'assets/images/';
+
   PreferredSizeWidget myAppBar = MyAppBar('🗓️ Événements', bg: Colors.transparent);
 
   Future<void> readJson() async {
@@ -194,21 +196,37 @@ class _EventsPageState extends State<EventsPage> {
       itemBuilder: (BuildContext context, int index) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Card(
-            color: Colors.black.withAlpha(100),
-            child: Column(
-              children: <Widget>[
-                ListTile(
-                  title: Text(events[index].name),
-                  subtitle: Text(events[index].date),
+          child: Column(
+            children: <Widget>[
+              Card(
+                color: Colors.black.withAlpha(100),
+                child: Column(
+                  children: <Widget>[
+                    ListTile(
+                      title: Text(events[index].name),
+                      subtitle: events[index].time1.startsWith('+')
+                          ? Text(
+                              '${events[index].date} : ${events[index].time0} et ${events[index].time1.substring(1)}',
+                            )
+                          : Text(
+                              '${events[index].date} : ${events[index].time0} - ${events[index].time1}',
+                            ),
+                    ),
+                    Image.asset(
+                      height: 200,
+                      width: double.infinity,
+                      imagePrefix + events[index].image,
+                      fit: BoxFit.cover,
+                    ),
+                    ListTile(
+                      title: Text(events[index].description),
+                      subtitle: Text.rich(textSpan('\n${events[index].details}')),
+                    ),
+                  ],
                 ),
-                Image.asset(events[index].image),
-                ListTile(
-                  title: Text(events[index].description),
-                  subtitle: Text(events[index].details),
-                ),
-              ],
-            ),
+              ),
+              const SizedBox(height: 8),
+            ],
           ),
         );
       },

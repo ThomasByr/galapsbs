@@ -68,7 +68,12 @@ class _TicketsPageState extends State<TicketsPage> {
                   ),
                 ),
                 const SizedBox(height: 48),
-                TicketHandler(current: current),
+                // TicketHandler(current: current),
+                const Text('Billetterie en ligne fermée.',
+                    style: TextStyle(
+                      color: Palette.scaffold,
+                      fontSize: 24,
+                    )),
               ],
             ),
           ),
@@ -89,8 +94,8 @@ class TicketHandler extends StatefulWidget {
 
 class _TicketHandlerState extends State<TicketHandler> {
   static const List<String> links = [
-    'https://www.helloasso.com/associations/gala-telecom-ps-esbs/evenements/entree-gala',
-    'https://www.helloasso.com/associations/gala-telecom-ps-esbs/evenements/entree-gala-2-1',
+    'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   ];
 
   @override
@@ -158,7 +163,9 @@ class _TicketHandlerState extends State<TicketHandler> {
             fontWeight: FontWeight.bold,
           ),
         )),
-        onTap: () => launchUrlString(links[widget.current.value ? 1 : 0]),
+        onTap: () {
+          launchUrlString(links[widget.current.value ? 1 : 0]);
+        },
         trailing: IconButton(
           icon: const Icon(
             Icons.qr_code,

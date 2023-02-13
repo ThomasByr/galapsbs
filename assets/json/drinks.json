@@ -87,8 +87,40 @@
 
   "snacks": [
     {
-      "name": "UNKNOWN",
-      "price": "n/a"
+      "name": "Gateaux au yaourt",
+      "price": "0.50"
+    },
+    {
+      "name": "Gateaux au chocolat",
+      "price": "0.50"
+    },
+    {
+      "name": "Gateaux aux pommes",
+      "price": "0.50"
+    },
+    {
+      "name": "Quiche Lorraine",
+      "price": "0.50"
+    },
+    {
+      "name": "Quiche Poireaux",
+      "price": "0.50"
+    },
+    {
+      "name": "Feuilletés Saucisse",
+      "price": "0.50"
+    },
+    {
+      "name": "Feuilletés Fromage",
+      "price": "0.50"
+    },
+    {
+      "name": "Cake Olive Jambon",
+      "price": "0.50"
+    },
+    {
+      "name": "Cake Feta Poivrons ",
+      "price": "0.50"
     }
   ]
 }

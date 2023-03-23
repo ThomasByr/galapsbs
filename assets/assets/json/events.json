@@ -1,0 +1,120 @@
+{
+  "locs": ["Hall", "Poly", "1er étage", "Photos"],
+
+  "Hall": [
+    {
+      "name": "Arrivée Repas",
+      "date": "11/02",
+      "time0": "18h30",
+      "time1": "19h30",
+      "description": "arrivée entrée + repas",
+      "details": "uniquement pour les personnes qui ont réservé, billet **nominatif** et **before interdit**\n\n__**entrées impossibles en dehors de ces horaires**__",
+      "image": "event_table.jpg"
+    },
+    {
+      "name": "Arrivée",
+      "date": "11/02",
+      "time0": "22h30",
+      "time1": "23h30",
+      "description": "arrivée entrée seule",
+      "details": "pour les personnes disposants d'un biller sans repas à leur nom\n\n__**entrées impossibles en dehors de ces horaires**__",
+      "image": "affiche.jpg"
+    },
+    {
+      "name": "Scène Libre",
+      "date": "11/02",
+      "time0": "22h30",
+      "time1": "23h30",
+      "description": "Tu as envie de montrer ton talent ? Saute sur l'occasion et régale nous !",
+      "details": "Inscriptions via le post du BDM.",
+      "image": "scene-libre.jpg"
+    },
+    {
+      "name": "Tarot/Belote",
+      "date": "12/02",
+      "time0": "1h30",
+      "time1": "5h",
+      "description": "Viens défier tes amis à la belote ou au tarot ! Choisis bien ton roi ou ton partenaire ;)",
+      "details": "Des tables de belote ou de tarot au choix. Pas de panique, les débutants aussi pourront participer grâce aux règles des jeux qui seront sur les tables ou encore les animateurs!",
+      "image": "casino-cards.jpg"
+    }
+  ],
+  "Poly": [
+    {
+      "name": "Animations",
+      "date": "11/02",
+      "time0": "23h45",
+      "time1": "1h10",
+      "description": "Des animations, des discours et des surprises ! Que de la bonne humeur :)",
+      "details": "- Un prestataire surprise qui enflammera la piste de danse\n- Discours des directeurs de TPS et de ESBS\n- Discours du président de l'AAE\n- Discours de notre présidente préférée\n(elle m'a obligé à écrire ça)\n- Les clubs\n- Les talents",
+      "image": "animations.jpg"
+    },
+    {
+      "name": "Talent Show",
+      "date": "12/02",
+      "time0": "0h30",
+      "time1": "1h",
+      "description": "Venez voir un condensé de nos talents sur la grande scène de la salle poly !",
+      "details": "Chaud devant, ils vont enflammer la grande scène. Venez les encourager, les soutenir et les applaudir !",
+      "image": "talent-show.jpg"
+    },
+    {
+      "name": "BDF",
+      "date": "12/02",
+      "time0": "1h30",
+      "time1": "6h",
+      "description": "Danse jusqu'au bout de la nuit grâce à notre super BDF !",
+      "details": "Des petites surprises peuvent survenir.",
+      "image": "club.jpg"
+    }
+  ],
+  "1er étage": [
+    {
+      "name": "Fléchettes",
+      "date": "12/02",
+      "time0": "1h30",
+      "time1": "5h",
+      "description": "Vise… Tire ! Hop dans le mille ! Améliore ta précision tout en battant un max de personnes !",
+      "details": "Jeu libre. Plusieurs jeux possibles :\n- **le 301**, objectif faire 301 points pas plus pas moins\n- libre à toi d'en inventer d'autres !",
+      "image": "game-darts.jpg"
+    },
+    {
+      "name": "Babyfoot",
+      "date": "12/02",
+      "time0": "1h30",
+      "time1": "5h",
+      "description": "J'espère que t'es meilleur.e avec tes mains que tes pieds ! Essaye de ne pas faire de Fanny :)",
+      "details": "Jeu libre de babyfoot.\nAmusez-vous bien !",
+      "image": "baby.png"
+    },
+    {
+      "name": "Paris Hippique",
+      "date": "12/02",
+      "time0": "2h",
+      "time1": "+3h",
+      "description": "Digne d'un PMU version Peaky Blinders, mise sur ton cheval de course préféré et tente de remporter la course hippique!",
+      "details": "Récupère un numéro auprès de nos animateurs et viens à 2h et/ou 3h pile pour voir si tu es l'heureux gagnant.",
+      "image": "hippodrome.jpg"
+    },
+    {
+      "name": "Scène Libre 2",
+      "date": "12/02",
+      "time0": "3h",
+      "time1": "5h30",
+      "description": "Parce que cette école compte beaucoup trop de talents, on vous donne l'opportunité de le faire résonner jusqu'au bout de la nuit.",
+      "details": "Inscription via le post du BDM.",
+      "image": "scene-libre-alt.jpg"
+    }
+  ],
+  "Photos" : [
+    {
+      "name": "Photographes",
+      "date": "11/02",
+      "time0": "23h",
+      "time1": "4h",
+      "description": "Viens te faire prendre en photo avec tes amis !",
+      "details": "Des photos de groupe seront prises par nos photographes. Tu pourras ensuite les récupérer !\n\n- 23h : fond photo\n- 00h : salle Poly\n- 1h : fond photo\n- 2h : fond photo\n- 3h : partout\n- 4h : partout",
+      "image": "photos.jpg"
+    }
+  ]
+}

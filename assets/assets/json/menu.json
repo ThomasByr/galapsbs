@@ -1,0 +1,50 @@
+{
+  "starters": [
+    {
+      "name": "Toast de Chèvre Chaud",
+      "image": "toats.jpg",
+      "is_vegan": true,
+      "description": "Chèvre chaud et poires caramélisées, Feuilles de saison et vinaigrette au melfor",
+      "allergens": "moutarde, gluten, lactose"
+    },
+    {
+      "name": "Burger d'Alsace",
+      "image": "burger.jpg",
+      "is_vegan": false,
+      "description": "Burger d'Alsace à la rillette de sandre aux herbes et un ketchup de betterave rouge",
+      "allergens": "moutarde, gluten, lactose, poisson, oeuf"
+    }
+  ],
+  "mains": [
+    {
+      "name": "Cuisse de Volaille",
+      "image": "chicken-leg.jpg",
+      "is_vegan": false,
+      "description": "Cuisse de volaille au riesling et spaetzles aux croutons",
+      "allergens": "moutarde, gluten, lactose, oeuf"
+    },
+    {
+      "name": "Pastilla de Légumes",
+      "image": "pastilla.jpg",
+      "is_vegan": true,
+      "description": "Pastilla de légumes grillées aux épices, mesclun, jus de carottes et huile d'olive",
+      "allergens": "cèleri, gluten"
+    }
+  ],
+  "desserts": [
+    {
+      "name": "Cheesecake fondant",
+      "image": "cheesecake.jpg",
+      "is_vegan": true,
+      "description": "Cheesecake fondant, déclinaison de fruit de saison",
+      "allergens": "gluten, lactose, oeuf, fruits à coque"
+    },
+    {
+      "name": "Eclair",
+      "image": "eclair.jpg",
+      "is_vegan": true,
+      "description": "Eclair aux fruits d'automne et crème whisky",
+      "allergens": "gluten, lactose, oeuf, fruits à coque"
+    }
+  ]
+}

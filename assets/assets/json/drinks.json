@@ -1,0 +1,126 @@
+{
+  "drinks": [
+    {
+      "name": "fleurs d'Alsace",
+      "sub_name": "doux et floral avec une belle vivacité",
+      "price": "n/a",
+      "degree": "n/a",
+      "location": "hall",
+      "image": "fleurs_dalsace.png"
+    },
+    {
+      "name": "Gewurztraminer",
+      "sub_name": "développe des arômes de rose et de fruits exotiques",
+      "price": "n/a",
+      "degree": "n/a",
+      "location": "hall",
+      "image": "gewurztraminer.png"
+    },
+    {
+      "name": "Pinot gris",
+      "sub_name": "vin aux arômes complexes et aux notes fumées",
+      "price": "n/a",
+      "degree": "n/a",
+      "location": "hall",
+      "image": "pinot_gris.png"
+    },
+    {
+      "name": "Pinot noir",
+      "sub_name": "à l'origine des plus grands vins rouges de Bourgogne",
+      "price": "n/a",
+      "degree": "n/a",
+      "location": "hall",
+      "image": "pinot_noir.png"
+    },
+    {
+      "name": "Muscat",
+      "sub_name": "texture limpide et fraîche qui ménage le croquant du fruit",
+      "price": "n/a",
+      "degree": "n/a",
+      "location": "hall",
+      "image": "muscat.png"
+    },
+
+    {
+      "name": "Slash Red",
+      "sub_name": "Fille du fruit défendu (rouge)",
+      "price": "n/a",
+      "degree": "8°",
+      "location": "hall",
+      "image": "slash_red.png"
+    },
+
+    {
+      "name": "Crémant brut",
+      "sub_name": "robe dorée brillante animée par de fines bulles régulières et persistantes",
+      "price": "n/a",
+      "degree": "n/a",
+      "location": "1er",
+      "image": "cremant_brut.png"
+    },
+    {
+      "name": "Crémant rosé",
+      "sub_name": "retrouvez ses arômes de fraise, de framboise et sa robe rose intense",
+      "price": "n/a",
+      "degree": "n/a",
+      "location": "1er",
+      "image": "cremant_rose.png"
+    },
+
+    {
+      "name": "Primus",
+      "sub_name": "la Super 8 (blonde)",
+      "price": "n/a",
+      "degree": "5.2°",
+      "location": "poly",
+      "image": "primus_super_8.png"
+    },
+    {
+      "name": "Chouffe",
+      "sub_name": "le lutin au bonnet rouge ! (blonde)",
+      "price": "n/a",
+      "degree": "8°",
+      "location": "poly",
+      "image": "chouffe.png"
+    }
+  ],
+
+  "snacks": [
+    {
+      "name": "Gateaux au yaourt",
+      "price": "0.50"
+    },
+    {
+      "name": "Gateaux au chocolat",
+      "price": "0.50"
+    },
+    {
+      "name": "Gateaux aux pommes",
+      "price": "0.50"
+    },
+    {
+      "name": "Quiche Lorraine",
+      "price": "0.50"
+    },
+    {
+      "name": "Quiche Poireaux",
+      "price": "0.50"
+    },
+    {
+      "name": "Feuilletés Saucisse",
+      "price": "0.50"
+    },
+    {
+      "name": "Feuilletés Fromage",
+      "price": "0.50"
+    },
+    {
+      "name": "Cake Olive Jambon",
+      "price": "0.50"
+    },
+    {
+      "name": "Cake Feta Poivrons ",
+      "price": "0.50"
+    }
+  ]
+}

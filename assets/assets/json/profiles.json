@@ -1,0 +1,106 @@
+{
+  "profiles": [
+    {
+      "name": "Judith Mayer",
+      "short": "Présidente",
+      "description": "petit rébus\n🧃    '🎲i🍵🪓'     ⛵↖️     📅↩️",
+      "image": "assets/pictures/Judith.jpg"
+    },
+    {
+      "name": "Charles Parisi",
+      "short": "Vice Président",
+      "description": "Avec Jeff Tuche, personne reste sur la tuche",
+      "image": "assets/pictures/Charles.jpg"
+    },
+    {
+      "name": "Julie Bonnail",
+      "short": "Secrétaire",
+      "description": "Aussi précise dans mes plannings\nque dans mes lancers au beer-pong 🏓",
+      "image": "assets/pictures/Julie(1).jpg"
+    },
+    {
+      "name": "Camille Beziat",
+      "short": "Trésorière",
+      "description": "Promis, je pars pas en vacances\navec votre argent ! 😏😇",
+      "image": "assets/pictures/Camille.jpg"
+    },
+    {
+      "name": "Célia Algros",
+      "short": "Communications",
+      "description": "C'est moi qui vais tchatcher avec vous\net vous spammer pour vous donner les\nmeilleures infos sur le gala 😋",
+      "image": "assets/pictures/Celia.jpg"
+    },
+    {
+      "name": "Thomas Bouyer",
+      "short": "WebMaster",
+      "description": "Protégez mieux vos données 🔐\ntant pis... faut bien gagner sa vie hein ! 😛",
+      "image": "assets/pictures/ThomasB.jpg"
+    },
+    {
+      "name": "Célestin Meyer",
+      "short": "Sponsor",
+      "description": "Qu'est-ce qui est jaune et qu'on attend ?\nDe l'argent ! 💰",
+      "image": "assets/pictures/Celestin.jpg"
+    },
+    {
+      "name": "Nina Mekaoui",
+      "short": "Sponsor",
+      "description": "Ma passion dans la vie ? Dormir 💤",
+      "image": "assets/pictures/Nina.jpg"
+    },
+    {
+      "name": "Rachel Rakotondrabe",
+      "short": "Décoration",
+      "description": "?",
+      "image": "assets/pictures/Rachel.jpg"
+    },
+    {
+      "name": "Élise Jourdain",
+      "short": "Décoration",
+      "description": "La Valérie Damidot en carton 📺",
+      "image": "assets/pictures/Elise.jpg"
+    },
+    {
+      "name": "Yohann Ramsi",
+      "short": "Boissons",
+      "description": "Bonjour 🤗",
+      "image": "assets/pictures/Yohann.jpg"
+    },
+    {
+      "name": "Nicolas Cipolla",
+      "short": "Boissons",
+      "description": "Si vous me voyez avec un t-shirt\nc'est que la soirée n'est pas terminée 👕",
+      "image": "assets/pictures/Nicolas.jpg"
+    },
+    {
+      "name": "Fleur Clemenceau",
+      "short": "Repas",
+      "description": "Adepte des pâtes en tout genre 🍝",
+      "image": "assets/pictures/Fleur.jpg"
+    },
+    {
+      "name": "Thomas Dumond",
+      "short": "Repas",
+      "description": "Mon repas préféré : TOUT !\n(même les croquettes pour chats) 😺",
+      "image": "assets/pictures/ThomasD.jpg"
+    },
+    {
+      "name": "Noémie Beaufils",
+      "short": "Sécurité",
+      "description": "Cheffe des videurs 🦺",
+      "image": "assets/pictures/Noemie.jpg"
+    },
+    {
+      "name": "Léa Courtehoute",
+      "short": "Animations",
+      "description": "Vous préférez une arrivée\nen vaisseau spacial 🚀\nou en sous-marin 🚤 ?",
+      "image": "assets/pictures/Lea.jpg"
+    },
+    {
+      "name": "Elliot Holzinger",
+      "short": "Animations",
+      "description": "Léa et moi allons vous exploser le cerveau\navec des animations qui vont vous\ntractopelo-culbuter ! 🤯",
+      "image": "assets/pictures/Elliot.jpg"
+    }
+  ]
+}

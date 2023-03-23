@@ -25,7 +25,8 @@
 
 > **Warning**
 > This repo is supposed to be private. It could leave this state though for showcase purposes. If you ever get access to it please do not steal all the hard work !
-> We are definityvely closing maintenance for this App. This repo will be archived soon.
+>
+> **We are definitively closing maintenance for this App. This repo will be archived soon.**
 
 This repo contains all the source code and assets of the 2023 Gala Web App hosted by [Télécom Physique Strasbourg](https://www.telecom-physique.fr/). There are two (main) branches here :
 
@@ -53,7 +54,9 @@ flutter run -d <device> --release --web-renderer canvaskit
 
 ## 💁 Get Help
 
-> [file a new issue](https://github.com/ThomasByr/galapsbs/issues/new)
+> [~~file a new issue~~](https://github.com/ThomasByr/galapsbs/issues/new)
+
+This project is no longer maintained. Please refer to the latest [release note](https://github.com/ThomasByr/galapsbs/releases/tag/v1.8.1%2B7).
 
 ## 🔰 Support
 
@@ -73,6 +76,8 @@ and replace it with
 ```html
 <base href="./" />
 ```
+
+Note that this bug only occures with GitHub Pages and that you will most likely not need to update the tag if you deploy the app on your own server.
 
 </details>
 

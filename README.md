@@ -7,7 +7,7 @@
 [![GitHub license](https://img.shields.io/github/license/ThomasByr/galapsbs)](https://github.com/ThomasByr/galapsbs/blob/master/LICENSE)
 [![GitHub commits](https://badgen.net/github/commits/ThomasByr/galapsbs)](https://GitHub.com/ThomasByr/galapsbs/commit/)
 [![GitHub latest commit](https://badgen.net/github/last-commit/ThomasByr/galapsbs)](https://gitHub.com/ThomasByr/galapsbs/commit/)
-[![Maintenance](https://img.shields.io/badge/maintained%3F-yes-green.svg)](https://GitHub.com/ThomasByr/galapsbs/graphs/commit-activity)
+[![Maintenance](https://img.shields.io/badge/maintained%3F-no-red.svg)](https://GitHub.com/ThomasByr/galapsbs/graphs/commit-activity)
 
 [![GitHub version](https://badge.fury.io/gh/ThomasByr%2Fgalapsbs.svg)](https://github.com/ThomasByr/galapsbs)
 [![Author](https://img.shields.io/badge/author&dev-@ThomasByr-blue)](https://github.com/ThomasByr)
@@ -25,14 +25,14 @@
 
 > **Warning**
 > This repo is supposed to be private. It could leave this state though for showcase purposes. If you ever get access to it please do not steal all the hard work !
-> We are also _temporarily_ closing pushes to the `gh-pages` branch to help with secrets.
+> We are definityvely closing maintenance for this App. This repo will be archived soon.
 
 This repo contains all the source code and assets of the 2023 Gala Web App hosted by [Télécom Physique Strasbourg](https://www.telecom-physique.fr/). There are two (main) branches here :
 
 - `master` which holds the said source code
 - `gh-pages` which is an _up-to-date_ clone of the [`./build/web`](build/web/) folder
 
-Normally, you would find a release version of the web app running by [galapsbs.fr](https://galapsbs.fr) hosted by [ionos](https://www.ionos.com/). Alternatively, find a local version running by [Github Pages](https://thomasbyr.github.io/galapsbs/) (removed for now, waiting for Flutter GitHub actions).
+Normally, you would find a release version of the web app running by [galapsbs.fr](https://galapsbs.fr) hosted by [ionos](https://www.ionos.com/). Alternatively, find a local version running by [Github Pages](https://thomasbyr.github.io/galapsbs/).
 
 ## 👩‍🏫 Usage
 
@@ -85,7 +85,7 @@ YES
 
 ## ⚖️ License
 
-This project is licensed under the GPL-3.0 new or revised license. Please read the [LICENSE](LICENSE) file. Specific [ASSETS LICENSE](assets/LICENSE) apply for all assets. TL;DR : you shouldn't use them.
+This project is licensed under the AGPL-3.0 new or revised license. Please read the [LICENSE](LICENSE) file. Specific [ASSETS LICENSE](assets/LICENSE) apply for all assets. TL;DR : you shouldn't use these assets.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met :
 
@@ -144,6 +144,6 @@ gantt
 - [x] stable release for larger screens (v1.1.2)
 - [x] proper pre-cache for large assets / image compression (v1.1.2)
 - [x] events page (v1.3.0)
-- [ ] buy tickets page
+- [x] buy tickets page (v1.8.0)
 - [ ] light/dark mode switch [suggested by Nicolas M]
 - [ ] flutter GitHub web build & deploy action
